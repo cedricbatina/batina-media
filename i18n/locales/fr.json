@@ -1,0 +1,277 @@
+{
+  "app": {
+    "brand": "Batina Media",
+    "seo": {
+      "title": "Batina Media — Ingénierie des savoirs & solutions digitales",
+      "description": "Batina Media est un studio d’ingénierie des savoirs et de solutions digitales. Nous transformons des contenus, des recherches, des langues, des écritures et des projets en plateformes, outils, jeux, livres et applications, pour les écoles, chercheurs, auteurs, éditeurs, PME, associations et projets culturels."
+    }
+  },
+ "pagination": {
+    "ariaLabel": "Pagination des contenus",
+    "prev": "Précédent",
+    "next": "Suivant",
+
+    "summaryOne": "Résultat {start}–{end} sur {total}",
+    "summaryMany": "Résultats {start}–{end} sur {total}",
+
+    "gotoLabel": "Aller à la page",
+    "gotoAria": "Aller à une page (1 à {totalPages})",
+    "gotoTotal": "sur {totalPages}"
+  },
+  "nav": {
+    "home": "Accueil",
+    "solutions": "Solutions",
+    "projects": "Projets",
+    "studio": "Studio",
+    "contact": "Contact"
+  },
+
+  "layout": {
+    "skipToContent": "Passer au contenu principal",
+    "theme": {
+      "switchToDark": "Activer le thème sombre",
+      "switchToLight": "Activer le thème clair"
+    },
+    "footer": {
+      "tagline": "Studio d’ingénierie des savoirs, plateformes, produits digitaux et contenus structurés"
+    }
+  },
+
+  "home": {
+    "hero": {
+      "pill": "Studio d’ingénierie des savoirs",
+      "title": {
+        "highlight": "Solutions autour de vos savoirs",
+        "rest": "plateformes, modèles de données et éditions"
+      },
+      "subtitle": "Nous transformons vos savoirs, vos données et vos contenus en plateformes, outils, applications, livres et jeux.",
+      "primaryCta": "Parler de votre projet",
+      "secondaryCta": "Découvrir notre manière de travailler",
+      "meta": "Projets, initiatives, chercheurs, enseignants, éditeurs, PME, associations et structures panafricaines ou internationales : nous aidons à passer de la matière brute aux systèmes numériques qui tiennent dans le temps.",
+      "aside": {
+        "label": "En pratique",
+        "title": "Produits, plateformes et contenus ancrés dans le réel",
+        "items": {
+          "platforms": {
+            "label": "Produits & plateformes",
+            "value": "Modèles de données, lexiques, corpus, plateformes pédagogiques et outils internes."
+          },
+          "solutions": {
+            "label": "Solutions digitales",
+            "value": "Applications, sites, back-offices, API et automatisations autour de vos contenus."
+          },
+          "audience": {
+            "label": "Pour qui ?",
+            "value": "Projets, écoles, chercheurs, éditeurs, PME, associations et initiatives panafricaines ou internationales."
+          }
+        }
+      }
+    },
+
+    "domains": {
+      "label": "Domaines & offres",
+      "title": "Produits, plateformes et contenus ancrés dans le réel",
+      "subtitle": "Nous partons de vos données pour concevoir des modèles de savoirs, des systèmes digitaux et des dérivés éditoriaux qui peuvent évoluer dans le temps.",
+      "knowledge": {
+        "title": "Produits de savoirs",
+        "subtitle": "Structurer vos contenus pour qu’ils deviennent exploitables, partageables et pérennes.",
+        "items": {
+          "0": "Sciences humaines et sociales, techniques, archives, documentations métiers, langues et écritures.",
+          "1": "Conception de modèles de données pour corpus, catalogues, contenus pédagogiques ou fonds de recherche.",
+          "2": "Mise en forme de patrimoines, savoirs et pratiques souvent peu ou mal représentés dans les outils grand public (langues, écritures endogènes, traditions, sciences locales, etc.)."
+        }
+      },
+      "platforms": {
+        "title": "Plateformes & outils digitaux",
+        "subtitle": "Concevoir les couches techniques qui font vivre vos contenus : plateformes, outils et interfaces.",
+        "items": {
+          "0": "Plateformes pédagogiques, bases documentaires, espaces membres, outils métiers ou portails de services.",
+          "1": "Sites, applications et interfaces sur mesure, avec back-offices éditoriaux, tableaux de bord et espaces de contribution.",
+          "2": "Architectures extensibles prêtes à alimenter d’autres interfaces et dérivés (API, apps mobiles ou de bureau, automatisations, exports vers d’autres systèmes)."
+        }
+      },
+      "gamesPublishing": {
+        "title": "Édition, contenus dérivés & jeux",
+        "subtitle": "Faire vivre vos données dans des livres, cahiers, ressources interactives et, quand c’est pertinent, des jeux.",
+        "items": {
+          "0": "Livres, cahiers, fiches d’exercices, supports pédagogiques et ressources imprimables générés à partir de vos données.",
+          "1": "Scripts et pipelines vers InDesign et d’autres outils d’édition pour produire catalogues, cahiers d’activités, recueils ou collections automatisées.",
+          "2": "Génération de contenus interactifs et de jeux (quiz, puzzles, mots croisés, etc.) à partir de données triées, combinées ou enrichies."
+        }
+      }
+    },
+
+    "pipeline": {
+      "label": "Notre façon de travailler",
+      "title": "Un pipeline complet : données → modèles → systèmes → dérivés",
+      "subtitle": "Au lieu de multiplier les one-shot, nous concevons un socle qui sert à la fois vos plateformes, vos supports de cours, vos éditions et vos futures applications.",
+      "steps": {
+        "0": {
+          "index": "01",
+          "title": "Cartographier vos contenus et vos données",
+          "body": "Nous partons de ce que vous avez déjà (bases de données, fichiers, notes de terrain, manuscrits, enregistrements, archives, contenus métier) ou créons avec vous une base structurée quand il n’y en a pas encore. Nous clarifions structures, usages, formats cibles et publics."
+        },
+        "1": {
+          "index": "02",
+          "title": "Concevoir un modèle exploitable à long terme",
+          "body": "Nous concevons des schémas de données réutilisables (corpus, fiches, annonces, contenus pédagogiques, catalogues, lexiques, etc.) et les installons dans des environnements maîtrisables (MySQL/SQL, fichiers structurés, API, entrepôts de données). Objectif : un socle stable, extensible et documenté."
+        },
+        "2": {
+          "index": "03",
+          "title": "Construire la plateforme et les outils",
+          "body": "Nous développons les systèmes qui exploitent ce socle : plateformes, back-offices, interfaces de consultation, outils internes, e-commerce ou applications métier. Quand c’est pertinent, nous préparons aussi les briques pour des apps mobiles ou de bureau."
+        },
+        "3": {
+          "index": "04",
+          "title": "Décliner en livres, ressources et applications",
+          "body": "À partir des mêmes données, nous produisons des livres et cahiers, des ressources imprimables, des contenus interactifs et des applications (mobiles, web ou bureau). Des scripts (JSX, Java, C++, etc.) permettent de générer automatiquement puzzles, quiz, supports de cours ou autres dérivés."
+        }
+      }
+    },
+
+    "projects": {
+      "label": "Écosystèmes signature",
+      "title": "Quelques fondations déjà en place",
+      "subtitle": "Des projets où un même socle de données nourrit à la fois des plateformes, des contenus pédagogiques, des éditions et d’autres expériences numériques.",
+      "items": {
+        "0": {
+          "tag": "Plateforme · Cours & contenus",
+          "name": "Longoka",
+          "description": "Application de cours, d’articles, de livres, de papeterie et de produits éducatifs, de la tradition à la tech, autour de langues, d’écritures et de savoirs.",
+          "meta": "Exemple de plateforme où les contenus sont structurés pour être réutilisables dans des supports de cours, des éditions ou d’autres expériences numériques."
+        },
+        "1": {
+          "tag": "Produit de savoirs · Lexique",
+          "name": "Lexikongo",
+          "description": "Plateforme lexicale centrée sur le Kikongo, multilingue (FR, EN, ES, PT, IT, RU, ZH) et conçue comme modèle extensible à d’autres langues.",
+          "meta": "Montre comment un moteur lexical bien conçu peut être décliné pour d’autres langues ou projets (par exemple un futur LexiSwahili)."
+        },
+        "2": {
+          "tag": "Produit de savoirs · Lexique",
+          "name": "Lexilingala",
+          "description": "Plateforme sœur dédiée au Lingala, bâtie sur le même socle que Lexikongo et traduite en plusieurs langues.",
+          "meta": "Illustration d’une localisation rapide : même base de code, même modèle de données, nouveaux publics et nouvelles langues."
+        },
+        "3": {
+          "tag": "Plateforme · Mémoire & annonces",
+          "name": "Madizi",
+          "description": "Application d’annonces nécrologiques et de mémoire familiale ou professionnelle, disponible en français, anglais, espagnol et portugais.",
+          "meta": "Exemple de système éditorial où annonces, hommages et contenus associés sont structurés pour la consultation, la recherche et la réutilisation."
+        }
+      }
+    },
+
+    "audience": {
+      "label": "Pour qui travaillons-nous ?",
+      "title": "Des savoirs locaux aux systèmes globaux",
+      "subtitle": "Nous accompagnons celles et ceux qui portent des savoirs, une mémoire, une langue, une expertise ou une mission à transmettre, et qui ont besoin d’une ingénierie digitale fiable pour les mettre en forme.",
+      "items": {
+        "0": {
+          "title": "Projets, initiatives & structures pédagogiques",
+          "body": "Plateformes de cours, espaces d’exercices, ressources imprimables et contenus interactifs pour les élèves, les étudiants, les formateurs et les équipes pédagogiques."
+        },
+        "1": {
+          "title": "Chercheurs, anthropologues & laboratoires",
+          "body": "Valorisation de corpus de terrain, d’archives audio/vidéo, de données d’enquête et de notes, via des plateformes consultables, outils de navigation et supports de diffusion."
+        },
+        "2": {
+          "title": "Auteurs, éditeurs & maisons d’édition",
+          "body": "Structuration de contenus, pipelines vers livres et collections, cahiers d’activités, recueils d’articles et déclinaisons numériques autour de vos catalogues."
+        },
+        "3": {
+          "title": "PME, associations, ONG & initiatives panafricaines ou internationales",
+          "body": "Plateformes et systèmes centrés sur vos activités, vos communautés et vos savoirs métiers, avec des outils concrets pour vos équipes et vos publics."
+        }
+      }
+    },
+
+    "seo": {
+      "title": "Batina Media – Studio d’ingénierie des savoirs & solutions digitales",
+      "description": "Batina Media conçoit des modèles de données, des plateformes, des outils et des éditions autour de vos savoirs, corpus et contenus. Du design de la base jusqu’aux livres, ressources pédagogiques, applications et expériences interactives."
+    }
+  },
+  
+  "projectsPage": {
+    "hero": {
+      "label": "Écosystèmes & projets",
+      "title": "Des bases de données aux expériences complètes",
+      "subtitle": "Quelques exemples de plateformes et de systèmes construits autour de modèles de données solides, de contenus structurés et de dérivés éditoriaux.",
+      "meta": "Chaque projet part de savoirs spécifiques (langues, mémoires, catalogues, corpus, activités) et les transforme en plateformes, outils, éditions et contenus réutilisables."
+    },
+    "list": {
+      "title": "Projets structurants",
+      "subtitle": "Ils montrent comment un même socle peut alimenter des sites, des applications, des supports pédagogiques, des éditions et d’autres expériences numériques."
+    },
+    "items": {
+      "0": {
+        "tag": "Plateforme · Cours & contenus",
+        "name": "Longoka",
+        "body": "Application de cours, d’articles, de livres, de papeterie et de produits éducatifs, de la tradition à la tech. Longoka rassemble langues, écritures, cultures et savoirs dans un environnement d’apprentissage et de boutique éducative.",
+        "meta": "Exemple de plateforme où les contenus sont pensés pour être réutilisés dans des supports de cours, des parcours d’apprentissage, des livres et d’autres formats.",
+        "tech": "Nuxt, bases de données structurées, outils d’édition, intégration possible vers impressions, contenus interactifs et futures apps mobiles."
+      },
+      "1": {
+        "tag": "Produit de savoirs · Lexique",
+        "name": "Lexikongo",
+        "body": "Plateforme lexicale dédiée au Kikongo, traduite en plusieurs langues (FR, EN, ES, PT, IT, RU, ZH). Les entrées sont structurées pour servir à la fois la consultation, l’apprentissage, la recherche et la production de dérivés.",
+        "meta": "Modèle de moteur lexical réutilisable pour d’autres langues, projets pédagogiques ou corpus spécialisés.",
+        "tech": "Nuxt, MySQL/SQL, i18n, API et scripts d’export pour générer fiches, supports pédagogiques, jeux de lettres ou éditions imprimées."
+      },
+      "2": {
+        "tag": "Produit de savoirs · Lexique",
+        "name": "Lexilingala",
+        "body": "Plateforme sœur centrée sur le Lingala, construite sur le même socle que Lexikongo et traduite en plusieurs langues. Même logique : une base solide, multilingue, prête pour différents usages.",
+        "meta": "Montre comment un bon design de données permet de dupliquer, adapter et localiser rapidement un produit pour une nouvelle langue ou un nouveau public.",
+        "tech": "Socle partagé avec Lexikongo, internationalisation, exports vers supports pédagogiques, interfaces web, et autres dérivés possibles."
+      },
+      "3": {
+        "tag": "Plateforme · Mémoire & annonces",
+        "name": "Madizi",
+        "body": "Application d’annonces nécrologiques et de mémoire familiale ou professionnelle, disponible en français, anglais, espagnol et portugais. Les annonces et hommages sont structurés comme de vrais contenus éditoriaux.",
+        "meta": "Exemple de plateforme éditoriale où données, récits et archives familiales sont organisés pour être consultés, partagés et conservés.",
+        "tech": "Base de données structurée, gestion des annonces et hommages, vues publiques et privées, multilinguisme, exports et intégrations possibles vers d’autres supports."
+      }
+    },
+    "outro": {
+      "title": "Et vos propres écosystèmes ?",
+      "body": "Que vous partiez de cahiers, d’archives, d’une base MySQL, d’un simple fichier ou d’une idée, nous pouvons concevoir avec vous un socle de données, une plateforme et des dérivés éditoriaux ou applicatifs qui vous ressemblent.",
+      "primaryCta": "Discuter de votre projet",
+      "secondaryCta": "Revenir à l’accueil"
+    },
+    "seo": {
+      "title": "Projets & écosystèmes – Batina Media",
+      "description": "Aperçu de quelques écosystèmes conçus par Batina Media : Longoka, Lexikongo, Lexilingala, Madizi… Des modèles de données robustes, des plateformes, des contenus pédagogiques et des éditions déclinables."
+    }
+  },
+    "projects": {
+    "label": "Projets & écosystèmes",
+    "title": "Écosystèmes signature",
+    "subtitle": "Quelques fondations déjà en place, qui montrent comment un même socle de données peut nourrir des plateformes, des livres, des contenus imprimés, des outils et d’autres applications.",
+
+    "loading": "Chargement des projets…",
+    "error": "Impossible de charger la liste des projets. Merci de réessayer dans un instant.",
+
+    "actions": {
+      "openProject": "Ouvrir le projet",
+      "openLink": "Voir le lien"
+    },
+
+    "derivatives": {
+      "preview": "Dérivés associés ({count})"
+    },
+
+    "status": {
+      "prod": "En production",
+      "beta": "En bêta",
+      "dev": "En développement",
+      "archived": "Archivé"
+    },
+
+    "seo": {
+      "title": "Projets & écosystèmes · Batina Media",
+      "description": "Aperçu de quelques écosystèmes conçus par Batina Media : plateformes, lexiques, systèmes éditoriaux, dérivés imprimés ou numériques et outils bâtis à partir de savoirs structurés."
+    }
+  }
+
+
+}

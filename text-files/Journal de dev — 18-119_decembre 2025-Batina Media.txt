@@ -1,0 +1,180 @@
+Journal de dev — Batina Media
+2025-12-18 — Refonte contenu & positionnement
+
+1. Contenu stratégique (FR) – page d’accueil
+
+Repris tout le texte de la home pour :
+
+Mettre en avant “studio d’ingénierie des savoirs & solutions digitales”.
+
+Clarifier : savoirs → plateformes, outils, livres, apps, jeux, sans sur-focaliser sur les jeux.
+
+Insister sur :
+
+Transformation de données, corpus, contenus pédagogiques, archives en systèmes cohérents.
+
+Publics visés : projets, initiatives, chercheurs, enseignants, auteurs, éditeurs, PME, assos, ONG, initiatives panafricaines et internationales.
+
+Séparé clairement :
+
+Longoka.com = app de cours / articles / books / crafts / stationery / clothing (e-boutique éducative).
+
+Système de dérivés (livres auto, puzzles, mots croisés, quiz, apps…) qui peut partir de n’importe quelle base (pas seulement Longoka).
+
+Clarifié que :
+
+On peut produire des apps web, mobiles (Android) et même desktop, selon les besoins.
+
+On ne limite plus le discours aux seuls “jeux” ou “langues africaines”, mais à tout type de savoirs / disciplines.
+
+2025-12-19 — Projets & base de données
+
+2. Modélisation & création des tables projects
+
+Conception d’un mini-modèle extensible pour présenter les projets :
+
+projects : noyau (code, slug, statut, visibilité, URL principale…).
+
+project_i18n : textes localisés (name, one_liner, description, meta, tech_summary).
+
+tags : typés par catégorie (tech, domain, sector…).
+
+project_tags : table de jointure projet ↔ tags.
+
+project_links : liens complémentaires (demo, doc, repo, etc.).
+
+project_derivatives : dérivés (livres, cahiers, quiz, apps, etc.) — déjà prévu même si pas encore exploité en front.
+
+Création physique des tables dans MySQL (via phpMyAdmin).
+
+Inserts initiaux pour :
+
+Longoka
+
+Lexikongo
+
+Lexilingala
+
+Madizi
+
+Préparation de l’arrivée de Lunungu et d’autres projets (jeux C++, apps Java, etc.).
+
+3. API projets — backend Nuxt
+Fichier : server/api/projects/index.get.js
+
+Correction de l’import DB :
+
+import { getDb } from '../../utils/db'
+
+utilisation de const db = await getDb(event).
+
+Requête principale :
+
+Jointure projects + project_i18n filtrée par locale (par défaut fr).
+
+Filtre visibility = 'public'.
+
+Requêtes secondaires :
+
+Récupération des tags par projet via project_tags + tags.
+
+Récupération des liens via project_links.
+
+Récupération des dérivés via project_derivatives.
+
+Regroupement côté API en un tableau d’objets prêts à consommer dans le front :
+
+{
+  id,
+  slug,
+  code,
+  status,
+  visibility,
+  mainUrl,
+  name,
+  shortLabel,
+  oneLiner,
+  description,
+  meta,
+  techSummary,
+  tags: [...],
+  links: [...],
+  derivatives: [...]
+}
+
+
+Gestion du cas “aucun projet” → renvoie [] proprement.
+
+2025-12-19 — Page /projects & UI
+
+4. Vue pages/projects/index.vue
+
+Intégration d’un chargement dynamique via useAsyncData('projects', …) avec locale courante.
+
+Gestion des états :
+
+pending → message “Chargement des projets…”
+
+error → message “Impossible de charger la liste des projets…”.
+
+Affichage des projets :
+
+Titre : project.name || project.code.
+
+oneLiner en sous-titre si présent.
+
+Description détaillée en texte adouci.
+
+Liste de tags avec data-category (tech, domain, sector…) pour stylage différencié.
+
+Zone “tech summary” pour la stack / particularités.
+
+Bouton principal vers mainUrl + boutons secondaires pour les liens additionnels.
+
+Correction d’un bug JS sur les liens :
+
+Sécurisation du v-for pour ne pas lire link.url si link est undefined.
+
+Logique actuelle : v-for="link in (project.links || [])" + clés robustes + v-if="link && link.url && link.url !== project.mainUrl".
+
+5. Styles & cartes projets
+
+Amélioration des cartes pour passer de “style tarifs” à de vraies fiches projets :
+
+Marges internes généreuses (padding),
+
+Espacement régulier entre les blocs (header / description / tags / liens),
+
+Coins légèrement arrondis,
+
+Fond contrasté mais sobre (dark premium),
+
+Ombre douce pour détacher la carte du fond.
+
+Ajustement de la grille :
+
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
+
+Gestion de l’espace vertical entre les cartes.
+
+6. Pagination (composant components/Pagination.vue)
+
+Composant déjà en place, revue rapide :
+
+Navigation précédente / suivante.
+
+Affichage des pages avec ellipses (1 … 4 5 [6] 7 8 … 20).
+
+Input “Aller à la page”.
+
+Intégration I18n côté pagination :
+
+Ajout des clés pagination.* dans fr.json :
+
+ariaLabel, prev, next,
+
+summaryOne, summaryMany,
+
+gotoLabel, gotoAria, gotoTotal.
+
+(À brancher plus tard sur la liste des projets quand il y aura plus d’entrées.)
