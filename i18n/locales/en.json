@@ -1,1 +1,481 @@
-{}
+{
+  "app": {
+    "brand": "Batina Media",
+    "seo": {
+      "title": "Batina Media — Knowledge engineering & digital solutions",
+      "description": "Batina Media is a studio focused on knowledge engineering and digital solutions. We turn content, research, languages, scripts and projects into platforms, tools, games, books and applications, for schools, researchers, authors, publishers, SMEs, associations and cultural initiatives."
+    }
+  },
+
+  "pagination": {
+    "ariaLabel": "Content pagination",
+    "prev": "Previous",
+    "next": "Next",
+    "summaryOne": "Result {start}–{end} of {total}",
+    "summaryMany": "Results {start}–{end} of {total}",
+    "gotoLabel": "Go to page",
+    "gotoAria": "Go to a page (1 to {totalPages})",
+    "gotoTotal": "of {totalPages}"
+  },
+
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "projects": "Projects",
+    "studio": "Studio",
+    "contact": "Contact"
+  },
+
+  "layout": {
+    "skipToContent": "Skip to main content",
+    "theme": {
+      "switchToDark": "Switch to dark theme",
+      "switchToLight": "Switch to light theme"
+    },
+    "footer": {
+      "tagline": "Studio for knowledge engineering, platforms, digital products and structured content"
+    }
+  },
+
+  "home": {
+    "hero": {
+      "pill": "Knowledge engineering studio",
+      "title": {
+        "highlight": "Solutions built around your knowledge",
+        "rest": "platforms, data models and publishing"
+      },
+      "subtitle": "We turn your knowledge, data and content into platforms, tools, applications, books and games.",
+      "primaryCta": "Talk about your project",
+      "secondaryCta": "Learn how we work",
+      "meta": "Projects, initiatives, researchers, teachers, publishers, SMEs, associations and pan-African or international organisations: we help you move from raw material to digital systems that last.",
+      "aside": {
+        "label": "In practice",
+        "title": "Products, platforms and content rooted in the real world",
+        "items": {
+          "platforms": {
+            "label": "Products & platforms",
+            "value": "Data models, lexicons, corpora, learning platforms and internal tools."
+          },
+          "solutions": {
+            "label": "Digital solutions",
+            "value": "Applications, sites, back-offices, APIs and automations built around your content."
+          },
+          "audience": {
+            "label": "For whom?",
+            "value": "Projects, schools, researchers, publishers, SMEs, associations and pan-African or international initiatives."
+          }
+        }
+      }
+    },
+
+    "domains": {
+      "label": "Domains & offerings",
+      "title": "Products, platforms and content rooted in the real world",
+      "subtitle": "We start from your data to design knowledge models, digital systems and editorial derivatives that can evolve over time.",
+      "knowledge": {
+        "title": "Knowledge products",
+        "subtitle": "Structuring your content so it becomes usable, shareable and sustainable.",
+        "items": {
+          "0": "Human and social sciences, technical fields, archives, professional documentation, languages and scripts.",
+          "1": "Design of data models for corpora, catalogues, learning content or research collections.",
+          "2": "Shaping heritage, knowledge and practices that are often little or poorly represented in mainstream tools (languages, endogenous scripts, traditions, local sciences, etc.)."
+        }
+      },
+      "platforms": {
+        "title": "Platforms & digital tools",
+        "subtitle": "Designing the technical layers that make your content live: platforms, tools and interfaces.",
+        "items": {
+          "0": "Learning platforms, document bases, member areas, business tools or service portals.",
+          "1": "Tailor-made sites, applications and interfaces, with editorial back-offices, dashboards and contribution spaces.",
+          "2": "Extensible architectures ready to power other interfaces and derivatives (APIs, mobile or desktop apps, automations, exports to other systems)."
+        }
+      },
+      "gamesPublishing": {
+        "title": "Publishing, derivative content & games",
+        "subtitle": "Bringing your data to life in books, workbooks, interactive resources and, when relevant, games.",
+        "items": {
+          "0": "Books, workbooks, exercise sheets, learning materials and printable resources generated from your data.",
+          "1": "Scripts and pipelines to InDesign and other publishing tools to produce catalogues, activity books, collections or automated series.",
+          "2": "Generation of interactive content and games (quizzes, puzzles, crosswords, etc.) from sorted, combined or enriched data."
+        }
+      }
+    },
+
+    "pipeline": {
+      "label": "How we work",
+      "title": "A complete pipeline: data → models → systems → derivatives",
+      "subtitle": "Instead of multiplying one-off projects, we design a foundation that serves your platforms, course materials, publishing and future applications.",
+      "steps": {
+        "0": {
+          "index": "01",
+          "title": "Map your content and data",
+          "body": "We start from what you already have (databases, files, field notes, manuscripts, recordings, archives, business content) or we help you create a structured base when none exists yet. We clarify structures, uses, target formats and audiences."
+        },
+        "1": {
+          "index": "02",
+          "title": "Design a model usable in the long term",
+          "body": "We design reusable data schemas (corpora, records, listings, learning content, catalogues, lexicons, etc.) and install them in manageable environments (MySQL/SQL, structured files, APIs, data stores). The goal: a stable, extensible and documented foundation."
+        },
+        "2": {
+          "index": "03",
+          "title": "Build the platform and tools",
+          "body": "We develop the systems that leverage this foundation: platforms, back-offices, consultation interfaces, internal tools, e-commerce or business applications. When it makes sense, we also prepare the building blocks for mobile or desktop apps."
+        },
+        "3": {
+          "index": "04",
+          "title": "Derive books, resources and applications",
+          "body": "From the same data, we produce books and workbooks, printable resources, interactive content and applications (mobile, web or desktop). Scripts (JSX, Java, C++, etc.) can automatically generate puzzles, quizzes, course materials or other derivatives."
+        }
+      }
+    },
+
+    "projects": {
+      "label": "Signature ecosystems",
+      "title": "Some foundations already in place",
+      "subtitle": "Projects where a single data foundation feeds platforms, learning content, publishing and other digital experiences.",
+      "items": {
+        "0": {
+          "tag": "Platform · Courses & content",
+          "name": "Longoka",
+          "description": "An application for courses, articles, books, stationery and educational products, from tradition to tech, around languages, scripts and knowledge.",
+          "meta": "Example of a platform where content is structured to be reusable in course materials, publishing and other digital experiences."
+        },
+        "1": {
+          "tag": "Knowledge product · Lexicon",
+          "name": "Lexikongo",
+          "description": "Lexical platform focused on Kikongo, multilingual (FR, EN, ES, PT, IT, RU, ZH) and designed as an extensible model for other languages.",
+          "meta": "Shows how a well-designed lexical engine can be adapted for other languages or projects (for example a future LexiSwahili)."
+        },
+        "2": {
+          "tag": "Knowledge product · Lexicon",
+          "name": "Lexilingala",
+          "description": "Sister platform dedicated to Lingala, built on the same foundation as Lexikongo and translated into several languages.",
+          "meta": "Illustrates fast localisation: same codebase, same data model, new audiences and new languages."
+        },
+        "3": {
+          "tag": "Platform · Memory & announcements",
+          "name": "Madizi",
+          "description": "Application for obituaries and family or professional remembrance, available in French, English, Spanish and Portuguese.",
+          "meta": "Example of an editorial system where notices, tributes and related content are structured for consultation, search and reuse."
+        }
+      }
+    },
+
+    "audience": {
+      "label": "Who we work with",
+      "title": "From local knowledge to global systems",
+      "subtitle": "We support people and teams who carry knowledge, memory, a language, an expertise or a mission to transmit, and who need solid digital engineering to shape it.",
+      "items": {
+        "0": {
+          "title": "Projects, initiatives & learning structures",
+          "body": "Course platforms, exercise spaces, printable resources and interactive content for pupils, students, trainers and teaching teams."
+        },
+        "1": {
+          "title": "Researchers, anthropologists & labs",
+          "body": "Valuing field corpora, audio/video archives, survey data and notes through consultable platforms, navigation tools and dissemination supports."
+        },
+        "2": {
+          "title": "Authors, publishers & publishing houses",
+          "body": "Structuring content, pipelines to books and collections, activity workbooks, article collections and digital extensions around your catalogues."
+        },
+        "3": {
+          "title": "SMEs, associations, NGOs & pan-African or international initiatives",
+          "body": "Platforms and systems centred on your activities, communities and business knowledge, with concrete tools for your teams and audiences."
+        }
+      }
+    },
+
+    "seo": {
+      "title": "Batina Media – Knowledge engineering studio & digital solutions",
+      "description": "Batina Media designs data models, platforms, tools and publishing around your knowledge, corpora and content – from database design to books, learning resources, applications and interactive experiences."
+    }
+  },
+
+  "projectsPage": {
+    "hero": {
+      "label": "Ecosystems & projects",
+      "title": "From databases to complete experiences",
+      "subtitle": "A few examples of platforms and systems built on solid data models, structured content and editorial derivatives.",
+      "meta": "Each project starts from specific knowledge (languages, memories, catalogues, corpora, activities) and turns it into platforms, tools, publishing and reusable content."
+    },
+    "list": {
+      "title": "Structuring projects",
+      "subtitle": "They show how a single foundation can feed sites, applications, learning materials, publishing and other digital experiences."
+    },
+    "items": {
+      "0": {
+        "tag": "Platform · Courses & content",
+        "name": "Longoka",
+        "body": "Application for courses, articles, books, stationery and educational products, from tradition to tech. Longoka brings together languages, scripts, cultures and knowledge in a learning environment and educational boutique.",
+        "meta": "Example of a platform where content is designed to be reused in course materials, learning paths, books and other formats.",
+        "tech": "Nuxt, structured databases, editing tools, with possible integration to print, interactive content and future mobile apps."
+      },
+      "1": {
+        "tag": "Knowledge product · Lexicon",
+        "name": "Lexikongo",
+        "body": "Lexical platform dedicated to Kikongo, translated into several languages (FR, EN, ES, PT, IT, RU, ZH). Entries are structured to serve consultation, learning, research and derivative production.",
+        "meta": "Reusable lexical engine model for other languages, educational projects or specialised corpora.",
+        "tech": "Nuxt, MySQL/SQL, i18n, APIs and export scripts to generate sheets, learning materials, word games or printed editions."
+      },
+      "2": {
+        "tag": "Knowledge product · Lexicon",
+        "name": "Lexilingala",
+        "body": "Sister platform focused on Lingala, built on the same foundation as Lexikongo and translated into several languages. Same logic: a solid, multilingual base ready for multiple uses.",
+        "meta": "Shows how good data design allows you to duplicate, adapt and localise a product quickly for a new language or audience.",
+        "tech": "Shared foundation with Lexikongo, internationalisation, exports to learning materials, web interfaces and other derivatives."
+      },
+      "3": {
+        "tag": "Platform · Memory & announcements",
+        "name": "Madizi",
+        "body": "Application for obituaries and family or professional remembrance, available in French, English, Spanish and Portuguese. Notices and tributes are structured as genuine editorial content.",
+        "meta": "Example of an editorial platform where data, stories and family archives are organised for consultation, sharing and preservation.",
+        "tech": "Structured database, notice and tribute management, public and private views, multilingual features, exports and possible integrations with other media."
+      }
+    },
+    "outro": {
+      "title": "And your own ecosystems?",
+      "body": "Whether you start from notebooks, archives, a MySQL base, a single file or just an idea, we can design with you a data foundation, a platform and editorial or application derivatives that match your project.",
+      "primaryCta": "Discuss your project",
+      "secondaryCta": "Back to home"
+    },
+    "seo": {
+      "title": "Projects & ecosystems – Batina Media",
+      "description": "Overview of several ecosystems designed by Batina Media: Longoka, Lexikongo, Lexilingala, Madizi… Robust data models, platforms, learning content and declinable editions."
+    }
+  },
+
+  "projects": {
+    "label": "Projects & ecosystems",
+    "title": "Signature ecosystems",
+    "subtitle": "Some foundations already in place, showing how a single data foundation can feed platforms, books, printed content, tools and other applications.",
+    "loading": "Loading projects…",
+    "error": "Unable to load the project list. Please try again in a moment.",
+    "actions": {
+      "openProject": "Open project",
+      "openLink": "Open link"
+    },
+    "derivatives": {
+      "preview": "Associated derivatives ({count})"
+    },
+    "status": {
+      "prod": "In production",
+      "beta": "In beta",
+      "dev": "In development",
+      "archived": "Archived"
+    },
+    "seo": {
+      "title": "Projects & ecosystems · Batina Media",
+      "description": "Overview of several ecosystems designed by Batina Media: platforms, lexicons, editorial systems, printed or digital derivatives and tools built from structured knowledge."
+    }
+  },
+
+  "studio": {
+    "seo": {
+      "title": "Batina Media studio",
+      "description": "Studio for knowledge engineering and digital systems: data, content, platforms, books, apps and tools around your projects."
+    },
+    "hero": {
+      "label": "The studio",
+      "title": "Studio for knowledge engineering & digital systems",
+      "subtitle": "We help projects, researchers, authors, teaching teams and organisations turn their knowledge, data and content into platforms, books, tools and applications that last.",
+      "aside": {
+        "title": "Data, content, systems",
+        "body": "We start from what you already have (or what you want to produce) to design robust data models, coherent platforms and derivatives: books, workbooks, learning materials, interfaces, apps, etc."
+      }
+    },
+    "position": {
+      "label": "Identity & positioning",
+      "title": "Who we are, what we do",
+      "subtitle": "A studio that starts from knowledge and content, then builds coherent digital systems around them – not the other way around.",
+      "blocks": {
+        "weAre": {
+          "title": "Who we are",
+          "body": "A studio at the crossroads of human sciences, data design and development: we work with research corpora, learning content, announcements, catalogues and editorial collections."
+        },
+        "weDo": {
+          "title": "What we do",
+          "items": {
+            "0": "Design of data models for corpora, catalogues, lexicons, announcements or learning content.",
+            "1": "Platforms and business tools: portals, member spaces, editorial back-offices, specialised e-boutiques.",
+            "2": "Scripts and pipelines to books, workbooks, printable resources and interactive content.",
+            "3": "Preparation of technical foundations ready to feed other interfaces (APIs, mobile apps, internal or desktop tools)."
+          }
+        },
+        "weCare": {
+          "title": "What we care about",
+          "items": {
+            "0": "Systems that are extensible, documented and designed to last (not throwaway one-shots).",
+            "1": "Strong respect for knowledge, languages, scripts and the contexts in which they exist.",
+            "2": "Interfaces that truly serve their audiences: learners, researchers, teaching teams, families, communities."
+          }
+        }
+      }
+    },
+    "method": {
+      "label": "How we work",
+      "title": "A controlled pipeline: from raw material to systems and derivatives",
+      "subtitle": "Rather than multiplying isolated projects, we build a data foundation that will support your platforms, printed materials, learning derivatives and future applications.",
+      "steps": {
+        "0": {
+          "index": "01",
+          "title": "Map your content and data",
+          "body": "We start from what you already have, or from what you want to produce: databases, files, field notes, course corpora, announcements, manuscripts, archives, business documentation. We clarify structures, uses, target formats and audiences."
+        },
+        "1": {
+          "index": "02",
+          "title": "Design a model usable in the long term",
+          "body": "We design reusable data schemas (corpora, records, announcements, learning content, lexicons, catalogues, etc.) and put them into manageable formats (MySQL/SQL, JSON, APIs, etc.). The goal: a stable, extensible and documented foundation."
+        },
+        "2": {
+          "index": "03",
+          "title": "Build platforms and tools",
+          "body": "We develop the main platform (portal, web application, internal tool, specialised e-boutique) and the necessary interfaces: content publishing, catalogue management, contributions, exports, user spaces, statistics."
+        },
+        "3": {
+          "index": "04",
+          "title": "Derive books, workbooks, materials and apps",
+          "body": "From the same data, we generate books and workbooks, exercise sheets and printable resources, interactive content, word games or quizzes, and prepare the ground for mobile or desktop apps centred on your knowledge."
+        }
+      }
+    },
+    "tech": {
+      "label": "Tech & tools",
+      "title": "Tech in the service of content, not the other way round",
+      "subtitle": "We choose technologies based on your stakes: structuring, long-term durability, dissemination, derivation.",
+      "blocks": {
+        "stackWeb": {
+          "title": "Platforms & interfaces",
+          "body": "Nuxt, Node, PHP, Java or C++ depending on the needs, with particular attention to coherent user journeys: learning portals, lexicons, member areas, editorial back-offices and educational e-boutiques."
+        },
+        "stackData": {
+          "title": "Data & models",
+          "body": "MySQL/SQL, JSON formats, APIs and import/export scripts to structure, migrate and exploit your corpora, catalogues or archives without locking them into a single tool."
+        },
+        "stackDerivatives": {
+          "title": "Derivatives & publishing",
+          "body": "Pipelines to InDesign (JSX) and other publishing tools to produce books, workbooks, article collections, puzzles, crosswords, multilingual or audience-specific materials."
+        }
+      }
+    },
+    "collab": {
+      "label": "Collaborations",
+      "title": "Who we work with",
+      "subtitle": "We support projects grounded in reality, at the crossroads of knowledge, pedagogy, culture and digital uses, in pan-African and international contexts.",
+      "items": {
+        "0": {
+          "title": "Projects & initiatives",
+          "body": "Project leaders, collectives, associations and initiatives who want to structure and disseminate their knowledge, practices or memories beyond a simple showcase site."
+        },
+        "1": {
+          "title": "Research & fieldwork",
+          "body": "Researchers, labs, anthropologists, linguists and field teams working with corpora, archives, recordings, notes, announcements or existing databases."
+        },
+        "2": {
+          "title": "Publishing & pedagogy",
+          "body": "Authors, publishing houses, schools and training actors who want to link platforms, books, workbooks, exercise sheets, digital content and printed materials."
+        },
+        "3": {
+          "title": "Organisations & professions",
+          "body": "SMEs, cultural organisations, NGOs and pan-African or international bodies that need tailor-made tools for their communities and professions."
+        }
+      }
+    }
+  },
+
+  "contact": {
+    "seo": {
+      "title": "Contact · Batina Media",
+      "description": "Describe your project: corpora, platforms, books, tools or data systems. Batina Media helps you design models, platforms and derivatives that last."
+    },
+    "hero": {
+      "label": "Contact",
+      "title": "Let’s talk about your content, your data and your systems",
+      "subtitle": "Research corpora, learning content, catalogues, announcements, archives or platform projects: tell us where you are, we’ll help you map the next step.",
+      "aside": {
+        "title": "A structured first exchange",
+        "body": "We first read your content, your constraints and your objectives. Then we get back to you with an initial response: key questions, framing options and implementation paths.",
+        "emailLabel": "E-mail",
+        "emailUser": "contact",
+        "emailDomain": "batina-media.com",
+        "responseTimeLabel": "Response time",
+        "responseTime": "Usually within 2 to 3 business days."
+      }
+    },
+    "info": {
+      "projects": {
+        "title": "Examples of projects",
+        "body": "These are typical situations where we can help. Yours may be simpler or more complex: what matters is a clear description of the context.",
+        "items": {
+          "0": "Structuring a corpus (languages, archives, announcements, catalogues, learning content) into a sustainable, exploitable database.",
+          "1": "Connecting an existing platform to books, workbooks, exercise sheets, printable resources or other learning derivatives.",
+          "2": "Designing a new ecosystem: data, interfaces, internal tools and derivatives (books, materials, apps) around a single foundation."
+        }
+      },
+      "process": {
+        "title": "What happens next?",
+        "body": "After your message, we move forward in clear steps, taking time to understand your content, audiences and constraints.",
+        "items": {
+          "0": "We read your description, sample content and constraints (budget, timeline, target audiences).",
+          "1": "We get back to you with an initial response: key questions, framing ideas and possible implementation options.",
+          "2": "If it makes sense for you, we schedule a more detailed call (video / phone) to refine scope, timeline and deliverables."
+        }
+      }
+    },
+    "form": {
+      "title": "Describe your project in a few lines",
+      "subtitle": "The more concrete you are, the more useful our first response will be. None of the fields are strictly mandatory.",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "How should we address you?"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Your email"
+        },
+        "org": {
+          "label": "Organisation / project",
+          "placeholder": "School, lab, association, publishing house, SME, collective, etc."
+        },
+        "projectType": {
+          "label": "Project type",
+          "placeholder": "Choose the main type",
+          "options": {
+            "platform": "Platform / portal",
+            "content": "Books, workbooks, learning content",
+            "data": "Databases, corpus structuring",
+            "training": "Training, coaching, workshop",
+            "other": "Other / combined"
+          }
+        },
+        "budget": {
+          "label": "Indicative budget (optional)",
+          "placeholder": "Range, funding in progress, to be defined…"
+        },
+        "timeline": {
+          "label": "Timeline / deadlines (optional)",
+          "placeholder": "Key periods, calendar constraints, important milestones."
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Explain the context, what already exists (or not yet), and what you would like to set up."
+        }
+      },
+      "actions": {
+        "submit": "Send message",
+        "submitting": "Sending…"
+      },
+      "validation": {
+        "nameRequired": "Please enter your name.",
+        "emailRequired": "Please enter your email address.",
+        "emailInvalid": "This email address doesn’t look valid.",
+        "messageRequired": "Please describe your project or question."
+      },
+      "feedback": {
+        "success": "Thank you, your message has been sent. We’ll get back to you as soon as possible.",
+        "error": "An error occurred while sending your message. Please try again later or write to us directly by email."
+      },
+      "hint": "You can write in French, English or another working language."
+    }
+  }
+}

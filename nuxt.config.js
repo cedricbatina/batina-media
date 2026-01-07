@@ -15,6 +15,7 @@ export default defineNuxtConfig({
       { code: "fr", iso: "fr-FR", file: "fr.json", name: "Français" },
       { code: "en", iso: "en-US", file: "en.json", name: "English" },
       { code: "pt", iso: "pt-PT", file: "pt.json", name: "Português" },
+      { code: "es", iso: "es-ES", file: "es.json", name: "Espanol" },
     ],
     defaultLocale: "fr",
     strategy: "prefix_except_default",

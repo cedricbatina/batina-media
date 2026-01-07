@@ -1,0 +1,312 @@
+2026-01-04 – Batina Media · Avancées backend, frontend & i18n
+1) Backend / Base de données « projects »
+
+Mis en place des tables projets (dans la DB Batina, séparée de Lexilingala) :
+
+projects
+
+project_i18n
+
+tags
+
+project_tags
+
+project_links
+
+project_derivatives
+
+Inséré les premiers projets structurants :
+
+longoka
+
+lexikongo
+
+lexilingala
+
+madizi
+
+lunungu
+
+madizi (app d’annonces nécrologiques, en 4 langues)
+
+Clarification du rôle de chaque table pour préparer une vraie extensibilité :
+
+projects = cœur technique (slug, code, statut, visibilité, URL principale…)
+
+project_i18n = noms, one-liners, descriptions, meta, résumés tech par locale
+
+tags + project_tags = catégorisation (tech / domain / sector, etc.)
+
+project_links = liens externes, docs, démos, etc.
+
+project_derivatives = livres, cahiers, jeux, autres dérivés (V2 future)
+
+2) API projets
+
+server/utils/db.js
+
+Confirmé l’API getDb(event) (pool MySQL partagé), pas de export default, on exporte bien getDb.
+
+server/api/projects/index.get.js
+
+Correction de l’import :
+
+import { getDb } from '../../utils/db'
+
+
+Ajout de la récupération du pool via const db = await getDb(event).
+
+Requêtes mises en place :
+
+Sélection des projets publics + textes localisés :
+
+jointure projects + project_i18n filtrée par locale
+
+Récupération des tags (tags + project_tags)
+
+Récupération des liens (project_links)
+
+Récupération des dérivés (project_derivatives)
+
+Regroupement côté JS en structure propre :
+
+{
+  id, slug, code, status, visibility, mainUrl,
+  name, shortLabel, oneLiner, description, meta, techSummary,
+  tags: [...],
+  links: [...],
+  derivatives: [...]
+}
+
+
+Gestion correcte du cas « aucun projet » → [].
+
+Sécurité / robustesse
+
+Correction d’un bug JS dans le template (loop sur project.links) en évitant d’accéder à link.url si link est undefined.
+
+API prête pour une future route POST /api/projects (administration ou seed manuel si besoin).
+
+3) Page projets (pages/projects/index.vue)
+
+Données
+
+Utilisation de useAsyncData('projects', ...) + $fetch('/api/projects', { params: { locale } }).
+
+projects = computed(() => data.value || []) pour éviter les erreurs de rendu.
+
+Affichage
+
+Mapping des statuts → i18n :
+
+prod, beta, dev, archived → projects.status.*
+
+Cards projet :
+
+Titre = project.name || project.code
+
+One-liner, description, résumé tech affichés si présents.
+
+Tags affichés avec data-category (tech, domain, sector) pour styling fin.
+
+Bouton principal : mainUrl.
+
+Boutons secondaires : links additionnels (en évitant les doublons avec mainUrl).
+
+Styles
+
+Grille responsive :
+
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+Gaps revus pour éviter que les cards se touchent.
+
+Cards = vraies « fiches » (coins arrondis, padding, ombre, respiration).
+
+Alignement avec le design global bm-card du site.
+
+4) Page studio (pages/studio/index.vue)
+
+Structure
+
+Hero :
+
+Titre : Studio d’ingénierie des savoirs & systèmes numériques.
+
+Sous-titre orienté « projets, chercheurs, pédagogie, organisations ».
+
+Aside à droite en card (même logique que la home) : « Données, contenus, systèmes ».
+
+Sections :
+
+Identité & positionnement
+
+« Ce que nous sommes »
+
+« Ce que nous faisons » (liste de 4 points)
+
+« Ce à quoi nous tenons » (liste de 3 points)
+
+Notre façon de travailler
+
+Pipeline 01–04 : cartographier → modèle → plateformes/outils → dérivés & apps
+
+Tech & outils
+
+Stack plateformes & interfaces
+
+Données & modèles
+
+Dérivés & édition
+
+Collaborations
+
+Projets & initiatives
+
+Recherche & terrains
+
+Édition & pédagogie
+
+Organisations & métiers
+
+Styles
+
+studio-hero-inner en grid à 2 colonnes, avec gap XL.
+
+studio-grid pour les cards de sections (identité, tech, collabs) :
+
+minmax(280px, 1fr), gros gap, padding généreux, border-radius, box-shadow.
+
+studio-method-grid :
+
+<ol> sans puces, cards horizontales avec pastille d’index (01, 02, 03, 04).
+
+Ajustement pour ne pas casser les styles globaux (main.css), tout est scoped.
+
+5) Page contact (pages/contact/index.vue)
+
+Hero
+
+Titre : Parlons de vos contenus, de vos données et de vos systèmes.
+
+Sous-titre orienté corpus, catalogues, archives, plateformes.
+
+Aside en card :
+
+« Un premier échange structuré »
+
+Email affiché proprement via i18n emailUser + emailDomain (pour éviter les problèmes @ de vue-i18n).
+
+Formulaire
+
+Champs :
+
+name, email, org, projectType, budget, timeline, message.
+
+projectType = <select> avec options :
+
+platform, content, data, training, other.
+
+Validation minimale :
+
+Nom requis
+
+Email requis + regex simple
+
+Message requis
+
+submitState : idle | success | error, avec messages i18n.
+
+Simulation d’envoi (promise setTimeout) pour brancher plus tard sur une vraie API (/api/contact).
+
+Layout
+
+contact-hero-inner en 2 colonnes (texte + card).
+
+contact-layout :
+
+Colonne principale = formulaire en card.
+
+Sidebar = 2 cards d’infos :
+
+« Exemples de projets »
+
+« Comment se déroule la suite ? »
+
+Inputs / textarea / select :
+
+Fond var(--bm-surface-subtle), border radius, outline au focus.
+
+Fix du bug « texte invisible dans le select » en utilisant la bonne variable texte thème dark (var(--bm-color-text)).
+
+6) i18n
+
+FR (fr.json)
+
+Refonte complète des blocs :
+
+app, pagination, nav, layout.
+
+home (hero, domaines, pipeline, projets, audiences, SEO).
+
+projects (page index + statuts + SEO).
+
+projectsPage (si utilisé séparément).
+
+studio (hero, position, method, tech, collab, SEO).
+
+contact (hero, form, validation, feedback, info projets, info process, SEO).
+
+Correction du bug vue-i18n avec @ :
+
+Passage de contact.hero.aside.email à emailUser + emailDomain.
+
+EN (en.json)
+
+Traduction fidèle des contenus FR :
+
+Positionnement moins « trad mot à mot », plus naturel en anglais pro.
+
+Respect des mêmes clés exactes que FR.
+
+PT (pt.json)
+
+Version portugais neutre (pt-BR friendly) :
+
+Libellés adaptés pour usage pro et académique.
+
+ES (es.json)
+
+Version espagnol neutre :
+
+Même structure de clés.
+
+Terminologie cohérente : « ecossistemas », « corpus », « herramientas internas », etc.
+
+7) Divers / Design system
+
+Vérification de l’interaction entre bm-card, bm-section, bm-stack-*, bm-grid et nos styles scoped :
+
+On a évité de casser les autres pages en gardant la logique globale de main.css.
+
+Ajustements de margin/padding locaux au niveau des sections studio/contact/projets.
+
+Discussion et clarifications de positionnement :
+
+Longoka = app de cours, articles, livres, crafts, stationery, clothing (e-boutique éducative).
+
+Jeux / puzzles = système séparé construit à partir des mêmes données (générateurs, scripts vers InDesign, etc.).
+
+Madizi = app d’annonces nécrologiques (fam/pro), multilingue (FR, EN, ES, PT).
+
+Importance des futurs dérivés (apps Android, desktop, etc.) au-delà du simple web.
+
+Si tu veux, demain on pourra :
+
+brancher un vrai POST /api/contact (avec rate limiting léger),
+
+commencer une petite zone « admin/seed » pour les projets,
+
+ou attaquer l’internationalisation de l’UI (switch de langue visible, etc.).
+
+Dors bien, le studio avance 💻✨

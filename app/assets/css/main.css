@@ -253,6 +253,7 @@ body {
 .bm-gradient-text {
   background: linear-gradient(120deg, #facc15, #f97316, #38bdf8);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -625,4 +626,42 @@ body {
   .bm-card {
     border-radius: 18px;
   }
+}
+/* ============================
+   SELECTS (thème sombre)
+   ============================ */
+
+.bm-input-select,
+select.bm-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--bm-border-subtle);
+  background-color: var(--bm-surface-soft);
+  color: var(--bm-text-main);
+  font: inherit;
+}
+
+/* État focus bien visible mais propre */
+.bm-input-select:focus,
+select.bm-input:focus {
+  outline: none;
+  border-color: var(--bm-color-accent-soft);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Options dans la liste déroulante */
+.bm-input-select option,
+select.bm-input option {
+  background-color: var(--bm-surface-elevated);
+  color: var(--bm-text-main);
+}
+
+/* Option "placeholder" désactivée (Type de projet…) */
+.bm-input-select option[disabled],
+select.bm-input option[disabled] {
+  color: var(--bm-text-muted);
 }

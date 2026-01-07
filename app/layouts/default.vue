@@ -38,7 +38,7 @@
           <!-- Switch langues -->
           <div class="bm-lang-switch" aria-label="Language selector">
             <button
-              v-for="code in ['fr', 'en', 'pt']"
+              v-for="code in ['fr', 'en', 'pt', 'es']"
               :key="code"
               type="button"
               :class="[

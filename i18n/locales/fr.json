@@ -271,7 +271,236 @@
       "title": "Projets & écosystèmes · Batina Media",
       "description": "Aperçu de quelques écosystèmes conçus par Batina Media : plateformes, lexiques, systèmes éditoriaux, dérivés imprimés ou numériques et outils bâtis à partir de savoirs structurés."
     }
+  },
+  "studio": {
+  "seo": {
+    "title": "Studio Batina Media",
+    "description": "Studio d’ingénierie des savoirs et des systèmes numériques : données, contenus, plateformes, livres, apps et outils autour de vos projets."
+  },
+
+  "hero": {
+    "label": "Le studio",
+    "title": "Studio d’ingénierie des savoirs & systèmes numériques",
+    "subtitle": "Nous aidons projets, chercheur·e·s, auteur·e·s, équipes pédagogiques et organisations à transformer leurs savoirs, données et contenus en plateformes, livres, outils et applications qui tiennent dans le temps.",
+    "aside": {
+      "title": "Données, contenus, systèmes",
+      "body": "Nous partons de ce que vous avez déjà (ou de ce que vous souhaitez produire) pour concevoir des modèles de données robustes, des plateformes cohérentes et des dérivés : livres, cahiers, supports pédagogiques, interfaces, apps, etc."
+    }
+  },
+
+  "position": {
+    "label": "Identité & positionnement",
+    "title": "Ce que nous sommes, ce que nous faisons",
+    "subtitle": "Un studio qui part des savoirs et des contenus, puis construit autour d’eux des systèmes numériques cohérents, plutôt que l’inverse.",
+
+    "blocks": {
+      "weAre": {
+        "title": "Ce que nous sommes",
+        "body": "Un studio à la croisée des sciences humaines, du design de données et du développement : nous travaillons aussi bien avec des corpus de recherche, des contenus pédagogiques, des annonces, des catalogues ou des collections éditoriales."
+      },
+      "weDo": {
+        "title": "Ce que nous faisons",
+        "items": {
+          "0": "Conception de modèles de données pour corpus, catalogues, lexiques, annonces ou contenus pédagogiques.",
+          "1": "Plateformes et outils métiers : portails, espaces membres, back-offices éditoriaux, e-boutiques spécialisées.",
+          "2": "Scripts et pipelines vers livres, cahiers, ressources imprimables et contenus interactifs.",
+          "3": "Préparation de socles techniques prêts à alimenter d’autres interfaces (API, apps mobiles, outils internes ou de bureau)."
+        }
+      },
+      "weCare": {
+        "title": "Ce à quoi nous tenons",
+        "items": {
+          "0": "Des systèmes extensibles, documentés et pensés pour durer (pas des one-shot jetables).",
+          "1": "Un respect fort des savoirs, des langues, des écritures et des contextes dans lesquels ils s’inscrivent.",
+          "2": "Des interfaces qui servent vraiment les publics visés : apprenants, chercheur·e·s, équipes pédagogiques, familles, communautés."
+        }
+      }
+    }
+  },
+
+  "method": {
+    "label": "Notre façon de travailler",
+    "title": "Un pipeline maîtrisé : du matériau brut aux systèmes et dérivés",
+    "subtitle": "Plutôt que de multiplier les projets isolés, nous construisons un socle de données qui servira vos plateformes, vos supports imprimés, vos dérivés pédagogiques et vos futures applications.",
+
+    "steps": {
+      "0": {
+        "index": "01",
+        "title": "Cartographier vos contenus et vos données",
+        "body": "Nous partons de ce que vous avez déjà, ou de ce que vous voulez produire : bases de données, fichiers, notes de terrain, corpus de cours, annonces, manuscrits, archives, documentations métiers. On clarifie les structures, les usages, les formats cibles et les publics."
+      },
+      "1": {
+        "index": "02",
+        "title": "Concevoir un modèle exploitable à long terme",
+        "body": "Nous dessinons des schémas de données réutilisables (corpus, fiches, annonces, contenus pédagogiques, lexiques, catalogues…) et les mettons dans des formats maîtrisables (MySQL / SQL, JSON, API, etc.). Objectif : un socle stable, extensible et documenté."
+      },
+      "2": {
+        "index": "03",
+        "title": "Construire les plateformes et les outils",
+        "body": "Nous développons la plateforme principale (portail, application web, outil interne, e-boutique spécialisée) et les interfaces nécessaires : publication de contenus, gestion de catalogues, contributions, exports, espaces utilisateurs, statistiques."
+      },
+      "3": {
+        "index": "04",
+        "title": "Décliner en livres, cahiers, supports et apps",
+        "body": "À partir des mêmes données, nous générons des livres et cahiers, des fiches d’exercices et ressources imprimables, des contenus interactifs, des jeux de lettres ou quiz, et préparons le terrain pour des apps mobiles ou de bureau centrées sur vos savoirs."
+      }
+    }
+  },
+
+  "tech": {
+    "label": "Tech & outils",
+    "title": "Une tech au service des contenus, pas l’inverse",
+    "subtitle": "Nous choisissons les technologies en fonction de vos enjeux : structurer, pérenniser, diffuser, dériver.",
+
+    "blocks": {
+      "stackWeb": {
+        "title": "Plateformes & interfaces",
+        "body": "Nuxt, Node, PHP, Java ou C++ selon les besoins, avec une attention particulière à la cohérence des parcours : portails pédagogiques, lexiques, espaces membres, back-offices éditoriaux et e-boutiques éducatives."
+      },
+      "stackData": {
+        "title": "Données & modèles",
+        "body": "MySQL / SQL, formats JSON, APIs et scripts d’import / export pour structurer, migrer et exploiter vos corpus, vos catalogues ou vos archives sans les enfermer dans un outil unique."
+      },
+      "stackDerivatives": {
+        "title": "Dérivés & édition",
+        "body": "Pipelines vers InDesign (JSX) et autres outils d’édition pour produire livres, cahiers, recueils d’articles, puzzles, mots croisés, supports multilingues ou déclinés pour différents publics."
+      }
+    }
+  },
+
+  "collab": {
+    "label": "Collaborations",
+    "title": "Avec qui travaillons-nous ?",
+    "subtitle": "Nous accompagnons des projets ancrés dans le réel, à la croisée des savoirs, de la pédagogie, de la culture et des usages numériques, dans des contextes panafricains et internationaux.",
+
+    "items": {
+      "0": {
+        "title": "Projets & initiatives",
+        "body": "Porteurs de projets, collectifs, associations et initiatives qui souhaitent structurer et diffuser leurs savoirs, leurs pratiques ou leurs mémoires au-delà d’un site vitrine."
+      },
+      "1": {
+        "title": "Recherche & terrains",
+        "body": "Chercheur·e·s, laboratoires, anthropologues, linguistes, équipes de terrain qui travaillent avec des corpus, des archives, des enregistrements, des notes, des annonces ou des bases existantes."
+      },
+      "2": {
+        "title": "Édition & pédagogie",
+        "body": "Auteurs, maisons d’édition, écoles et acteurs de la formation qui veulent relier plateformes, livres, cahiers, fiches d’exercices, contenus numériques et supports imprimés."
+      },
+      "3": {
+        "title": "Organisations & métiers",
+        "body": "PME, structures culturelles, ONG et organisations panafricaines ou internationales qui ont besoin d’outils sur mesure pour leurs communautés et leurs métiers."
+      }
+    }
+  }
+},
+
+  "contact": {
+    "seo": {
+      "title": "Contact · Batina Media",
+      "description": "Décrivez votre projet : corpus, plateformes, livres, outils ou systèmes de données. Batina Media vous aide à concevoir des modèles, des plateformes et des dérivés qui tiennent dans le temps."
+    },
+
+"hero": {
+    "label": "Contact",
+    "title": "Parlons de vos contenus, de vos données et de vos systèmes",
+    "subtitle": "Corpus de recherche, contenus pédagogiques, catalogues, annonces, archives ou projets de plateformes : décrivez-nous où vous en êtes, nous vous aiderons à tracer la prochaine étape.",
+    "aside": {
+      "title": "Un premier échange structuré",
+      "body": "Nous lisons d’abord vos contenus, vos contraintes et vos objectifs. Ensuite, nous revenons vers vous avec un premier retour : questions clés, pistes de cadrage et options de mise en œuvre.",
+      "emailLabel": "E-mail",
+      "emailUser": "contact",
+      "emailDomain": "batina-media.com",
+      "responseTimeLabel": "Délai de réponse",
+      "responseTime": "Généralement sous 2 à 3 jours ouvrés."
+    }
+  },
+  "info": {
+  "projects": {
+    "title": "Quelques exemples de projets",
+    "body": "Voici des situations typiques où nous pouvons vous accompagner. Les vôtres peuvent être plus simples ou plus complexes : l’important est de bien décrire le contexte.",
+    "items": {
+      "0": "Structurer un corpus (langues, archives, annonces, catalogues, contenus pédagogiques) dans une base exploitable et pérenne.",
+      "1": "Relier une plateforme existante à des livres, cahiers, fiches d’exercices, supports imprimables ou autres dérivés pédagogiques.",
+      "2": "Concevoir un nouvel écosystème : données, interfaces, outils internes et dérivés (livres, supports, apps) autour d’un même socle."
+    }
+  },
+  "process": {
+    "title": "Comment se déroule la suite ?",
+    "body": "Après votre message, nous avançons par étapes claires, en prenant le temps de comprendre vos contenus, vos publics et vos contraintes.",
+    "items": {
+      "0": "Nous lisons votre description, vos exemples de contenus et vos contraintes (budget, délais, publics visés).",
+      "1": "Nous revenons vers vous avec un premier retour : questions clés, pistes de cadrage et options de mise en œuvre possibles.",
+      "2": "Si cela fait sens pour vous, nous planifions un échange plus détaillé (visio / appel) pour affiner le périmètre, le calendrier et les livrables."
+    }
+  }
+}
+,
+
+"form": {
+  "title": "Décrivez votre projet en quelques lignes",
+  "subtitle": "Plus vous êtes concret, plus notre première réponse sera utile. Tous les champs ne sont pas obligatoires.",
+  "fields": {
+    "name": {
+      "label": "Nom / Prénom",
+      "placeholder": "Comment vous présenter ?"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "Votre email"
+    },
+    "org": {
+      "label": "Organisation / projet",
+      "placeholder": "École, labo, association, maison d’édition, PME, collectif, etc."
+    },
+    "projectType": {
+      "label": "Type de projet",
+      "placeholder": "Choisissez le type principal",
+      "options": {
+        "platform": "Plateforme / portail",
+        "content": "Livres, cahiers, contenus pédagogiques",
+        "data": "Bases de données, structuration de corpus",
+        "training": "Formation, accompagnement, atelier",
+        "other": "Autre / combiné"
+      }
+    },
+    "budget": {
+      "label": "Budget indicatif (optionnel)",
+      "placeholder": "Fourchette, financement en cours, à définir…"
+    },
+    "timeline": {
+      "label": "Délais / échéances (optionnel)",
+      "placeholder": "Périodes clés, contraintes de calendrier, jalons importants."
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Expliquez le contexte, ce qui existe déjà (ou pas encore), et ce que vous aimeriez mettre en place."
+    }
+  },
+
+    "info": {
+      "projects": {
+        "title": "Les projets que nous accompagnons",
+        "body": "Nous intervenons là où il y a de la matière : contenus, corpus, catalogues, archives, bases de données ou savoirs métiers à structurer, diffuser ou dériver.",
+        "items": {
+          "0": "Plateformes pédagogiques, lexiques, espaces de consultation ou d’apprentissage.",
+          "1": "Livres, cahiers, recueils d’articles et supports imprimés alimentés par des données structurées.",
+          "2": "Outils internes et back-offices pour équipes éditoriales, pédagogiques ou de recherche."
+        }
+      },
+      "process": {
+        "title": "Comment se passe la suite ?",
+        "body": "Nous privilégions une approche progressive : cadrage, prototype ciblé, puis extension vers un système plus large.",
+        "items": {
+          "0": "Premier échange écrit à partir de votre message, avec questions clés et options possibles.",
+          "1": "Proposition de cadrage : périmètre, jalons, livrables, budget, chronologie.",
+          "2": "Mise en place d’un socle robuste, puis itérations pour ajouter plateformes, dérivés et outils autour de vos contenus."
+        }
+      }
+    }
   }
 
+
+
+} 
 
 }

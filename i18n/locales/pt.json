@@ -1,11 +1,481 @@
-
-
 {
   "app": {
     "brand": "Batina Media",
     "seo": {
-      "title": "Batina Media — Estúdio de plataformas e soluções digitais",
-      "description": "A Batina Media cria plataformas digitais, produtos e conteúdos estruturados baseados em saberes africanos e engenharia digital, para escolas, pesquisadores, autores, editoras, PMEs e associações."
+      "title": "Batina Media — Engenharia de saberes & soluções digitais",
+      "description": "A Batina Media é um estúdio focado em engenharia de saberes e soluções digitais. Transformamos conteúdos, pesquisas, idiomas, escritas e projetos em plataformas, ferramentas, jogos, livros e aplicações, para escolas, pesquisadores, autores, editoras, PMEs, associações e iniciativas culturais."
+    }
+  },
+
+  "pagination": {
+    "ariaLabel": "Paginação de conteúdos",
+    "prev": "Anterior",
+    "next": "Seguinte",
+    "summaryOne": "Resultado {start}–{end} de {total}",
+    "summaryMany": "Resultados {start}–{end} de {total}",
+    "gotoLabel": "Ir para a página",
+    "gotoAria": "Ir para uma página (1 a {totalPages})",
+    "gotoTotal": "de {totalPages}"
+  },
+
+  "nav": {
+    "home": "Início",
+    "solutions": "Soluções",
+    "projects": "Projetos",
+    "studio": "Estúdio",
+    "contact": "Contacto"
+  },
+
+  "layout": {
+    "skipToContent": "Saltar para o conteúdo principal",
+    "theme": {
+      "switchToDark": "Ativar tema escuro",
+      "switchToLight": "Ativar tema claro"
+    },
+    "footer": {
+      "tagline": "Estúdio de engenharia de saberes, plataformas, produtos digitais e conteúdos estruturados"
+    }
+  },
+
+  "home": {
+    "hero": {
+      "pill": "Estúdio de engenharia de saberes",
+      "title": {
+        "highlight": "Soluções construídas em torno dos seus saberes",
+        "rest": "plataformas, modelos de dados e edição"
+      },
+      "subtitle": "Transformamos os seus saberes, dados e conteúdos em plataformas, ferramentas, aplicações, livros e jogos.",
+      "primaryCta": "Falar sobre o seu projeto",
+      "secondaryCta": "Conhecer a nossa forma de trabalhar",
+      "meta": "Projetos, iniciativas, pesquisadores, docentes, editoras, PMEs, associações e estruturas panafricanas ou internacionais: ajudamos a passar da matéria bruta para sistemas digitais que duram.",
+      "aside": {
+        "label": "Na prática",
+        "title": "Produtos, plataformas e conteúdos enraizados no real",
+        "items": {
+          "platforms": {
+            "label": "Produtos & plataformas",
+            "value": "Modelos de dados, léxicos, corpora, plataformas pedagógicas e ferramentas internas."
+          },
+          "solutions": {
+            "label": "Soluções digitais",
+            "value": "Aplicações, sites, back-offices, APIs e automatizações construídas em torno dos seus conteúdos."
+          },
+          "audience": {
+            "label": "Para quem?",
+            "value": "Projetos, escolas, pesquisadores, editoras, PMEs, associações e iniciativas panafricanas ou internacionais."
+          }
+        }
+      }
+    },
+
+    "domains": {
+      "label": "Domínios & ofertas",
+      "title": "Produtos, plataformas e conteúdos enraizados no real",
+      "subtitle": "Partimos dos seus dados para conceber modelos de saberes, sistemas digitais e derivados editoriais que podem evoluir ao longo do tempo.",
+      "knowledge": {
+        "title": "Produtos de saberes",
+        "subtitle": "Estruturar os seus conteúdos para que se tornem utilizáveis, partilháveis e sustentáveis.",
+        "items": {
+          "0": "Ciências humanas e sociais, áreas técnicas, arquivos, documentação profissional, línguas e escritas.",
+          "1": "Conceção de modelos de dados para corpora, catálogos, conteúdos pedagógicos ou coleções de investigação.",
+          "2": "Valorização de patrimónios, saberes e práticas muitas vezes pouco ou mal representados nas ferramentas generalistas (línguas, escritas endógenas, tradições, ciências locais, etc.)."
+        }
+      },
+      "platforms": {
+        "title": "Plataformas & ferramentas digitais",
+        "subtitle": "Conceber as camadas técnicas que fazem viver os seus conteúdos: plataformas, ferramentas e interfaces.",
+        "items": {
+          "0": "Plataformas pedagógicas, bases documentais, áreas de membros, ferramentas de negócio ou portais de serviços.",
+          "1": "Sites, aplicações e interfaces à medida, com back-offices editoriais, painéis de controlo e áreas de contribuição.",
+          "2": "Arquiteturas extensíveis prontas a alimentar outras interfaces e derivados (APIs, apps móveis ou de desktop, automatizações, exportações para outros sistemas)."
+        }
+      },
+      "gamesPublishing": {
+        "title": "Edição, conteúdos derivados & jogos",
+        "subtitle": "Fazer viver os seus dados em livros, cadernos, recursos interativos e, quando faz sentido, jogos.",
+        "items": {
+          "0": "Livros, cadernos, folhas de exercícios, materiais pedagógicos e recursos imprimíveis gerados a partir dos seus dados.",
+          "1": "Scripts e pipelines para o InDesign e outras ferramentas de edição para produzir catálogos, cadernos de atividades, coleções ou séries automatizadas.",
+          "2": "Geração de conteúdos interativos e jogos (quizzes, puzzles, palavras cruzadas, etc.) a partir de dados filtrados, combinados ou enriquecidos."
+        }
+      }
+    },
+
+    "pipeline": {
+      "label": "A nossa abordagem",
+      "title": "Um pipeline completo: dados → modelos → sistemas → derivados",
+      "subtitle": "Em vez de multiplicar projetos pontuais, concebemos um núcleo que serve ao mesmo tempo as suas plataformas, materiais didáticos, edições e futuras aplicações.",
+      "steps": {
+        "0": {
+          "index": "01",
+          "title": "Mapear os seus conteúdos e dados",
+          "body": "Partimos do que já existe (bases de dados, ficheiros, cadernos de campo, manuscritos, gravações, arquivos, conteúdos profissionais) ou ajudamos a criar uma base estruturada quando ainda não existe. Clarificamos estruturas, usos, formatos-alvo e públicos."
+        },
+        "1": {
+          "index": "02",
+          "title": "Conceber um modelo utilizável a longo prazo",
+          "body": "Desenhamos esquemas de dados reutilizáveis (corpora, registos, anúncios, conteúdos pedagógicos, catálogos, léxicos, etc.) e instalamo-los em ambientes controláveis (MySQL/SQL, ficheiros estruturados, APIs, data stores). Objetivo: um núcleo estável, extensível e documentado."
+        },
+        "2": {
+          "index": "03",
+          "title": "Construir a plataforma e as ferramentas",
+          "body": "Desenvolvemos os sistemas que exploram esse núcleo: plataformas, back-offices, interfaces de consulta, ferramentas internas, e-commerce ou aplicações de negócio. Quando é pertinente, preparamos também os blocos para apps móveis ou de desktop."
+        },
+        "3": {
+          "index": "04",
+          "title": "Derivar livros, recursos e aplicações",
+          "body": "A partir dos mesmos dados, produzimos livros e cadernos, recursos imprimíveis, conteúdos interativos e aplicações (móveis, web ou desktop). Scripts (JSX, Java, C++, etc.) permitem gerar automaticamente puzzles, quizzes, materiais de aula ou outros derivados."
+        }
+      }
+    },
+
+    "projects": {
+      "label": "Ecossistemas de assinatura",
+      "title": "Algumas fundações já em produção",
+      "subtitle": "Projetos onde um único núcleo de dados alimenta plataformas, conteúdos pedagógicos, edição e outras experiências digitais.",
+      "items": {
+        "0": {
+          "tag": "Plataforma · Cursos & conteúdos",
+          "name": "Longoka",
+          "description": "Aplicação de cursos, artigos, livros, papelaria e produtos educativos, da tradição à tecnologia, em torno de línguas, escritas e saberes.",
+          "meta": "Exemplo de plataforma em que os conteúdos são estruturados para serem reutilizados em materiais de aula, edições e outras experiências digitais."
+        },
+        "1": {
+          "tag": "Produto de saberes · Léxico",
+          "name": "Lexikongo",
+          "description": "Plataforma lexical centrada no Kikongo, multilíngue (FR, EN, ES, PT, IT, RU, ZH) e concebida como modelo extensível a outras línguas.",
+          "meta": "Mostra como um motor lexical bem concebido pode ser adaptado a outras línguas ou projetos (por exemplo, um futuro LexiSwahili)."
+        },
+        "2": {
+          "tag": "Produto de saberes · Léxico",
+          "name": "Lexilingala",
+          "description": "Plataforma irmã dedicada ao Lingala, construída sobre o mesmo núcleo que o Lexikongo e traduzida em várias línguas.",
+          "meta": "Ilustra uma localização rápida: mesma base de código, mesmo modelo de dados, novos públicos e novos idiomas."
+        },
+        "3": {
+          "tag": "Plataforma · Memória & anúncios",
+          "name": "Madizi",
+          "description": "Aplicação de anúncios necrológicos e memória familiar ou profissional, disponível em francês, inglês, espanhol e português.",
+          "meta": "Exemplo de sistema editorial em que anúncios, homenagens e conteúdos associados são estruturados para consulta, pesquisa e reutilização."
+        }
+      }
+    },
+
+    "audience": {
+      "label": "Com quem trabalhamos",
+      "title": "Dos saberes locais aos sistemas globais",
+      "subtitle": "Acompanhamos quem carrega saberes, memória, uma língua, uma competência ou uma missão a transmitir, e precisa de uma engenharia digital fiável para lhes dar forma.",
+      "items": {
+        "0": {
+          "title": "Projetos, iniciativas & estruturas pedagógicas",
+          "body": "Plataformas de cursos, espaços de exercícios, recursos imprimíveis e conteúdos interativos para alunos, estudantes, formadores e equipas pedagógicas."
+        },
+        "1": {
+          "title": "Pesquisadores, antropólogos & laboratórios",
+          "body": "Valorização de corpora de campo, arquivos áudio/vídeo, dados de inquérito e notas através de plataformas de consulta, ferramentas de navegação e suportes de difusão."
+        },
+        "2": {
+          "title": "Autores, editoras & casas editoriais",
+          "body": "Estruturação de conteúdos, pipelines para livros e coleções, cadernos de atividades, coletâneas de artigos e extensões digitais em torno dos seus catálogos."
+        },
+        "3": {
+          "title": "PMEs, associações, ONGs & iniciativas panafricanas ou internacionais",
+          "body": "Plataformas e sistemas centrados nas suas atividades, comunidades e saberes profissionais, com ferramentas concretas para as equipas e os públicos."
+        }
+      }
+    },
+
+    "seo": {
+      "title": "Batina Media – Estúdio de engenharia de saberes & soluções digitais",
+      "description": "A Batina Media concebe modelos de dados, plataformas, ferramentas e edição em torno dos seus saberes, corpora e conteúdos — desde o desenho da base até livros, recursos pedagógicos, aplicações e experiências interativas."
+    }
+  },
+
+  "projectsPage": {
+    "hero": {
+      "label": "Ecossistemas & projetos",
+      "title": "De bases de dados a experiências completas",
+      "subtitle": "Alguns exemplos de plataformas e sistemas construídos sobre modelos de dados sólidos, conteúdos estruturados e derivados editoriais.",
+      "meta": "Cada projeto parte de saberes específicos (línguas, memórias, catálogos, corpora, atividades) e transforma-os em plataformas, ferramentas, edição e conteúdos reutilizáveis."
+    },
+    "list": {
+      "title": "Projetos estruturantes",
+      "subtitle": "Mostram como um único núcleo pode alimentar sites, aplicações, materiais pedagógicos, edição e outras experiências digitais."
+    },
+    "items": {
+      "0": {
+        "tag": "Plataforma · Cursos & conteúdos",
+        "name": "Longoka",
+        "body": "Aplicação de cursos, artigos, livros, papelaria e produtos educativos, da tradição à tecnologia. A Longoka reúne línguas, escritas, culturas e saberes num ambiente de aprendizagem e numa loja educativa.",
+        "meta": "Exemplo de plataforma em que os conteúdos são pensados para serem reutilizados em materiais de aula, percursos de aprendizagem, livros e outros formatos.",
+        "tech": "Nuxt, bases de dados estruturadas, ferramentas de edição, com integração possível para impressão, conteúdos interativos e futuras apps móveis."
+      },
+      "1": {
+        "tag": "Produto de saberes · Léxico",
+        "name": "Lexikongo",
+        "body": "Plataforma lexical dedicada ao Kikongo, traduzida em várias línguas (FR, EN, ES, PT, IT, RU, ZH). As entradas são estruturadas para servir a consulta, a aprendizagem, a investigação e a produção de derivados.",
+        "meta": "Modelo de motor lexical reutilizável para outras línguas, projetos pedagógicos ou corpora especializados.",
+        "tech": "Nuxt, MySQL/SQL, i18n, APIs e scripts de exportação para gerar fichas, materiais pedagógicos, jogos de palavras ou edições impressas."
+      },
+      "2": {
+        "tag": "Produto de saberes · Léxico",
+        "name": "Lexilingala",
+        "body": "Plataforma irmã centrada no Lingala, construída sobre o mesmo núcleo que o Lexikongo e traduzida em várias línguas. Mesma lógica: uma base sólida, multilíngue, pronta para usos diversos.",
+        "meta": "Mostra como um bom desenho de dados permite duplicar, adaptar e localizar rapidamente um produto para uma nova língua ou novo público.",
+        "tech": "Núcleo partilhado com o Lexikongo, internacionalização, exportação para materiais pedagógicos, interfaces web e outros derivados."
+      },
+      "3": {
+        "tag": "Plataforma · Memória & anúncios",
+        "name": "Madizi",
+        "body": "Aplicação de anúncios necrológicos e memória familiar ou profissional, disponível em francês, inglês, espanhol e português. Os anúncios e homenagens são estruturados como verdadeiros conteúdos editoriais.",
+        "meta": "Exemplo de plataforma editorial em que dados, narrativas e arquivos familiares são organizados para consulta, partilha e preservação.",
+        "tech": "Base de dados estruturada, gestão de anúncios e homenagens, vistas públicas e privadas, multilinguismo, exportações e integrações possíveis com outros suportes."
+      }
+    },
+    "outro": {
+      "title": "E os seus próprios ecossistemas?",
+      "body": "Quer parta de cadernos, arquivos, uma base MySQL, um único ficheiro ou apenas de uma ideia, podemos conceber consigo um núcleo de dados, uma plataforma e derivados editoriais ou aplicacionais à medida do seu projeto.",
+      "primaryCta": "Discutir o seu projeto",
+      "secondaryCta": "Voltar ao início"
+    },
+    "seo": {
+      "title": "Projetos & ecossistemas – Batina Media",
+      "description": "Visão geral de alguns ecossistemas concebidos pela Batina Media: Longoka, Lexikongo, Lexilingala, Madizi… Modelos de dados robustos, plataformas, conteúdos pedagógicos e edições declináveis."
+    }
+  },
+
+  "projects": {
+    "label": "Projetos & ecossistemas",
+    "title": "Ecossistemas de assinatura",
+    "subtitle": "Algumas fundações já em produção, que mostram como um único núcleo de dados pode alimentar plataformas, livros, conteúdos impressos, ferramentas e outras aplicações.",
+    "loading": "A carregar os projetos…",
+    "error": "Não foi possível carregar a lista de projetos. Por favor, tente novamente dentro de instantes.",
+    "actions": {
+      "openProject": "Abrir projeto",
+      "openLink": "Abrir ligação"
+    },
+    "derivatives": {
+      "preview": "Derivados associados ({count})"
+    },
+    "status": {
+      "prod": "Em produção",
+      "beta": "Em beta",
+      "dev": "Em desenvolvimento",
+      "archived": "Arquivado"
+    },
+    "seo": {
+      "title": "Projetos & ecossistemas · Batina Media",
+      "description": "Visão geral de alguns ecossistemas concebidos pela Batina Media: plataformas, léxicos, sistemas editoriais, derivados impressos ou digitais e ferramentas construídas a partir de saberes estruturados."
+    }
+  },
+
+  "studio": {
+    "seo": {
+      "title": "Estúdio Batina Media",
+      "description": "Estúdio de engenharia de saberes e sistemas digitais: dados, conteúdos, plataformas, livros, apps e ferramentas em torno dos seus projetos."
+    },
+    "hero": {
+      "label": "O estúdio",
+      "title": "Estúdio de engenharia de saberes & sistemas digitais",
+      "subtitle": "Ajudamos projetos, pesquisadores, autores, equipas pedagógicas e organizações a transformar os seus saberes, dados e conteúdos em plataformas, livros, ferramentas e aplicações que duram.",
+      "aside": {
+        "title": "Dados, conteúdos, sistemas",
+        "body": "Partimos do que já existe (ou do que deseja produzir) para conceber modelos de dados robustos, plataformas coerentes e derivados: livros, cadernos, materiais pedagógicos, interfaces, apps, etc."
+      }
+    },
+    "position": {
+      "label": "Identidade & posicionamento",
+      "title": "Quem somos, o que fazemos",
+      "subtitle": "Um estúdio que parte dos saberes e dos conteúdos, e constrói à volta deles sistemas digitais coerentes — e não o contrário.",
+      "blocks": {
+        "weAre": {
+          "title": "Quem somos",
+          "body": "Um estúdio na encruzilhada entre ciências humanas, design de dados e desenvolvimento: trabalhamos com corpora de investigação, conteúdos pedagógicos, anúncios, catálogos e coleções editoriais."
+        },
+        "weDo": {
+          "title": "O que fazemos",
+          "items": {
+            "0": "Conceção de modelos de dados para corpora, catálogos, léxicos, anúncios ou conteúdos pedagógicos.",
+            "1": "Plataformas e ferramentas de negócio: portais, áreas de membros, back-offices editoriais, e-boutiques especializadas.",
+            "2": "Scripts e pipelines para livros, cadernos, recursos imprimíveis e conteúdos interativos.",
+            "3": "Preparação de núcleos técnicos prontos a alimentar outras interfaces (APIs, apps móveis, ferramentas internas ou de desktop)."
+          }
+        },
+        "weCare": {
+          "title": "O que valorizamos",
+          "items": {
+            "0": "Sistemas extensíveis, documentados e pensados para durar (não projetos descartáveis).",
+            "1": "Respeito forte pelos saberes, línguas, escritas e contextos em que se inscrevem.",
+            "2": "Interfaces que realmente servem os públicos visados: aprendentes, pesquisadores, equipas pedagógicas, famílias, comunidades."
+          }
+        }
+      }
+    },
+    "method": {
+      "label": "A nossa forma de trabalhar",
+      "title": "Um pipeline controlado: da matéria bruta aos sistemas e derivados",
+      "subtitle": "Em vez de multiplicar projetos isolados, construímos um núcleo de dados que servirá as suas plataformas, suportes impressos, derivados pedagógicos e futuras aplicações.",
+      "steps": {
+        "0": {
+          "index": "01",
+          "title": "Mapear os seus conteúdos e dados",
+          "body": "Partimos do que já tem, ou do que deseja produzir: bases de dados, ficheiros, notas de campo, corpora de cursos, anúncios, manuscritos, arquivos, documentação profissional. Clarificamos estruturas, usos, formatos-alvo e públicos."
+        },
+        "1": {
+          "index": "02",
+          "title": "Conceber um modelo utilizável a longo prazo",
+          "body": "Desenhamos esquemas de dados reutilizáveis (corpora, fichas, anúncios, conteúdos pedagógicos, léxicos, catálogos, etc.) e colocamo-los em formatos controláveis (MySQL/SQL, JSON, APIs, etc.). Objetivo: um núcleo estável, extensível e documentado."
+        },
+        "2": {
+          "index": "03",
+          "title": "Construir plataformas e ferramentas",
+          "body": "Desenvolvemos a plataforma principal (portal, aplicação web, ferramenta interna, e-boutique especializada) e as interfaces necessárias: publicação de conteúdos, gestão de catálogos, contribuições, exportações, áreas de utilizador, estatísticas."
+        },
+        "3": {
+          "index": "04",
+          "title": "Derivar livros, cadernos, suportes e apps",
+          "body": "A partir dos mesmos dados, geramos livros e cadernos, folhas de exercícios e recursos imprimíveis, conteúdos interativos, jogos de letras ou quizzes, e preparamos o terreno para apps móveis ou de desktop centradas nos seus saberes."
+        }
+      }
+    },
+    "tech": {
+      "label": "Tech & ferramentas",
+      "title": "Tecnologia ao serviço dos conteúdos, não o contrário",
+      "subtitle": "Escolhemos as tecnologias em função dos seus desafios: estruturar, perenizar, difundir, derivar.",
+      "blocks": {
+        "stackWeb": {
+          "title": "Plataformas & interfaces",
+          "body": "Nuxt, Node, PHP, Java ou C++ conforme as necessidades, com atenção particular à coerência dos percursos: portais pedagógicos, léxicos, áreas de membros, back-offices editoriais e e-boutiques educativas."
+        },
+        "stackData": {
+          "title": "Dados & modelos",
+          "body": "MySQL/SQL, formatos JSON, APIs e scripts de importação/exportação para estruturar, migrar e explorar corpora, catálogos ou arquivos sem os aprisionar numa única ferramenta."
+        },
+        "stackDerivatives": {
+          "title": "Derivados & edição",
+          "body": "Pipelines para o InDesign (JSX) e outras ferramentas de edição para produzir livros, cadernos, coletâneas de artigos, puzzles, palavras cruzadas, suportes multilingues ou adaptados a diferentes públicos."
+        }
+      }
+    },
+    "collab": {
+      "label": "Colaborações",
+      "title": "Com quem trabalhamos",
+      "subtitle": "Acompanhamos projetos enraizados no real, na interseção entre saberes, pedagogia, cultura e usos digitais, em contextos panafricanos e internacionais.",
+      "items": {
+        "0": {
+          "title": "Projetos & iniciativas",
+          "body": "Promotores de projetos, coletivos, associações e iniciativas que desejam estruturar e difundir saberes, práticas ou memórias para além de um simples site vitrine."
+        },
+        "1": {
+          "title": "Investigação & campo",
+          "body": "Pesquisadores, laboratórios, antropólogos, linguistas e equipas de campo que trabalham com corpora, arquivos, gravações, notas, anúncios ou bases de dados existentes."
+        },
+        "2": {
+          "title": "Edição & pedagogia",
+          "body": "Autores, casas editoriais, escolas e atores da formação que desejam ligar plataformas, livros, cadernos, folhas de exercícios, conteúdos digitais e suportes impressos."
+        },
+        "3": {
+          "title": "Organizações & profissões",
+          "body": "PMEs, estruturas culturais, ONGs e organizações panafricanas ou internacionais que precisam de ferramentas à medida para as suas comunidades e profissões."
+        }
+      }
+    }
+  },
+
+  "contact": {
+    "seo": {
+      "title": "Contacto · Batina Media",
+      "description": "Descreva o seu projeto: corpora, plataformas, livros, ferramentas ou sistemas de dados. A Batina Media ajuda a conceber modelos, plataformas e derivados que duram."
+    },
+    "hero": {
+      "label": "Contacto",
+      "title": "Vamos falar dos seus conteúdos, dos seus dados e dos seus sistemas",
+      "subtitle": "Corpora de investigação, conteúdos pedagógicos, catálogos, anúncios, arquivos ou projetos de plataforma: explique em que ponto está e ajudaremos a desenhar o próximo passo.",
+      "aside": {
+        "title": "Uma primeira troca estruturada",
+        "body": "Começamos por ler os seus conteúdos, as suas restrições e os seus objetivos. Depois voltamos com um primeiro retorno: questões-chave, pistas de enquadramento e opções de implementação.",
+        "emailLabel": "E-mail",
+        "emailUser": "contact",
+        "emailDomain": "batina-media.com",
+        "responseTimeLabel": "Prazo de resposta",
+        "responseTime": "Geralmente entre 2 e 3 dias úteis."
+      }
+    },
+    "info": {
+      "projects": {
+        "title": "Alguns exemplos de projetos",
+        "body": "Estas são situações típicas em que podemos acompanhar. O seu caso pode ser mais simples ou mais complexo: o importante é descrever bem o contexto.",
+        "items": {
+          "0": "Estruturar um corpus (línguas, arquivos, anúncios, catálogos, conteúdos pedagógicos) numa base sustentável e explorável.",
+          "1": "Ligar uma plataforma existente a livros, cadernos, folhas de exercícios, recursos imprimíveis ou outros derivados pedagógicos.",
+          "2": "Conceber um novo ecossistema: dados, interfaces, ferramentas internas e derivados (livros, suportes, apps) em torno de um mesmo núcleo."
+        }
+      },
+      "process": {
+        "title": "Como é o processo a seguir?",
+        "body": "Após a sua mensagem, avançamos em etapas claras, tomando tempo para compreender os seus conteúdos, públicos e restrições.",
+        "items": {
+          "0": "Lemos a sua descrição, exemplos de conteúdos e restrições (orçamento, prazos, públicos-alvo).",
+          "1": "Voltamos com um primeiro retorno: questões-chave, pistas de enquadramento e opções possíveis de implementação.",
+          "2": "Se fizer sentido para si, marcamos uma conversa mais detalhada (vídeo / chamada) para refinar o perímetro, o calendário e os entregáveis."
+        }
+      }
+    },
+    "form": {
+      "title": "Descreva o seu projeto em poucas linhas",
+      "subtitle": "Quanto mais concreto for, mais útil será a nossa primeira resposta. Nenhum campo é estritamente obrigatório.",
+      "fields": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "Como devemos tratá-lo(a)?"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "O seu e-mail"
+        },
+        "org": {
+          "label": "Organização / projeto",
+          "placeholder": "Escola, laboratório, associação, casa editorial, PME, coletivo, etc."
+        },
+        "projectType": {
+          "label": "Tipo de projeto",
+          "placeholder": "Escolha o tipo principal",
+          "options": {
+            "platform": "Plataforma / portal",
+            "content": "Livros, cadernos, conteúdos pedagógicos",
+            "data": "Bases de dados, estruturação de corpora",
+            "training": "Formação, acompanhamento, oficina",
+            "other": "Outro / combinado"
+          }
+        },
+        "budget": {
+          "label": "Orçamento indicativo (opcional)",
+          "placeholder": "Intervalo, financiamento em curso, a definir…"
+        },
+        "timeline": {
+          "label": "Prazos / calendário (opcional)",
+          "placeholder": "Períodos-chave, restrições de agenda, marcos importantes."
+        },
+        "message": {
+          "label": "Mensagem",
+          "placeholder": "Explique o contexto, o que já existe (ou ainda não), e aquilo que gostaria de implementar."
+        }
+      },
+      "actions": {
+        "submit": "Enviar mensagem",
+        "submitting": "A enviar…"
+      },
+      "validation": {
+        "nameRequired": "Indique o seu nome, por favor.",
+        "emailRequired": "Indique o seu e-mail, por favor.",
+        "emailInvalid": "Este endereço de e-mail não parece válido.",
+        "messageRequired": "Descreva o seu projeto ou questão, por favor."
+      },
+      "feedback": {
+        "success": "Obrigado, a sua mensagem foi enviada. Voltaremos a contactar assim que possível.",
+        "error": "Ocorreu um erro ao enviar a sua mensagem. Por favor, tente mais tarde ou escreva-nos diretamente por e-mail."
+      },
+      "hint": "Pode escrever em francês, inglês ou noutra língua de trabalho."
     }
   }
 }
