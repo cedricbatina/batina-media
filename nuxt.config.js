@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     host: "0.0.0.0",
   },
   css: ["~/assets/css/main.css"],
-
+  plugins: ['~/plugins/reveal.client'],
   i18n: {
     locales: [
       { code: "fr", iso: "fr-FR", file: "fr.json", name: "Français" },

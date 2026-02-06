@@ -1,120 +1,97 @@
 <template>
-  <div class="bm-stack-lg">
+  <div class="bm-stack-page solutions-page">
     <!-- HERO -->
-    <section class="bm-section" aria-labelledby="solutions-page-title">
-      <div class="bm-stack-sm solutions-hero">
-        <p class="bm-pill bm-pill-muted">
-          Solutions & accompagnement
-        </p>
-        <h1 id="solutions-page-title" class="bm-heading-1">
-          Des solutions digitales construites autour de vos savoirs & de vos données
-        </h1>
-        <p class="bm-text-soft solutions-hero-subtitle">
-          De la modélisation de vos contenus aux plateformes, livres, ressources et applications,
-          nous concevons des systèmes complets – durables, extensibles et adaptés à vos publics.
-        </p>
+    <section class="bm-section solutions-hero" aria-labelledby="solutions-hero-title">
+      <div class="solutions-hero-grid">
+        <div class="bm-stack-sm solutions-hero-main">
+          <span class="bm-pill bm-pill-soft bm-reveal" style="animation-delay: 0ms">
+            {{ t('solutions.hero.pill') }}
+          </span>
+
+          <h1
+            id="solutions-hero-title"
+            class="bm-heading-hero bm-title-hero bm-reveal"
+            style="animation-delay: 60ms"
+          >
+            {{ t('solutions.hero.title') }}
+          </h1>
+
+          <p class="bm-text-soft solutions-hero-subtitle bm-reveal" style="animation-delay: 120ms">
+            {{ t('solutions.hero.subtitle') }}
+          </p>
+
+          <div class="bm-form-row-inline bm-reveal" style="animation-delay: 180ms">
+            <NuxtLink to="/contact" class="bm-btn bm-btn-primary bm-ease">
+              {{ t('solutions.hero.primaryCta') }}
+            </NuxtLink>
+            <NuxtLink to="/projects" class="bm-btn bm-btn-outline bm-ease">
+              {{ t('solutions.hero.secondaryCta') }}
+            </NuxtLink>
+          </div>
+
+          <p class="bm-text-muted bm-reveal" style="animation-delay: 240ms">
+            {{ t('solutions.hero.meta') }}
+          </p>
+        </div>
+
+        <!-- Aside (style Home) -->
+        <aside class="bm-card bm-ease js-reveal solutions-hero-aside" aria-label="Solutions snapshot">
+          <div class="bm-card-header">
+            <div>
+              <p class="bm-pill bm-pill-muted">
+                {{ t('solutions.hero.aside.label') }}
+              </p>
+              <p class="bm-card-title">
+                {{ t('solutions.hero.aside.title') }}
+              </p>
+            </div>
+          </div>
+
+          <ul class="solutions-hero-list">
+            <li v-for="row in heroAsideItems" :key="row.key">
+              <p class="solutions-hero-list-label">
+                {{ row.label }}
+              </p>
+              <p class="bm-text-soft">
+                {{ row.value }}
+              </p>
+            </li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <!-- 1. GRANDES FAMILLES DE SOLUTIONS -->
-    <section class="bm-section" aria-labelledby="solutions-families-title">
+    <!-- FAMILLES -->
+    <section class="bm-section js-reveal" aria-labelledby="solutions-families-title">
       <div class="bm-stack-lg">
-        <div class="bm-stack-sm">
-          <h2 id="solutions-families-title" class="bm-heading-2">
-            Ce que nous concevons pour vous
+        <header class="bm-stack-sm bm-section-header">
+          <p class="bm-pill bm-pill-muted">
+            {{ t('solutions.families.label') }}
+          </p>
+          <h2 id="solutions-families-title" class="bm-heading-2 bm-title-h2">
+            {{ t('solutions.families.title') }}
           </h2>
           <p class="bm-text-soft">
-            Chaque projet est unique, mais il repose presque toujours sur les mêmes briques :
-            un modèle de données clair, une ou plusieurs plateformes, puis des dérivés
-            (supports pédagogiques, collections, outils, apps, jeux…).
+            {{ t('solutions.families.subtitle') }}
           </p>
-        </div>
+        </header>
 
         <div class="bm-grid solutions-grid">
-          <!-- Ingénierie des contenus & données -->
-          <article class="bm-card solutions-card">
-            <h3 class="bm-card-title">
-              Ingénierie des contenus & des données
+          <article
+            v-for="card in familyCards"
+            :key="card.key"
+            class="bm-card bm-card-compact bm-ease js-reveal"
+          >
+            <h3 class="bm-card-title bm-title-h3">
+              {{ card.title }}
             </h3>
             <p class="bm-card-subtitle">
-              Structurer vos savoirs pour pouvoir les exploiter longtemps.
+              {{ card.subtitle }}
             </p>
-            <ul class="solutions-list">
-              <li>
-                Modélisation de données pour
-                corpus, contenus pédagogiques, catalogues, annonces,
-                fonds documentaires ou projets éditoriaux.
-              </li>
-              <li>
-                Conception et mise en place de bases (MySQL / SQL),
-                schémas relationnels, vues et exports adaptés à vos usages.
-              </li>
-              <li>
-                Structuration de contenus existants
-                (fichiers, notes de terrain, archives, cours, documents métier)
-                pour les rendre exploitables dans des systèmes numériques.
-              </li>
-              <li>
-                API et formats d’échange (JSON, CSV, etc.)
-                pour alimenter sites, apps, outils internes ou pipelines d’édition.
-              </li>
-            </ul>
-          </article>
 
-          <!-- Plateformes & outils -->
-          <article class="bm-card solutions-card">
-            <h3 class="bm-card-title">
-              Plateformes & outils digitaux
-            </h3>
-            <p class="bm-card-subtitle">
-              Des systèmes complets plutôt que de simples vitrines.
-            </p>
             <ul class="solutions-list">
-              <li>
-                Plateformes pédagogiques, portails de contenus, lexiques,
-                espaces de publication et d’édition en ligne.
-              </li>
-              <li>
-                Espaces membres, tableaux de bord, back-offices éditoriaux,
-                outils métiers et intranets légers.
-              </li>
-              <li>
-                E-commerce ciblé (livres, ressources, papeterie, produits numériques),
-                inscriptions et paiements en ligne.
-              </li>
-              <li>
-                Applications sur mesure
-                (web, Android, et éventuellement bureau)
-                construites sur le même socle de données.
-              </li>
-            </ul>
-          </article>
-
-          <!-- Dérivés & médias -->
-          <article class="bm-card solutions-card">
-            <h3 class="bm-card-title">
-              Dérivés, médias & supports
-            </h3>
-            <p class="bm-card-subtitle">
-              Du socle de données aux livres, ressources et expériences interactives.
-            </p>
-            <ul class="solutions-list">
-              <li>
-                Génération de livres, cahiers d’activités, fiches d’exercices,
-                recueils d’articles et supports imprimables à partir de vos données.
-              </li>
-              <li>
-                Pipelines vers InDesign et d’autres outils d’édition
-                (scripts, JSX, exports automatisés) pour industrialiser la mise en page.
-              </li>
-              <li>
-                Ressources numériques interactives :
-                modules d’entraînement, quiz, outils pédagogiques, contenus guidés.
-              </li>
-              <li>
-                Jeux de lettres et de logique (mots croisés, puzzles,
-                quiz, scrabble-like, etc.) lorsque cela a du sens
-                pour vos publics et vos objectifs pédagogiques.
+              <li v-for="item in card.items" :key="item">
+                {{ item }}
               </li>
             </ul>
           </article>
@@ -122,66 +99,36 @@
       </div>
     </section>
 
-    <!-- 2. NOTRE APPROCHE / PIPELINE -->
-    <section class="bm-section" aria-labelledby="solutions-process-title">
+    <!-- PROCESS / PIPELINE -->
+    <section class="bm-section js-reveal" aria-labelledby="solutions-process-title">
       <div class="bm-stack-lg">
-        <div class="bm-stack-sm">
-          <h2 id="solutions-process-title" class="bm-heading-2">
-            Une approche par systèmes, pas par one-shot
+        <header class="bm-stack-sm bm-section-header">
+          <p class="bm-pill bm-pill-muted">
+            {{ t('solutions.process.label') }}
+          </p>
+          <h2 id="solutions-process-title" class="bm-heading-2 bm-title-h2">
+            {{ t('solutions.process.title') }}
           </h2>
           <p class="bm-text-soft">
-            Nous partons de ce que vous avez déjà (ou de ce que vous voulez créer)
-            pour concevoir un socle cohérent qui servira vos plateformes présentes
-            et vos dérivés futurs.
+            {{ t('solutions.process.subtitle') }}
           </p>
-        </div>
+        </header>
 
         <ol class="solutions-steps">
-          <li class="solutions-step bm-card bm-card-compact">
-            <div class="solutions-step-index">01</div>
-            <div class="solutions-step-body">
-              <h3 class="bm-card-title">Cartographier vos contenus & vos besoins</h3>
-              <p class="bm-card-subtitle">
-                Inventaire des ressources existantes (bases, fichiers, notes, archives,
-                corpus de cours, documents métier) et clarification des publics, des usages
-                et des formats cibles (plateformes, supports, applications…).
-              </p>
+          <li
+            v-for="step in processSteps"
+            :key="step.key"
+            class="solutions-step bm-card bm-card-compact bm-ease js-reveal"
+          >
+            <div class="solutions-step-index" aria-hidden="true">
+              {{ step.index }}
             </div>
-          </li>
-
-          <li class="solutions-step bm-card bm-card-compact">
-            <div class="solutions-step-index">02</div>
             <div class="solutions-step-body">
-              <h3 class="bm-card-title">Concevoir un modèle exploitable à long terme</h3>
+              <h3 class="bm-card-title bm-title-h3">
+                {{ step.title }}
+              </h3>
               <p class="bm-card-subtitle">
-                Schémas de données réutilisables (corpus, fiches, catalogues, lexiques,
-                annonces, contenus pédagogiques, etc.) et mise en base (MySQL / SQL)
-                ou en formats structurés documentés. Objectif : un socle stable et extensible.
-              </p>
-            </div>
-          </li>
-
-          <li class="solutions-step bm-card bm-card-compact">
-            <div class="solutions-step-index">03</div>
-            <div class="solutions-step-body">
-              <h3 class="bm-card-title">Construire les plateformes & outils</h3>
-              <p class="bm-card-subtitle">
-                Développement de la plateforme principale (site applicatif, portail,
-                espace pédagogique, outil interne), back-office de gestion,
-                API et, si nécessaire, applications mobiles ou de bureau
-                reposant sur le même socle.
-              </p>
-            </div>
-          </li>
-
-          <li class="solutions-step bm-card bm-card-compact">
-            <div class="solutions-step-index">04</div>
-            <div class="solutions-step-body">
-              <h3 class="bm-card-title">Décliner en supports, médias & apps</h3>
-              <p class="bm-card-subtitle">
-                Production de livres, cahiers, fiches, ressources téléchargeables,
-                contenus interactifs, éventuels jeux de lettres ou d’entraînement,
-                et préparation de futurs dérivés – sans repartir de zéro.
+                {{ step.body }}
               </p>
             </div>
           </li>
@@ -189,65 +136,37 @@
       </div>
     </section>
 
-    <!-- 3. SCÉNARIOS / POUR QUI -->
-    <section class="bm-section" aria-labelledby="solutions-usecases-title">
+    <!-- USE CASES -->
+    <section class="bm-section js-reveal" aria-labelledby="solutions-usecases-title">
       <div class="bm-stack-lg">
-        <div class="bm-stack-sm">
-          <h2 id="solutions-usecases-title" class="bm-heading-2">
-            Des solutions adaptées à vos contextes
+        <header class="bm-stack-sm bm-section-header">
+          <p class="bm-pill bm-pill-muted">
+            {{ t('solutions.usecases.label') }}
+          </p>
+          <h2 id="solutions-usecases-title" class="bm-heading-2 bm-title-h2">
+            {{ t('solutions.usecases.title') }}
           </h2>
           <p class="bm-text-soft">
-            Sciences humaines et sociales, techniques, langues, archives, documentations métiers :
-            nous travaillons avec celles et ceux qui portent une matière à structurer et à transmettre.
+            {{ t('solutions.usecases.subtitle') }}
           </p>
-        </div>
+        </header>
 
-        <div class="bm-grid solutions-grid usecases-grid">
-          <article class="bm-card solutions-card">
-            <h3 class="bm-card-title">Écoles, formations & pédagogie</h3>
+        <div class="bm-grid solutions-grid">
+          <article
+            v-for="uc in useCases"
+            :key="uc.key"
+            class="bm-card bm-card-compact bm-ease js-reveal"
+          >
+            <h3 class="bm-card-title bm-title-h3">
+              {{ uc.title }}
+            </h3>
             <p class="bm-card-subtitle">
-              Plateformes de cours, espaces élèves / formateurs et supports imprimables.
+              {{ uc.subtitle }}
             </p>
             <ul class="solutions-list">
-              <li>Portails de cours, exercices, ressources téléchargeables.</li>
-              <li>Gestion des contenus, des groupes et des parcours.</li>
-              <li>Cahiers d’activités, fiches, guides pédagogiques dérivés de la même base.</li>
-            </ul>
-          </article>
-
-          <article class="bm-card solutions-card">
-            <h3 class="bm-card-title">Chercheurs, mémoires & archives</h3>
-            <p class="bm-card-subtitle">
-              De la collecte de terrain aux plateformes consultables et aux publications.
-            </p>
-            <ul class="solutions-list">
-              <li>Structuration de corpus (textes, médias, notes, enquêtes).</li>
-              <li>Interfaces de consultation, recherche, filtrage et annotation.</li>
-              <li>Outils d’export vers articles, livres, recueils ou sites de diffusion.</li>
-            </ul>
-          </article>
-
-          <article class="bm-card solutions-card">
-            <h3 class="bm-card-title">PME, associations & projets panafricains / internationaux</h3>
-            <p class="bm-card-subtitle">
-              Plateformes ancrées dans vos activités, vos communautés et vos savoirs métiers.
-            </p>
-            <ul class="solutions-list">
-              <li>Sites applicatifs, extranets légers, outils métier sur mesure.</li>
-              <li>Gestion de contenus, documents, annonces, catalogues.</li>
-              <li>Supports numériques et imprimés cohérents avec votre écosystème.</li>
-            </ul>
-          </article>
-
-          <article class="bm-card solutions-card">
-            <h3 class="bm-card-title">Auteurs, éditeurs & gardiens de savoirs</h3>
-            <p class="bm-card-subtitle">
-              Collections, lexiques, ressources et systèmes éditoriaux sur le long terme.
-            </p>
-            <ul class="solutions-list">
-              <li>Modèles de données pour collections, séries, ressources.</li>
-              <li>Flux vers livres, ebooks, cahiers, guides, ressources numériques.</li>
-              <li>Préparation de dérivés futurs (apps, modules interactifs, jeux, etc.).</li>
+              <li v-for="item in uc.items" :key="item">
+                {{ item }}
+              </li>
             </ul>
           </article>
         </div>
@@ -255,20 +174,23 @@
     </section>
 
     <!-- CTA -->
-    <section class="bm-section solutions-cta" aria-label="Parler de votre projet">
-      <div class="bm-card solutions-card solutions-cta-card">
+    <section class="bm-section js-reveal" aria-label="Call to action">
+      <div class="bm-card bm-ease js-reveal solutions-cta-card">
         <div class="solutions-cta-content">
-          <div class="bm-stack-xs">
-            <h2 class="bm-heading-3">
-              Discutons de votre écosystème idéal
+          <div class="bm-stack-sm">
+            <p class="bm-pill bm-pill-muted">
+              {{ t('solutions.cta.pill') }}
+            </p>
+            <h2 class="bm-heading-2 bm-title-h2">
+              {{ t('solutions.cta.title') }}
             </h2>
             <p class="bm-text-soft">
-              Vous avez des contenus, des données, une expertise ou un patrimoine à structurer ?
-              Nous pouvons vous aider à passer de l’idée au système numérique, étape par étape.
+              {{ t('solutions.cta.body') }}
             </p>
           </div>
-          <NuxtLink to="/contact" class="bm-btn bm-btn-primary">
-            Parler de votre projet
+
+          <NuxtLink to="/contact" class="bm-btn bm-btn-primary bm-ease">
+            {{ t('solutions.cta.button') }}
           </NuxtLink>
         </div>
       </div>
@@ -277,105 +199,256 @@
 </template>
 
 <script setup>
+import { computed, onMounted, onBeforeUnmount } from 'vue'
 import { useHead } from '#imports'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
+
+/**
+ * HERO aside (style Home)
+ */
+const heroAsideItems = computed(() => [
+  { key: 'data', label: t('solutions.hero.aside.items.0.label'), value: t('solutions.hero.aside.items.0.value') },
+  { key: 'platforms', label: t('solutions.hero.aside.items.1.label'), value: t('solutions.hero.aside.items.1.value') },
+  { key: 'derivatives', label: t('solutions.hero.aside.items.2.label'), value: t('solutions.hero.aside.items.2.value') }
+])
+
+/**
+ * Families cards
+ */
+const familyCards = computed(() => [
+  {
+    key: 'data',
+    title: t('solutions.families.cards.0.title'),
+    subtitle: t('solutions.families.cards.0.subtitle'),
+    items: [
+      t('solutions.families.cards.0.items.0'),
+      t('solutions.families.cards.0.items.1'),
+      t('solutions.families.cards.0.items.2'),
+      t('solutions.families.cards.0.items.3'),
+      t('solutions.families.cards.0.items.4')
+    ].filter(Boolean)
+  },
+  {
+    key: 'platforms',
+    title: t('solutions.families.cards.1.title'),
+    subtitle: t('solutions.families.cards.1.subtitle'),
+    items: [
+      t('solutions.families.cards.1.items.0'),
+      t('solutions.families.cards.1.items.1'),
+      t('solutions.families.cards.1.items.2'),
+      t('solutions.families.cards.1.items.3')
+    ].filter(Boolean)
+  },
+  {
+    key: 'derivatives',
+    title: t('solutions.families.cards.2.title'),
+    subtitle: t('solutions.families.cards.2.subtitle'),
+    items: [
+      t('solutions.families.cards.2.items.0'),
+      t('solutions.families.cards.2.items.1'),
+      t('solutions.families.cards.2.items.2'),
+      t('solutions.families.cards.2.items.3')
+    ].filter(Boolean)
+  }
+])
+
+/**
+ * Process steps
+ */
+const processSteps = computed(() => [
+  { key: '01', index: t('solutions.process.steps.0.index'), title: t('solutions.process.steps.0.title'), body: t('solutions.process.steps.0.body') },
+  { key: '02', index: t('solutions.process.steps.1.index'), title: t('solutions.process.steps.1.title'), body: t('solutions.process.steps.1.body') },
+  { key: '03', index: t('solutions.process.steps.2.index'), title: t('solutions.process.steps.2.title'), body: t('solutions.process.steps.2.body') },
+  { key: '04', index: t('solutions.process.steps.3.index'), title: t('solutions.process.steps.3.title'), body: t('solutions.process.steps.3.body') }
+])
+
+/**
+ * Use cases
+ */
+const useCases = computed(() => [
+  {
+    key: 'education',
+    title: t('solutions.usecases.cards.0.title'),
+    subtitle: t('solutions.usecases.cards.0.subtitle'),
+    items: [
+      t('solutions.usecases.cards.0.items.0'),
+      t('solutions.usecases.cards.0.items.1'),
+      t('solutions.usecases.cards.0.items.2')
+    ].filter(Boolean)
+  },
+  {
+    key: 'research',
+    title: t('solutions.usecases.cards.1.title'),
+    subtitle: t('solutions.usecases.cards.1.subtitle'),
+    items: [
+      t('solutions.usecases.cards.1.items.0'),
+      t('solutions.usecases.cards.1.items.1'),
+      t('solutions.usecases.cards.1.items.2')
+    ].filter(Boolean)
+  },
+  {
+    key: 'orgs',
+    title: t('solutions.usecases.cards.2.title'),
+    subtitle: t('solutions.usecases.cards.2.subtitle'),
+    items: [
+      t('solutions.usecases.cards.2.items.0'),
+      t('solutions.usecases.cards.2.items.1'),
+      t('solutions.usecases.cards.2.items.2')
+    ].filter(Boolean)
+  },
+  {
+    key: 'authors',
+    title: t('solutions.usecases.cards.3.title'),
+    subtitle: t('solutions.usecases.cards.3.subtitle'),
+    items: [
+      t('solutions.usecases.cards.3.items.0'),
+      t('solutions.usecases.cards.3.items.1'),
+      t('solutions.usecases.cards.3.items.2')
+    ].filter(Boolean)
+  }
+])
+
+/**
+ * Reveal on scroll (copie Home pour être certain)
+ */
+let io
+onMounted(() => {
+  if (!import.meta.client) return
+
+  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
+  const els = Array.from(document.querySelectorAll('.js-reveal'))
+
+  if (reduce) {
+    els.forEach((el) => el.classList.add('is-revealed'))
+    return
+  }
+
+  io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed')
+          io.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+  )
+
+  els.forEach((el, idx) => {
+    el.style.setProperty('--reveal-delay', `${Math.min(idx * 40, 240)}ms`)
+    io.observe(el)
+  })
+})
+
+onBeforeUnmount(() => {
+  if (io) io.disconnect()
+})
+
+/**
+ * SEO (i18n)
+ */
 useHead(() => ({
-  title: 'Solutions digitales – Batina Media',
+  title: t('solutions.seo.title'),
   meta: [
-    {
-      name: 'description',
-      content:
-        'Ingénierie des contenus et des données, plateformes et outils digitaux, livres, ressources et dérivés : découvrez les solutions proposées par Batina Media autour de vos savoirs.'
-    },
-    {
-      property: 'og:title',
-      content: 'Solutions digitales – Batina Media'
-    },
-    {
-      property: 'og:description',
-      content:
-        'Des systèmes complets autour de vos contenus : modélisation des données, plateformes, supports pédagogiques, dérivés imprimés et numériques.'
-    }
+    { name: 'description', content: t('solutions.seo.description') },
+    { property: 'og:title', content: t('solutions.seo.title') },
+    { property: 'og:description', content: t('solutions.seo.description') }
   ]
 }))
 </script>
 
 <style scoped>
-/* Layout général */
-.solutions-hero {
-  max-width: 56rem;
+/* Hero: même esprit que Home/Studio */
+.solutions-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+  gap: var(--bm-space-xl);
+  align-items: start;
+}
+@media (max-width: 980px) {
+  .solutions-hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.solutions-hero-subtitle {
+  max-width: 46rem;
 }
 
-/* Grilles et cartes */
+/* Aside list */
+.solutions-hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.95rem;
+}
+.solutions-hero-list-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bm-color-text-muted);
+}
+
+/* Cards grids (responsive premium) */
 .solutions-grid {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--bm-space-lg);
 }
 
-.solutions-card {
-  border-radius: 1.25rem;
-  padding: var(--bm-space-lg);
-  border: 1px solid var(--bm-border-subtle);
-  background: var(--bm-surface-elevated);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-}
-
-/* Listes */
+/* Lists in cards */
 .solutions-list {
-  margin: var(--bm-space-sm) 0 0;
-  padding-left: 1.2rem;
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
   display: grid;
-  gap: 0.4rem;
-  font-size: 0.95rem;
+  gap: 0.35rem;
+  line-height: 1.45;
+  color: var(--bm-color-text-soft);
 }
 
-.solutions-list li {
-  color: var(--bm-text-soft);
-}
-
-/* Steps / pipeline */
+/* Steps (calqué sur Pipeline / Studio) */
 .solutions-steps {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
   display: grid;
-  gap: var(--bm-space-md);
+  gap: 1rem;
 }
 
 .solutions-step {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--bm-space-md);
+  display: flex;
   align-items: flex-start;
-  border-radius: 1rem;
-  background: var(--bm-surface-elevated);
+  gap: 0.9rem;
 }
 
 .solutions-step-index {
-  width: 2.5rem;
-  height: 2.5rem;
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 999px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 0.9rem;
-  background: radial-gradient(circle at 0 0, var(--bm-color-primary-soft), transparent 60%);
-  color: var(--bm-text-strong);
-  border: 1px solid var(--bm-border-subtle);
-  margin-top: 0.1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: rgba(148, 163, 184, 0.22);
+  color: var(--bm-color-text-soft);
+  margin-top: 0.15rem;
 }
 
-.solutions-step-body .bm-card-subtitle {
-  margin-top: 0.25rem;
+:global(:root[data-theme="light"]) .solutions-step-index {
+  background: rgba(15, 23, 42, 0.06);
+  color: rgba(15, 23, 42, 0.72);
 }
 
-/* Use cases */
-.usecases-grid .solutions-card {
-  min-height: 100%;
+.solutions-step-body {
+  flex: 1 1 auto;
+  display: grid;
+  gap: 0.35rem;
 }
 
-/* CTA */
+/* CTA layout */
 .solutions-cta-card {
   max-width: 56rem;
   margin: 0 auto;
@@ -384,10 +457,10 @@ useHead(() => ({
 .solutions-cta-content {
   display: flex;
   flex-direction: column;
-  gap: var(--bm-space-md);
+  gap: var(--bm-space-lg);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 860px) {
   .solutions-cta-content {
     flex-direction: row;
     align-items: center;

@@ -1,60 +1,54 @@
 // server/api/auth/register.post.js
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import { getDb } from "../../utils/db";
-import { sendVerificationEmail } from "../../utils/mailer";
+// Uses `bcrypt` (native) because it's already in package.json.
+// If you prefer a pure-JS implementation, install `bcryptjs` and switch the import.
+import * as bcrypt from 'bcrypt'
+import { getDb } from '../../utils/db'
+import { createUserToken } from '../../utils/userTokens'
+import { sendVerificationEmail } from '../../utils/mailer'
+import { createSessionToken, setSessionCookie } from '../../utils/authSession'
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
-  const { username, email, password } = body || {};
+  const body = await readBody(event)
+  const email = String(body?.email || '').trim().toLowerCase()
+  const password = String(body?.password || '')
+  const name = String(body?.name || '').trim()
 
-  if (!username || !email || !password) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: "username, email et password sont requis.",
-    });
+  if (!email || !password) {
+    throw createError({ statusCode: 400, statusMessage: 'Email et mot de passe requis.' })
   }
 
-  const db = await getDb(event);
+  const db = await getDb()
 
-  // Vérifier si l'utilisateur existe déjà
-  const [existing] = await db.execute(
-    "SELECT id FROM users WHERE email = ? OR username = ? LIMIT 1",
-    [email, username]
-  );
-
-  if (existing.length > 0) {
-    throw createError({
-      statusCode: 409,
-      statusMessage: "Un utilisateur avec cet email ou ce nom existe déjà.",
-    });
+  const [existing] = await db.query('SELECT id FROM users WHERE email = ? LIMIT 1', [email])
+  if (existing.length) {
+    throw createError({ statusCode: 409, statusMessage: 'Cet email est déjà utilisé.' })
   }
 
-  const passwordHash = await bcrypt.hash(password, 10);
-  const now = new Date();
+  const passwordHash = await bcrypt.hash(password, 10)
 
-  const [result] = await db.execute(
-    "INSERT INTO users (username, email, password, image, date) VALUES (?, ?, ?, ?, ?)",
-    [username, email, passwordHash, null, now]
-  );
+  const [res] = await db.query(
+    `INSERT INTO users (email, password_hash, display_name, created_at)
+     VALUES (?, ?, ?, NOW())`,
+    [email, passwordHash, name || null]
+  )
 
-  const userId = result.insertId;
-  const config = useRuntimeConfig();
+  const userId = res.insertId
 
-  // Token pour vérification email
-  const emailToken = jwt.sign(
-    {
-      sub: userId,
-      type: "email_verify",
-    },
-    config.jwtEmailSecret,
-    { expiresIn: "2d" }
-  );
+  // token email verification
+  const token = await createUserToken(db, {
+    userId,
+    tokenType: 'email_verify',
+    ttlMinutes: 60 * 24 * 3 // 3 jours
+  })
 
-  await sendVerificationEmail(email, emailToken, config);
+  await sendVerificationEmail({
+    to: email,
+    verifyUrl: `${process.env.PUBLIC_BASE_URL || 'http://localhost:3000'}/verify-email?token=${encodeURIComponent(token)}`
+  })
 
-  return {
-    success: true,
-    message: "Compte créé. Vérifiez votre e-mail pour activer votre compte.",
-  };
-});
+  // auto-login (optional) -> session cookie
+  const session = await createSessionToken({ userId, email, roles: [] })
+  setSessionCookie(event, session)
+
+  return { ok: true, user: { id: userId, email, displayName: name || null, emailVerified: false } }
+})

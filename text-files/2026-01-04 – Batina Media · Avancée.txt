@@ -301,12 +301,3 @@ Madizi = app d’annonces nécrologiques (fam/pro), multilingue (FR, EN, ES, PT)
 
 Importance des futurs dérivés (apps Android, desktop, etc.) au-delà du simple web.
 
-Si tu veux, demain on pourra :
-
-brancher un vrai POST /api/contact (avec rate limiting léger),
-
-commencer une petite zone « admin/seed » pour les projets,
-
-ou attaquer l’internationalisation de l’UI (switch de langue visible, etc.).
-
-Dors bien, le studio avance 💻✨

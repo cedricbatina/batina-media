@@ -1,0 +1,111 @@
+Journal de dev — Home (index.vue) : spacing + animations + réglage “premium”
+Objectif
+
+Corriger le rythme vertical desktop (trop d’espace entre sections / headers / contenus).
+
+Corriger l’effet inverse de bloc “trop dense / confiné” dans le HERO (surtout la zone “En pratique”).
+
+Stabiliser le système pour éviter les “patchs cumulés” (overrides CSS qui se contredisent).
+
+Ajouter des animations “reveal” propres, accessibles (prefers-reduced-motion) et non-invasives.
+
+Problèmes diagnostiqués
+
+Trop d’espace (desktop)
+
+Cause principale : accumulation d’overrides dans index.vue (scoped) sur des primitives globales :
+
+.bm-section, .bm-stack-lg, .bm-stack-sm, .bm-stack-page, marges/spacing additionnels, parfois dupliqués.
+
+Résultat : “double effet” (padding section + gap parent + margin-top manuels) → sections trop éloignées.
+
+Trop dense (HERO / “En pratique…”)
+
+Cause principale : reset trop agressif dans index.vue :
+
+:is(p, h1, h2, h3, h4, ul, ol) { margin: 0; }
+
+Résultat : disparition de la respiration interne (paragraphes, listes, items).
+
+Incohérences
+
+Styles dupliqués (mêmes blocs CSS répétés), rendant la cascade difficile à raisonner.
+
+Ajustements “au cas par cas” qui masquaient le vrai conflit entre global + scoped.
+
+Décision d’architecture CSS
+
+Source de vérité :
+
+Rythme global du site (sections + stacks) = main.css
+
+Home scoped = uniquement styles spécifiques Home (hero grid, listes, reveal, micro-interactions).
+
+Objectif : ne plus “redéfinir” des primitives globales dans les pages, sinon on retombe dans les conflits.
+
+Changements appliqués
+1) main.css — Rythme “premium” stabilisé
+
+Ajustement des tokens de rythme :
+
+.bm-section → padding vertical “premium” (moins long que 3–4rem, mais respirant).
+
+.bm-stack-lg → gap réduit, cohérent.
+
+.bm-stack-sm → gap légèrement augmenté vs trop serré, pour garder de la qualité visuelle.
+
+Résultat : suppression des “trous” entre sections et meilleure cohérence desktop/mobile.
+
+2) index.vue — Nettoyage CSS scoped (suppression des conflits)
+
+Suppression des overrides sur :
+
+.bm-section, .bm-stack-lg, .bm-stack-sm, .bm-stack-page (et variantes)
+
+Suppression des duplications (blocs répétés, règles redondantes).
+
+Suppression du reset agressif qui cassait la respiration interne :
+
+suppression de :is(p, h1, h2, h3, h4, ul, ol){ margin:0 }
+
+3) index.vue — Fix ciblé de la zone “En pratique” (HERO aside)
+
+Ajout d’un rythme interne clair dans l’aside :
+
+espacement entre header de carte et liste
+
+home-hero-list en grid + gap
+
+espacement label/texte par item
+
+label stylé (uppercase, letter-spacing) + couleur muted
+
+Résultat : la zone n’est plus “collée”, tout en restant premium.
+
+4) Animations “reveal”
+
+Mise en place d’un reveal au scroll via .js-reveal + IntersectionObserver.
+
+Respect de prefers-reduced-motion :
+
+si activé → éléments directement révélés, pas d’animation.
+
+Micro-interaction hover :
+
+.bm-ease → lift léger, désactivé sur devices sans hover.
+
+Résultat final
+
+Desktop : sections et headers beaucoup plus cohérents, plus de “grands vides” irréguliers.
+
+Hero : le bloc “En pratique / Produits & plateformes / …” retrouve une respiration premium (lisibilité + hiérarchie).
+
+Maintenabilité : fin des conflits global vs scoped. Les pages ne redéfinissent plus les primitives de layout.
+
+Points d’attention pour la suite
+
+Éviter de toucher à .bm-section / .bm-stack-* dans les pages.
+
+Si une page a un besoin spécial : créer une classe locale (ex: .home-section-tight) plutôt que d’overrider la primitive globale.
+
+Toujours vérifier qu’on n’a pas de CSS dupliqué (copier-coller) avant d’ajouter un nouveau patch.

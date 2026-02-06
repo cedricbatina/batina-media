@@ -1,0 +1,152 @@
+Récapitulatif — ce qu’on a fait
+1) Page Projets
+
+Création / branchement de l’API GET /api/projects qui retourne :
+
+projets (projects)
+
+i18n par locale (project_i18n)
+
+tags (tags + project_tags)
+
+links (project_links)
+
+derivatives (project_derivatives)
+
+Correction du bug Nitro/Rollup : tu importais db en default alors que ton server/utils/db.js exporte getDb().
+
+Correction UI Nuxt/Vue : crash Cannot read properties of undefined (reading 'url') → rendu des liens sécurisé (project.links || [] + checks link && link.url).
+
+Résolution de l’erreur DB : Table ... projects doesn't exist → on a pointé le vrai problème : mauvaise base/DB schema visé côté config runtime (tu étais sur une DB “lingala” au lieu de “batina-media”).
+
+2) Base de données Batina Media
+
+On a conçu une structure extensible (pas “1 seule table”) : projets + i18n + tags + liens + dérivés (et plus tard d’autres types).
+
+On a rempli/inséré des données (au moins pour afficher les projets).
+
+3) Page Studio
+
+Construction de studio.vue en sections (hero + cards + méthode + tech + collaborations).
+
+Problème récurrent : les espacements/cards se “cassent” à cause du CSS global (main.css / tokens / composants).
+→ Diagnostic : ce n’est pas la page qui doit s’adapter au main.css, donc il faut un contrat clair “bm-card / bm-section / bm-grid” au niveau design system (voir TODO).
+
+4) Page Contact
+
+Mise en place du contenu i18n FR (beaucoup de clés) + correction des clés manquantes.
+
+Bug i18n critique : @ dans fr.json déclenche l’erreur “linked format”.
+
+Fix conceptuel : ne jamais mettre un email brut dans un message i18n si le compiler le traite comme syntaxe.
+
+Solution propre adoptée : split email emailUser + emailDomain et construire l’affichage côté Vue.
+
+Problème UI : texte des <select> invisible (blanc sur blanc) → à fixer côté style/form tokens.
+
+5) Back contact : DB + email admin
+
+Tu as déjà un server/utils/mailer.js (nodemailer + sendVerificationEmail).
+
+Plan validé : on réutilise ce mailer (pas de nouveau fichier), on ajoute sendContactEmail() et on crée/branche POST /api/contact :
+
+insert dans contact_messages
+
+email notification admin (reply-to = email utilisateur)
+
+logo possible via URL publique (/images/logo-batina-media.png)
+
+TODO list (priorisée)
+P0 — Bloquants / stabilité
+
+Fix routing warnings
+
+/contact “No match found” → vérifier : route Nuxt = pages/contact.vue existe bien + liens nav OK.
+
+/site.webmanifest warning → soit ajouter public/site.webmanifest, soit retirer la référence si inutile.
+
+Fix config DB runtime
+
+Confirmer que useRuntimeConfig().mysqlDatabase pointe sur batina-media (pas lingala).
+
+Vérifier .env / nuxt.config (runtimeConfig public/private).
+
+Stabiliser le design system (cards/grids)
+
+Définir une règle unique :
+
+bm-section = padding horizontal/vertical
+
+bm-grid = gap cohérent
+
+bm-card = padding + radius + background + shadow
+
+Aujourd’hui on perd du temps parce que main.css override / reset trop agressif.
+
+P1 — Contact end-to-end (fonctionnel + propre)
+
+Créer POST /api/contact
+
+Validation min (name/email/message)
+
+Insert DB contact_messages
+
+sendContactEmail()
+
+Étendre server/utils/mailer.js
+
+Ajouter sendContactEmail(payload, config)
+
+Support logo via URL publique (pas chemin local)
+
+Définir config.contactTo (dest admin)
+
+Fix UI select
+
+select option visible (couleur texte, background, focus)
+
+S’assurer que les placeholders et options sont bien en i18n
+
+P2 — i18n complet (EN / PT / ES)
+
+Générer en.json, pt.json, es.json
+
+Vérifier compilation unplugin-vue-i18n (pas de caractères spéciaux interprétés)
+
+Harmoniser toutes les clés présentes (home, projects, studio, contact, pagination)
+
+P3 — Projets “pro” + pagination
+
+Pagination réelle
+
+Backend : ajouter page, pageSize, total
+
+Front : brancher ton composant Pagination.vue + corriger son CSS manquant (actuellement tu n’as même pas <style> complet).
+
+Cards projets (vraies fiches)
+
+Layout : image/thumbnail optionnelle, status badge, tags, CTA
+
+Responsive : grid propre, spacing stable
+
+P4 — Pages restantes
+
+Page Studio (finition)
+
+Cards cohérentes avec la hero card
+
+Espacement vertical + sections respirantes
+
+Page Contact (finition)
+
+UX : état succès, reset form optionnel, message post-envoi
+
+Accessibilité : labels, aria, erreurs
+
+Prochaine action (concrète, sans débat)
+
+Si on veut avancer vite et sans re-casser l’UI :
+P0.3 d’abord : on fige le comportement bm-card / bm-grid dans le design system.
+Sinon, chaque page va continuer à “se battre” contre main.css.
+
+Si tu me colles le contenu actuel de main.css (les parties bm-card, bm-grid, resets global), je te donne un patch minimal “design contract” qui ne casse pas les autres pages.

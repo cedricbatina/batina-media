@@ -1,46 +1,30 @@
 // server/api/auth/verify-email.get.js
-import jwt from "jsonwebtoken";
-import { getDb } from "../../utils/db";
+import { createError, getQuery } from 'h3'
+import { getDb } from '../../utils/db'
+import { consumeUserToken } from '../../utils/userTokens'
 
 export default defineEventHandler(async (event) => {
-  const query = getQuery(event);
-  const token = query.token;
+  const db = await getDb()
+  const q = getQuery(event)
+  const token = typeof q.token === 'string' ? q.token : ''
 
   if (!token) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: "Token de vérification manquant.",
-    });
+    throw createError({ statusCode: 400, statusMessage: 'Missing token' })
   }
 
-  const config = useRuntimeConfig();
-  let payload;
+  const userId = await consumeUserToken({
+    token,
+    tokenType: 'email_verify'
+  })
 
-  try {
-    payload = jwt.verify(token, config.jwtEmailSecret);
-  } catch {
-    throw createError({
-      statusCode: 400,
-      statusMessage: "Token invalide ou expiré.",
-    });
+  if (!userId) {
+    throw createError({ statusCode: 400, statusMessage: 'Invalid or expired token' })
   }
 
-  if (payload.type !== "email_verify") {
-    throw createError({
-      statusCode: 400,
-      statusMessage: "Type de token invalide.",
-    });
-  }
+  await db.execute(
+    'UPDATE users SET email_verified_at = COALESCE(email_verified_at, NOW()) WHERE id = ?',
+    [userId]
+  )
 
-  const db = await getDb(event);
-  await db.execute("UPDATE users SET email_verified = 1 WHERE id = ?", [
-    payload.sub,
-  ]);
-
-  // Tu peux soit renvoyer du JSON, soit rediriger vers /login
-  // Ici: simple JSON, le front gèrera l'UX
-  return {
-    success: true,
-    message: "Adresse e-mail vérifiée. Vous pouvez maintenant vous connecter.",
-  };
-});
+  return { ok: true }
+})

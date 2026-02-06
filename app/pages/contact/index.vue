@@ -1,73 +1,72 @@
 <template>
-  <div class="bm-stack-lg">
+  <div class="bm-stack-page contact-page">
     <!-- HERO -->
-    <section
-      class="bm-section contact-hero"
-      aria-labelledby="contact-hero-title"
-    >
-      <div class="contact-hero-inner">
-        <div class="bm-stack-sm">
-          <p class="bm-pill bm-pill-muted">
+    <section class="bm-section contact-hero" aria-labelledby="contact-hero-title">
+      <div class="contact-hero-grid">
+        <div class="contact-hero-main bm-stack-sm">
+          <span class="bm-pill bm-pill-soft bm-reveal" style="animation-delay: 0ms">
             {{ t('contact.hero.label') }}
-          </p>
+          </span>
 
-          <h1 id="contact-hero-title" class="bm-heading-1">
+          <h1
+            id="contact-hero-title"
+            class="bm-heading-hero bm-title-hero bm-reveal"
+            style="animation-delay: 60ms"
+          >
             {{ t('contact.hero.title') }}
           </h1>
 
-          <p class="bm-text-soft contact-hero-subtitle">
+          <p class="bm-text-soft contact-hero-subtitle bm-reveal" style="animation-delay: 120ms">
             {{ t('contact.hero.subtitle') }}
           </p>
         </div>
 
-        <!-- Bloc résumé / coordonnées -->
-        <aside class="bm-card bm-card-compact contact-hero-aside">
-          <h2 class="bm-card-title">
-            {{ t('contact.hero.aside.title') }}
-          </h2>
-          <p class="bm-card-subtitle bm-text-soft">
-            {{ t('contact.hero.aside.body') }}
-          </p>
+        <!-- Aside -->
+        <aside class="bm-card bm-card-compact bm-ease js-reveal contact-hero-aside" aria-label="Contact overview">
+          <div class="bm-card-header">
+            <div class="bm-stack-sm" style="gap: 0.5rem">
+              <p class="bm-pill bm-pill-muted">
+                {{ t('contact.hero.aside.title') }}
+              </p>
+              <p class="bm-card-title bm-title-h3">
+                {{ t('contact.hero.aside.body') }}
+              </p>
+            </div>
+          </div>
 
-          <div class="contact-hero-meta">
-            <p class="bm-text-soft">
-              <span class="contact-meta-label">
+          <ul class="contact-hero-list">
+            <li class="contact-hero-stat">
+              <span class="contact-hero-stat-label">
                 {{ t('contact.hero.aside.emailLabel') }}
               </span>
-             <a
-  class="contact-meta-link"
-  :href="`mailto:${emailAddress}`"
->
-  {{ emailAddress }}
-</a>
+              <a class="contact-hero-stat-link" :href="`mailto:${emailAddress}`">
+                {{ emailAddress }}
+              </a>
+            </li>
 
-            </p>
-            <p class="bm-text-soft">
-              <span class="contact-meta-label">
+            <li class="contact-hero-stat">
+              <span class="contact-hero-stat-label">
                 {{ t('contact.hero.aside.responseTimeLabel') }}
               </span>
-              <span>
+              <span class="contact-hero-stat-value">
                 {{ t('contact.hero.aside.responseTime') }}
               </span>
-            </p>
-          </div>
+            </li>
+          </ul>
         </aside>
       </div>
     </section>
 
-    <!-- FORMULAIRE + INFOS -->
-    <section
-      class="bm-section contact-main"
-      aria-labelledby="contact-form-title"
-    >
-      <div class="contact-layout">
-        <!-- FORMULAIRE -->
-        <article class="bm-card bm-card-compact contact-card contact-card-form">
-          <header class="contact-card-header">
-            <h2 id="contact-form-title" class="bm-card-title">
+    <!-- FORM + SIDEBAR -->
+    <section class="bm-section contact-main" aria-labelledby="contact-form-title">
+      <div class="contact-grid">
+        <!-- Form -->
+        <article class="bm-card bm-card-compact bm-ease js-reveal contact-card contact-card-form">
+          <header class="contact-card-header bm-stack-sm">
+            <h2 id="contact-form-title" class="bm-card-title bm-title-h3">
               {{ t('contact.form.title') }}
             </h2>
-            <p class="bm-card-subtitle bm-text-soft">
+            <p class="bm-card-subtitle">
               {{ t('contact.form.subtitle') }}
             </p>
           </header>
@@ -82,7 +81,7 @@
                 id="contact-name"
                 v-model="form.name"
                 type="text"
-                class="contact-input"
+                class="bm-input"
                 :placeholder="t('contact.form.fields.name.placeholder')"
                 autocomplete="name"
               />
@@ -100,7 +99,7 @@
                 id="contact-email"
                 v-model="form.email"
                 type="email"
-                class="contact-input"
+                class="bm-input"
                 :placeholder="t('contact.form.fields.email.placeholder')"
                 autocomplete="email"
               />
@@ -109,7 +108,7 @@
               </p>
             </div>
 
-            <!-- Organisation / projet -->
+            <!-- Organisation -->
             <div class="contact-field">
               <label class="contact-label" for="contact-org">
                 {{ t('contact.form.fields.org.label') }}
@@ -118,7 +117,7 @@
                 id="contact-org"
                 v-model="form.org"
                 type="text"
-                class="contact-input"
+                class="bm-input"
                 :placeholder="t('contact.form.fields.org.placeholder')"
               />
             </div>
@@ -128,11 +127,7 @@
               <label class="contact-label" for="contact-type">
                 {{ t('contact.form.fields.projectType.label') }}
               </label>
-              <select
-                id="contact-type"
-                v-model="form.projectType"
-                class="contact-select"
-              >
+              <select id="contact-type" v-model="form.projectType" class="bm-select">
                 <option value="">
                   {{ t('contact.form.fields.projectType.placeholder') }}
                 </option>
@@ -154,7 +149,7 @@
               </select>
             </div>
 
-            <!-- Budget / cadre -->
+            <!-- Budget / timeline -->
             <div class="contact-field contact-field-inline">
               <div class="contact-field-half">
                 <label class="contact-label" for="contact-budget">
@@ -164,7 +159,7 @@
                   id="contact-budget"
                   v-model="form.budget"
                   type="text"
-                  class="contact-input"
+                  class="bm-input"
                   :placeholder="t('contact.form.fields.budget.placeholder')"
                 />
               </div>
@@ -177,7 +172,7 @@
                   id="contact-timeline"
                   v-model="form.timeline"
                   type="text"
-                  class="contact-input"
+                  class="bm-input"
                   :placeholder="t('contact.form.fields.timeline.placeholder')"
                 />
               </div>
@@ -192,7 +187,7 @@
                 id="contact-message"
                 v-model="form.message"
                 rows="6"
-                class="contact-textarea"
+                class="bm-textarea"
                 :placeholder="t('contact.form.fields.message.placeholder')"
               ></textarea>
               <p v-if="errors.message" class="contact-error">
@@ -200,19 +195,11 @@
               </p>
             </div>
 
-            <!-- Footer formulaire -->
+            <!-- Footer -->
             <div class="contact-form-footer">
-              <button
-                type="submit"
-                class="bm-btn bm-btn-primary"
-                :disabled="submitting"
-              >
-                <span v-if="!submitting">
-                  {{ t('contact.form.actions.submit') }}
-                </span>
-                <span v-else>
-                  {{ t('contact.form.actions.submitting') }}
-                </span>
+              <button type="submit" class="bm-btn bm-btn-primary bm-ease" :disabled="submitting">
+                <span v-if="!submitting">{{ t('contact.form.actions.submit') }}</span>
+                <span v-else>{{ t('contact.form.actions.submitting') }}</span>
               </button>
 
               <p v-if="submitState === 'success'" class="contact-success">
@@ -228,33 +215,29 @@
           </form>
         </article>
 
-        <!-- Infos complémentaires / types de collaborations -->
+        <!-- Sidebar -->
         <aside class="contact-sidebar">
-          <article class="bm-card bm-card-compact contact-card">
-            <h2 class="bm-card-title">
+          <article class="bm-card bm-card-compact bm-ease js-reveal contact-card">
+            <h2 class="bm-card-title bm-title-h3">
               {{ t('contact.info.projects.title') }}
             </h2>
-            <p class="bm-card-subtitle bm-text-soft">
+            <p class="bm-card-subtitle">
               {{ t('contact.info.projects.body') }}
             </p>
             <ul class="contact-list">
-              <li v-for="item in projectInfoItems" :key="item">
-                {{ item }}
-              </li>
+              <li v-for="item in projectInfoItems" :key="item">{{ item }}</li>
             </ul>
           </article>
 
-          <article class="bm-card bm-card-compact contact-card">
-            <h2 class="bm-card-title">
+          <article class="bm-card bm-card-compact bm-ease js-reveal contact-card">
+            <h2 class="bm-card-title bm-title-h3">
               {{ t('contact.info.process.title') }}
             </h2>
-            <p class="bm-card-subtitle bm-text-soft">
+            <p class="bm-card-subtitle">
               {{ t('contact.info.process.body') }}
             </p>
             <ul class="contact-list">
-              <li v-for="item in processItems" :key="item">
-                {{ item }}
-              </li>
+              <li v-for="item in processItems" :key="item">{{ item }}</li>
             </ul>
           </article>
         </aside>
@@ -268,12 +251,12 @@ import { reactive, ref, computed } from 'vue'
 import { useHead } from '#imports'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
 const emailUser = computed(() => t('contact.hero.aside.emailUser'))
 const emailDomain = computed(() => t('contact.hero.aside.emailDomain'))
 const emailAddress = computed(() => `${emailUser.value}@${emailDomain.value}`)
 
-// Modèle du formulaire
 const form = reactive({
   name: '',
   email: '',
@@ -284,12 +267,7 @@ const form = reactive({
   message: ''
 })
 
-const errors = reactive({
-  name: '',
-  email: '',
-  message: ''
-})
-
+const errors = reactive({ name: '', email: '', message: '' })
 const submitting = ref(false)
 const submitState = ref('idle') // 'idle' | 'success' | 'error'
 
@@ -298,9 +276,7 @@ function validate () {
   errors.email = ''
   errors.message = ''
 
-  if (!form.name.trim()) {
-    errors.name = t('contact.form.validation.nameRequired')
-  }
+  if (!form.name.trim()) errors.name = t('contact.form.validation.nameRequired')
 
   if (!form.email.trim()) {
     errors.email = t('contact.form.validation.emailRequired')
@@ -308,28 +284,30 @@ function validate () {
     errors.email = t('contact.form.validation.emailInvalid')
   }
 
-  if (!form.message.trim()) {
-    errors.message = t('contact.form.validation.messageRequired')
-  }
+  if (!form.message.trim()) errors.message = t('contact.form.validation.messageRequired')
 
   return !errors.name && !errors.email && !errors.message
 }
 
 async function onSubmit () {
   submitState.value = 'idle'
-
-  if (!validate()) {
-    return
-  }
+  if (!validate()) return
 
   submitting.value = true
-
   try {
-    // Ici tu pourras brancher une vraie API plus tard :
-    // await $fetch('/api/contact', { method: 'POST', body: form })
-
-    // Pour l’instant on simule juste un envoi réussi
-    await new Promise(resolve => setTimeout(resolve, 600))
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: {
+        name: form.name,
+        email: form.email,
+        org: form.org,
+        projectType: form.projectType,
+        budget: form.budget,
+        timeline: form.timeline,
+        message: form.message,
+        locale: locale.value
+      }
+    })
     submitState.value = 'success'
   } catch (e) {
     console.error(e)
@@ -339,9 +317,6 @@ async function onSubmit () {
   }
 }
 
-/**
- * Listes d’infos à droite – on laisse le texte dans l’i18n
- */
 const projectInfoItems = computed(() => [
   t('contact.info.projects.items.0'),
   t('contact.info.projects.items.1'),
@@ -354,216 +329,166 @@ const processItems = computed(() => [
   t('contact.info.process.items.2')
 ].filter(Boolean))
 
-/**
- * SEO page contact
- */
 useHead(() => ({
   title: t('contact.seo.title'),
   meta: [
-    {
-      name: 'description',
-      content: t('contact.seo.description')
-    },
-    {
-      property: 'og:title',
-      content: t('contact.seo.title')
-    },
-    {
-      property: 'og:description',
-      content: t('contact.seo.description')
-    }
+    { name: 'description', content: t('contact.seo.description') },
+    { property: 'og:title', content: t('contact.seo.title') },
+    { property: 'og:description', content: t('contact.seo.description') }
   ]
 }))
 </script>
 
 <style scoped>
-/* HERO */
+/* Hero rhythm */
 .contact-hero {
-  padding-top: 4rem;
+  padding-top: 2.6rem;
+}
+@media (min-width: 980px) {
+  .contact-hero {
+    padding-top: 3rem;
+  }
 }
 
-.contact-hero-inner {
+.contact-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.5fr);
-  gap: 2.5rem;
-  align-items: flex-start;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+  gap: var(--bm-space-xl);
+  align-items: start;
+}
+@media (max-width: 980px) {
+  .contact-hero-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-hero-subtitle {
-  max-width: 44rem;
+  max-width: 50rem;
 }
 
-.contact-hero-aside {
-  align-self: stretch;
+.contact-hero-aside .bm-card-header {
+  margin-bottom: 0.9rem;
 }
 
-.contact-hero-meta {
-  margin-top: 1.25rem;
+/* Aside stats (compact, lisible) */
+.contact-hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: grid;
-  gap: 0.35rem;
+  gap: 0.55rem;
 }
-
-.contact-meta-label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
+.contact-hero-stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--bm-color-border-subtle) 70%, transparent);
+  flex-wrap: wrap;
+}
+.contact-hero-stat:last-child {
+  border-bottom: none;
+}
+.contact-hero-stat-label {
+  font-size: 0.82rem;
   letter-spacing: 0.08em;
-  display: inline-block;
-  margin-right: 0.35rem;
-  opacity: 0.9;
+  text-transform: uppercase;
+  color: var(--bm-color-text-muted);
+  line-height: 1.2;
 }
-
-.contact-meta-link {
+.contact-hero-stat-value {
+  font-size: 0.98rem;
+  font-weight: 650;
+  color: var(--bm-color-text-strong);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.contact-hero-stat-link {
+  font-size: 0.98rem;
+  font-weight: 650;
+  color: var(--bm-color-text-strong);
   text-decoration: none;
-  border-bottom: 1px solid rgba(248, 250, 252, 0.24);
+  border-bottom: 1px solid color-mix(in srgb, var(--bm-color-border-subtle) 80%, transparent);
+  word-break: break-word;
+}
+.contact-hero-stat-link:hover {
+  border-bottom-color: color-mix(in srgb, var(--bm-color-primary) 45%, transparent);
 }
 
-.contact-meta-link:hover {
-  border-bottom-color: rgba(248, 250, 252, 0.6);
-}
-
-/* LAYOUT PRINCIPAL */
-.contact-main {
-  padding-top: 2rem;
-}
-
-.contact-layout {
+/* Main grid */
+.contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-  gap: 2.75rem;
-  align-items: flex-start;
+  gap: var(--bm-space-2xl);
+  align-items: start;
 }
-
-.contact-card {
-  height: 100%;
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-card-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
-/* FORMULAIRE */
+/* Form */
 .contact-form {
   display: grid;
-  gap: 1.2rem;
+  gap: 1.05rem;
 }
-
 .contact-field {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
-
 .contact-field-inline {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
-
-.contact-field-half {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+@media (max-width: 900px) {
+  .contact-field-inline {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-label {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  opacity: 0.9;
+  color: var(--bm-color-text-muted);
 }
 
-.contact-input,
-.contact-select,
-.contact-textarea {
-  width: 100%;
-  border-radius: 0.55rem;
-  border: 1px solid var(--bm-border-subtle);
-  background: var(--bm-surface-subtle);
-  padding: 0.65rem 0.8rem;
-  color: var(--bm-text-main); /* <--- important : texte clair lisible */
-  font: inherit;
-}
-
-/* Spécifique au select : dropdown lisible en thème sombre */
-.contact-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-/* Couleurs des options dans la liste déroulante */
-.contact-select option {
-  background-color: var(--bm-surface-elevated);
-  color: var(--bm-text-main);
-}
-
-
-.contact-input:focus,
-.contact-select:focus,
-.contact-textarea:focus {
-  outline: none;
-  border-color: var(--bm-color-accent-soft);
-  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
-}
-
-.contact-textarea {
-  resize: vertical;
-  min-height: 7rem;
-}
-
+/* Feedback */
 .contact-error {
-  font-size: 0.8rem;
-  color: #fecaca; /* rouge doux sur fond dark */
+  font-size: 0.82rem;
+  color: #fecaca;
 }
-
 .contact-success {
   font-size: 0.85rem;
-  color: #bbf7d0; /* vert doux */
-}
-
-.contact-hint {
-  font-size: 0.8rem;
+  color: #bbf7d0;
 }
 
 .contact-form-footer {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1.25rem;
 }
 
-/* SIDEBAR */
 .contact-sidebar {
   display: grid;
-  gap: 1.75rem;
+  gap: var(--bm-space-xl);
 }
 
 .contact-list {
-  margin-top: 0.75rem;
+  margin: 0.75rem 0 0;
   padding-left: 1.15rem;
   display: grid;
   gap: 0.35rem;
-  font-size: 0.95rem;
+  line-height: 1.45;
 }
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .contact-hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .contact-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .contact-field-inline {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-.contact-select option {
-  color: #0f172a;        /* texte foncé */
-  background: #f9fafb;   /* fond clair */
-}
-
 </style>

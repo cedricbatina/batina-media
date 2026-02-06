@@ -1,46 +1,56 @@
 // server/utils/authSession.js
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken'
+import { getCookie, setCookie, deleteCookie, getHeader } from 'h3'
 
-const COOKIE_NAME = "bm_session";
+const DEFAULT_COOKIE = 'bm_session'
 
-export function createSessionToken(user, jwtSecret) {
-  // user = { id, email, username, role }
-  return jwt.sign(
-    {
-      sub: user.id,
-      email: user.email,
-      username: user.username,
-      role: user.role || "user",
-    },
-    jwtSecret,
-    { expiresIn: "7d" }
-  );
+export function createSessionToken(payload, jwtSecret, opts = {}) {
+  const expiresIn = opts.expiresIn || '7d'
+  return jwt.sign(payload, jwtSecret, { expiresIn })
 }
 
-export function setSessionCookie(event, token) {
-  const isProd = process.env.NODE_ENV === "production";
+export function setSessionCookie(event, token, opts = {}) {
+  const cookieName = opts.cookieName || DEFAULT_COOKIE
+  const maxAgeDays = Number(opts.maxAgeDays || 7)
 
-  setCookie(event, COOKIE_NAME, token, {
+  setCookie(event, cookieName, token, {
     httpOnly: true,
-    secure: isProd,
-    sameSite: "lax",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 7, // 7 jours
-  });
+    secure: true,
+    sameSite: 'lax',
+    path: '/',
+    maxAge: maxAgeDays * 24 * 60 * 60
+  })
 }
 
-export function clearSessionCookie(event) {
-  deleteCookie(event, COOKIE_NAME, { path: "/" });
+export function clearSessionCookie(event, opts = {}) {
+  const cookieName = opts.cookieName || DEFAULT_COOKIE
+  deleteCookie(event, cookieName, { path: '/' })
 }
 
-export function readSessionFromCookie(event, jwtSecret) {
-  const token = getCookie(event, COOKIE_NAME);
-  if (!token) return null;
+export function readSessionFromCookie(event, jwtSecret, opts = {}) {
+  const cookieName = opts.cookieName || DEFAULT_COOKIE
+  const token = getCookie(event, cookieName)
+  if (!token) return null
 
   try {
-    const payload = jwt.verify(token, jwtSecret);
-    return payload;
+    return jwt.verify(token, jwtSecret)
   } catch {
-    return null;
+    return null
+  }
+}
+
+// ✅ attendu par server/api/auth/me.get.js
+export function getSessionFromEvent(event, jwtSecret, opts = {}) {
+  const fromCookie = readSessionFromCookie(event, jwtSecret, opts)
+  if (fromCookie) return fromCookie
+
+  const auth = getHeader(event, 'authorization') || ''
+  const m = auth.match(/^Bearer\s+(.+)$/i)
+  if (!m) return null
+
+  try {
+    return jwt.verify(m[1], jwtSecret)
+  } catch {
+    return null
   }
 }
