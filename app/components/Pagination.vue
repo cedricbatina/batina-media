@@ -24,6 +24,21 @@
               })
         }}
       </p>
+<div v-if="showSelect && totalPages > 1" class="app-pagination__quick">
+  <label class="app-pagination__quick-label">
+    <span class="app-pagination__quick-text">{{ t('pagination.gotoLabel') }}</span>
+    <select
+      class="app-pagination__quick-select"
+      :value="currentPage"
+      @change="goToPage(($event.target.value))"
+      :aria-label="t('pagination.gotoAria', { totalPages })"
+    >
+      <option v-for="n in totalPages" :key="n" :value="n">
+        {{ t('pagination.pageX', { n }) }}
+      </option>
+    </select>
+  </label>
+</div>
 
       <ul class="app-pagination__list">
         <!-- Bouton Précédent -->
@@ -36,9 +51,10 @@
             @click="goToPage(currentPage - 1)"
             :aria-label="labelPrevComputed"
           >
-            <span class="app-pagination__icon">
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>
-            </span>
+           <span class="app-pagination__icon" aria-hidden="true">
+  <Icon name="lucide:chevron-left" />
+</span>
+
             <span class="app-pagination__text">
               {{ labelPrevComputed }}
             </span>
@@ -68,7 +84,7 @@
             class="app-pagination__ellipsis"
             aria-hidden="true"
           >
-            …
+          
           </span>
         </li>
 
@@ -85,9 +101,10 @@
             <span class="app-pagination__text">
               {{ labelNextComputed }}
             </span>
-            <span class="app-pagination__icon">
-              <i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </span>
+            <span class="app-pagination__icon" aria-hidden="true">
+  <Icon name="lucide:chevron-right" />
+</span>
+
           </button>
         </li>
 
@@ -165,7 +182,9 @@ const props = defineProps({
   labelNext: {
     type: String,
     default: ''
-  }
+  },
+  showSelect: { type: Boolean, default: true },
+
 })
 
 const emit = defineEmits(['pageChange'])

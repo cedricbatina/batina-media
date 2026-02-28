@@ -230,20 +230,29 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bm-footer">
-      <div class="bm-footer-inner bm-page-inner">
-        <img
-          :src="logoSrc"
-          :alt="t('app.brand')"
-          class="bm-footer-logo"
-        
-          decoding="async"
-        />
-        <p class="bm-footer-meta">
-          © {{ new Date().getFullYear() }} · {{ t('layout.footer.tagline') }}
-        </p>
-      </div>
-    </footer>
+<footer class="bm-footer">
+  <div class="bm-footer-inner bm-page-inner">
+    <NuxtLink to="/" class="bm-footer-brand" :aria-label="t('app.brand')">
+      <img
+        :src="logoSrc"
+        :alt="t('app.brand')"
+        class="bm-footer-logo"
+        decoding="async"
+      />
+    </NuxtLink>
+
+    <p class="bm-footer-meta">
+      © {{ new Date().getFullYear() }} · {{ t('layout.footer.tagline') }}
+    </p>
+
+    <nav class="bm-footer-links" aria-label="Footer">
+      <NuxtLink to="/terms" class="bm-footer-link">Terms</NuxtLink>
+      <NuxtLink to="/privacy" class="bm-footer-link">Privacy</NuxtLink>
+      <NuxtLink to="/legal" class="bm-footer-link">Legal</NuxtLink>
+    </nav>
+  </div>
+</footer>
+
   </div>
 </template>
 
@@ -392,29 +401,6 @@ onBeforeUnmount(() => {
 
 /* Brand */
 
-.bm-brand {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  line-height: 0;
-  padding: 0.25rem 0;
-  flex: 0 0 auto;        /* évite que le logo se “compresse” */
-}
-
-.bm-brand__logo {
-  height: 80px;          /* même hauteur en light & dark */
-  width: auto;
-  max-width: none;       /* on contrôle par height */
-  max-height: none;
-  object-fit: contain;
-}
-
-/* Mobile drawer */
-.bm-brand__logo--mobile {
-  height: 50px;
-  width: auto;
-  max-width: none;
-}
 
 
 /* Header icon button (safe light/dark) */
@@ -587,4 +573,71 @@ onBeforeUnmount(() => {
 :global(:root[data-theme="light"]) .bm-btn-icon--header {
   color: var(--bm-color-text);
 }
+
+
+.bm-footer-brand{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.bm-footer-logo{
+  height: var(--bm-footer-logo-h);
+  width: auto;
+  object-fit: contain;
+}
+
+.bm-footer-meta{
+  margin: 0;
+  text-align: center;
+}
+
+.bm-footer-links{
+  display: inline-flex;
+  gap: 0.85rem;
+  justify-content: flex-end;
+}
+
+.bm-footer-link{
+  text-decoration: none;
+  color: var(--bm-color-text-muted);
+  font-size: 0.92rem;
+}
+
+.bm-footer-link:hover{
+  color: var(--bm-color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+:global(:root[data-theme="dark"]) .bm-brand__logo {
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
+}
+.bm-footer-logo { height: var(--bm-footer-logo-h); }
+.bm-brand__logo--mobile { height: var(--bm-header-logo-h-mobile); }
+.bm-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+  padding: 0.25rem 0;
+  flex: 0 0 auto;
+}
+
+.bm-brand__logo {
+  height: 96px;          /* OK */
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+}
+
+/* Mobile drawer */
+.bm-brand__logo--mobile {
+  height: 56px;          /* ✅ explicite */
+  width: auto;
+  max-width: none;
+}
+
 </style>

@@ -59,7 +59,7 @@ button {
 
   /* Layout */
   --bm-page-max-width: 1120px;
-  --bm-header-height: 5.75rem;
+  --bm-header-height: 6.75rem;
 
   /* Radius */
   --bm-radius-sm: 10px;
@@ -222,18 +222,9 @@ body {
 /* =========================
    5) Layout primitives
    ========================= */
-.bm-layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+/* Layout tokens (locaux au layout) */
 
-.bm-page-inner {
-  width: 100%;
-  max-width: var(--bm-page-max-width);
-  margin: 0 auto;
-  padding-inline: 1.25rem;
-}
+
 
 @media (max-width: 640px) {
   .bm-page-inner {
@@ -281,24 +272,22 @@ body {
 }
 
 .bm-header-inner {
-  height: var(--bm-header-height);
+  max-width: var(--bm-page-max-width);
+  margin: 0 auto;
+  padding-inline: 1.25rem;
+
+  min-height: var(--bm-header-height); /* ✅ au lieu de height */
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--bm-space-md);
-}
 
-.bm-header-inner {
-  max-width: var(--bm-page-max-width);
-  margin: 0 auto;
-  padding-inline: 1.25rem;
+  padding-block: 0.65rem; /* donne de l’air au logo */
 }
-
 @media (max-width: 640px) {
-  .bm-header-inner {
-    padding-inline: 1rem;
-  }
+  .bm-header-inner { padding-inline: 1rem; }
 }
+
 
 .bm-header-nav {
   display: flex;
@@ -716,7 +705,7 @@ select option {
 .bm-footer {
   margin-top: auto;
   border-top: 1px solid var(--bm-color-border-subtle);
-  padding-block: var(--bm-space-lg);
+  padding-block: var(--bm-space-md);
   background: color-mix(in srgb, var(--bm-color-bg) 78%, transparent);
 }
 
@@ -724,17 +713,67 @@ select option {
   max-width: var(--bm-page-max-width);
   margin: 0 auto;
   padding-inline: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+
   color: var(--bm-color-text-muted);
 }
 
 @media (max-width: 640px) {
-  .bm-footer-inner {
-    padding-inline: 1rem;
-  }
+  .bm-footer-inner { padding-inline: 1rem; }
 }
+
+.bm-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.bm-footer-logo {
+  height: 44px; /* mets 60-64px si tu veux plus visible */
+  width: auto;
+  object-fit: contain;
+}
+
+.bm-footer-meta {
+  margin: 0;
+  text-align: center;
+   font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.bm-footer-links {
+  display: inline-flex;
+  gap: 0.9rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.bm-footer-link {
+  text-decoration: none;
+  color: var(--bm-color-text-muted);
+  font-size: 0.92rem;
+}
+.bm-footer-link:hover {
+  color: var(--bm-color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .bm-footer-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .bm-footer-links { justify-content: center; }
+}
+
 
 /* =========================
    14) Mobile drawer base (your layout has scoped styles,

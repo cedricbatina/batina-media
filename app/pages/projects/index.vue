@@ -8,13 +8,13 @@
             {{ t('projects.label') }}
           </span>
 
-          <h1
-            id="projects-page-title"
-            class="bm-heading-hero bm-title-hero bm-reveal"
-            style="animation-delay: 60ms"
-          >
-            {{ t('projects.title') }}
-          </h1>
+
+        <h1 id="projects-page-title" class="bm-heading-hero bm-title-hero bm-reveal" style="animation-delay: 60ms">
+  <span class="bm-gradient-text">
+    {{ t('projects.title') }}
+  </span>
+</h1>
+
 
           <p class="bm-text-soft projects-hero-subtitle bm-reveal" style="animation-delay: 120ms">
             {{ t('projects.subtitle') }}
@@ -132,16 +132,17 @@
                 {{ t('projects.actions.openProject') }}
               </a>
 
-              <a
-                v-for="link in projectLinks(project)"
-                :key="project.id + '-' + (link.kind || 'link') + '-' + (link.url || '')"
-                :href="link.url"
-                target="_blank"
-                rel="noopener"
-                class="bm-btn bm-btn-outline bm-btn-sm bm-ease"
-              >
-                {{ link.label || t('projects.actions.openLink') }}
-              </a>
+          <a
+  v-for="link in (project.links || []).filter(l => l && l.url && l.url !== project.mainUrl)"
+  :key="project.id + '-' + (link.kind || 'link') + '-' + (link.url || '')"
+  :href="link.url"
+  target="_blank"
+  rel="noopener"
+  class="bm-btn bm-btn-outline bm-btn-sm project-card-link-secondary"
+>
+  {{ link.label || t('projects.actions.openLink') }}
+</a>
+
             </div>
 
             <p v-if="project.derivatives?.length" class="bm-text-muted project-derivatives">
@@ -211,9 +212,15 @@ const onPageChange = (page) => {
   currentPage.value = page
 }
 
-const projectLinks = (project) => {
+/*const projectLinks = (project) => {
   if (!project || !Array.isArray(project.links)) return []
   return project.links.filter((l) => l && l.url && l.url !== project.mainUrl)
+}*/
+const projectLinks = (project) => {
+  if (!project || !Array.isArray(project.links)) return []
+  return project.links.filter(
+    (link) => link && link.url && link.url !== project.mainUrl
+  )
 }
 
 const statusLabel = (status) => {
@@ -399,4 +406,24 @@ useHead(() => ({
 .projects-state {
   padding-block: var(--bm-space-md);
 }
+.projects-hero-aside .bm-card-title {
+  line-height: 1.25;
+  padding-bottom: 0.06em;
+}
+/* Empêche la coupe des descendantes (y/g/p/q) sur titres (souvent lié à line-height + background-clip text) */
+.projects-section-title {
+  line-height: 1.5;
+}
+
+.projects-section-title .bm-gradient-text {
+  display: inline-block;
+  padding-bottom: 0.05em; /* laisse respirer les descendantes */
+}
+
+/* Optionnel si tu wraps aussi le H1 */
+#projects-page-title .bm-gradient-text {
+  display: inline-block;
+  padding-bottom: 0.06em;
+}
+
 </style>
