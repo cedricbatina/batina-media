@@ -167,7 +167,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useHead, useAsyncData } from '#imports'
+import { useHead, useSeoMeta, useAsyncData } from '#imports'
 import { useI18n } from 'vue-i18n'
 import Pagination from '~/components/Pagination.vue'
 
@@ -240,13 +240,16 @@ const statusLabel = (status) => {
 }
 
 useHead(() => ({
-  title: t('projects.seo.title'),
-  meta: [
-    { name: 'description', content: t('projects.seo.description') },
-    { property: 'og:title', content: t('projects.seo.title') },
-    { property: 'og:description', content: t('projects.seo.description') }
-  ]
+  title: t('projects.seo.title')
 }))
+
+useSeoMeta({
+  description: () => t('projects.seo.description'),
+  ogTitle: () => t('projects.seo.title'),
+  ogDescription: () => t('projects.seo.description'),
+  twitterTitle: () => t('projects.seo.title'),
+  twitterDescription: () => t('projects.seo.description')
+})
 </script>
 
 <style scoped>

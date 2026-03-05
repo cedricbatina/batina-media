@@ -17,7 +17,7 @@
         <span v-else>{{ chipLabel }}</span>
       </span>
 
-      <Icon name="mdi:chevron-down" class="bm-user-chip__chev" aria-hidden="true" />
+      <UIcon name="i-lucide-chevron-down" class="bm-user-chip__chev" aria-hidden="true" />
     </button>
 
     <div v-if="open" class="bm-user-menu bm-card bm-card-compact" role="menu">

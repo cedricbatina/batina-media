@@ -59,7 +59,7 @@
             </p>
           </header>
 
-          <p v-if="state === 'error'" class="auth-error" role="alert">
+          <p v-if="state === 'error'" class="auth-error" role="alert" aria-live="assertive">
             {{ errorMessage || t('auth.common.errors.generic') }}
           </p>
 
@@ -83,7 +83,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { useHead, useRoute } from '#imports'
+import { useHead, useSeoMeta, useRoute } from '#imports'
 import { useI18n } from 'vue-i18n'
 
 definePageMeta({ guestOnly: true })
@@ -140,16 +140,17 @@ onMounted(async () => {
 
 useHead(() => {
   const pageTitle = `${t('auth.verify.hero.title')} · ${t('app.brand')}`
-  const pageDescription = t('auth.verify.hero.subtitle')
-
   return {
-    title: pageTitle,
-    meta: [
-      { name: 'description', content: pageDescription },
-      { property: 'og:title', content: pageTitle },
-      { property: 'og:description', content: pageDescription }
-    ]
+    title: pageTitle
   }
+})
+
+useSeoMeta({
+  description: () => t('auth.verify.hero.subtitle'),
+  ogTitle: () => `${t('auth.verify.hero.title')} · ${t('app.brand')}`,
+  ogDescription: () => t('auth.verify.hero.subtitle'),
+  twitterTitle: () => `${t('auth.verify.hero.title')} · ${t('app.brand')}`,
+  twitterDescription: () => t('auth.verify.hero.subtitle')
 })
 </script>
 

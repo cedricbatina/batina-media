@@ -32,6 +32,7 @@
             :key="item.to"
             :to="item.to"
             :class="['bm-nav-link', { 'bm-nav-link--active': isActiveLink(item.to) }]"
+            :aria-current="isActiveLink(item.to) ? 'page' : undefined"
           >
             {{ item.label }}
           </NuxtLink>
@@ -52,6 +53,8 @@
               :key="code"
               type="button"
               :class="['bm-lang-chip', { 'bm-lang-chip--active': isActiveLocale(code) }]"
+              :aria-label="localeAriaLabel(code)"
+              :aria-pressed="isActiveLocale(code) ? 'true' : 'false'"
               @click="setLocale(code)"
             >
               {{ code.toUpperCase() }}
@@ -201,6 +204,8 @@
                     :key="'ml-' + code"
                     type="button"
                     :class="['bm-lang-chip', { 'bm-lang-chip--active': isActiveLocale(code) }]"
+                    :aria-label="localeAriaLabel(code)"
+                    :aria-pressed="isActiveLocale(code) ? 'true' : 'false'"
                     @click="setLocale(code)"
                   >
                     {{ code.toUpperCase() }}
@@ -231,24 +236,26 @@
 
     <!-- FOOTER -->
 <footer class="bm-footer">
-  <div class="bm-footer-inner bm-page-inner">
-    <NuxtLink to="/" class="bm-footer-brand" :aria-label="t('app.brand')">
-      <img
-        :src="logoSrc"
-        :alt="t('app.brand')"
-        class="bm-footer-logo"
-        decoding="async"
-      />
-    </NuxtLink>
+  <div class="bm-footer-inner">
+    <div class="bm-footer-main">
+      <NuxtLink to="/" class="bm-footer-brand" :aria-label="t('app.brand')">
+        <img
+          :src="logoSrc"
+          :alt="t('app.brand')"
+          class="bm-footer-logo"
+          decoding="async"
+        />
+      </NuxtLink>
 
-    <p class="bm-footer-meta">
-      © {{ new Date().getFullYear() }} · {{ t('layout.footer.tagline') }}
-    </p>
+      <p class="bm-footer-meta">
+        © {{ new Date().getFullYear() }} · {{ t('layout.footer.tagline') }}
+      </p>
+    </div>
 
-    <nav class="bm-footer-links" aria-label="Footer">
-      <NuxtLink to="/terms" class="bm-footer-link">Terms</NuxtLink>
-      <NuxtLink to="/privacy" class="bm-footer-link">Privacy</NuxtLink>
-      <NuxtLink to="/legal" class="bm-footer-link">Legal</NuxtLink>
+    <nav class="bm-footer-links" :aria-label="t('layout.footer.ariaLabel')">
+      <NuxtLink to="/terms" class="bm-footer-link">{{ t('layout.footer.links.terms') }}</NuxtLink>
+      <NuxtLink to="/privacy" class="bm-footer-link">{{ t('layout.footer.links.privacy') }}</NuxtLink>
+      <NuxtLink to="/legal" class="bm-footer-link">{{ t('layout.footer.links.legal') }}</NuxtLink>
     </nav>
   </div>
 </footer>
@@ -258,8 +265,8 @@
 
 <script setup>
 import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { useAuthStore } from '~/stores/authStore'
+import { useI18n, useRoute, useSwitchLocalePath, navigateTo } from '#imports'
 
 const auth = useAuthStore()
 onMounted(async () => {
@@ -274,6 +281,7 @@ const onLogout = async () => {
 
 const { t, locale } = useI18n()
 const route = useRoute()
+const switchLocalePath = useSwitchLocalePath()
 
 /**
  * NAV
@@ -295,11 +303,26 @@ const isActiveLink = (toPath) => {
  * LOCALES
  */
 const locales = ['fr', 'en', 'pt', 'es']
-const setLocale = (code) => {
+const setLocale = async (code) => {
   if (locale.value === code) return
+  const targetPath = switchLocalePath(code)
+  if (targetPath) {
+    await navigateTo(targetPath)
+    return
+  }
+  // Fallback if route generation fails for any reason.
   locale.value = code
 }
 const isActiveLocale = (code) => locale.value === code
+const localeAriaLabel = (code) => {
+  const labels = {
+    fr: 'Français',
+    en: 'English',
+    pt: 'Português',
+    es: 'Español'
+  }
+  return `${t('layout.nav.language')}: ${labels[code] || code.toUpperCase()}`
+}
 
 /**
  * THEME
@@ -550,12 +573,6 @@ onBeforeUnmount(() => {
   justify-content: center;
 }
 
-.bm-footer-logo {
-  height: 50px;
-  width: auto;
-  object-fit: contain;
-}
-
 /* Responsive: hide desktop nav/actions, show toggle */
 @media (max-width: 980px) {
   .bm-header-nav,
@@ -575,47 +592,9 @@ onBeforeUnmount(() => {
 }
 
 
-.bm-footer-brand{
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  line-height: 0;
-}
-
-.bm-footer-logo{
-  height: var(--bm-footer-logo-h);
-  width: auto;
-  object-fit: contain;
-}
-
-.bm-footer-meta{
-  margin: 0;
-  text-align: center;
-}
-
-.bm-footer-links{
-  display: inline-flex;
-  gap: 0.85rem;
-  justify-content: flex-end;
-}
-
-.bm-footer-link{
-  text-decoration: none;
-  color: var(--bm-color-text-muted);
-  font-size: 0.92rem;
-}
-
-.bm-footer-link:hover{
-  color: var(--bm-color-text);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-
 :global(:root[data-theme="dark"]) .bm-brand__logo {
   filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
 }
-.bm-footer-logo { height: var(--bm-footer-logo-h); }
 .bm-brand__logo--mobile { height: var(--bm-header-logo-h-mobile); }
 .bm-brand {
   display: inline-flex;

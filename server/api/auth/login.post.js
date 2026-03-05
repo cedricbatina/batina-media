@@ -31,6 +31,10 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 401, statusMessage: 'Identifiants invalides.' })
   }
 
+  if (!user.email_verified_at) {
+    throw createError({ statusCode: 403, statusMessage: 'Adresse email non vérifiée.' })
+  }
+
   const session = await createSessionToken({
     userId: user.id,
     email: user.email,

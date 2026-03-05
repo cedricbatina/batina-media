@@ -69,7 +69,7 @@
               />
             </div>
 
-            <p v-if="message" :class="messageClass" role="status">
+            <p v-if="message" :class="messageClass" role="status" aria-live="polite">
               {{ message }}
             </p>
 
@@ -98,7 +98,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { useHead, useRoute } from '#imports'
+import { useHead, useSeoMeta, useRoute } from '#imports'
 import { useI18n } from 'vue-i18n'
 
 definePageMeta({ guestOnly: true })
@@ -162,16 +162,17 @@ async function onSubmit () {
 
 useHead(() => {
   const pageTitle = `${t('auth.resend.hero.title')} · ${t('app.brand')}`
-  const pageDescription = t('auth.resend.hero.subtitle')
-
   return {
-    title: pageTitle,
-    meta: [
-      { name: 'description', content: pageDescription },
-      { property: 'og:title', content: pageTitle },
-      { property: 'og:description', content: pageDescription }
-    ]
+    title: pageTitle
   }
+})
+
+useSeoMeta({
+  description: () => t('auth.resend.hero.subtitle'),
+  ogTitle: () => `${t('auth.resend.hero.title')} · ${t('app.brand')}`,
+  ogDescription: () => t('auth.resend.hero.subtitle'),
+  twitterTitle: () => `${t('auth.resend.hero.title')} · ${t('app.brand')}`,
+  twitterDescription: () => t('auth.resend.hero.subtitle')
 })
 </script>
 

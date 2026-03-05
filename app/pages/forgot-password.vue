@@ -62,8 +62,8 @@
               />
             </div>
 
-            <p v-if="errorMessage" class="auth-error" role="alert">{{ errorMessage }}</p>
-            <p v-else-if="success" class="auth-success" role="status">{{ t('auth.forgot.form.feedback.success') }}</p>
+            <p v-if="errorMessage" class="auth-error" role="alert" aria-live="assertive">{{ errorMessage }}</p>
+            <p v-else-if="success" class="auth-success" role="status" aria-live="polite">{{ t('auth.forgot.form.feedback.success') }}</p>
 
             <div class="auth-form-actions">
               <button class="bm-btn bm-btn-primary bm-ease" type="submit" :disabled="submitting">
@@ -87,7 +87,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useHead } from '#imports'
+import { useHead, useSeoMeta } from '#imports'
 import { useI18n } from 'vue-i18n'
 
 definePageMeta({ guestOnly: true })
@@ -139,16 +139,17 @@ async function onSubmit () {
 
 useHead(() => {
   const pageTitle = `${t('auth.forgot.hero.title')} · ${t('app.brand')}`
-  const pageDescription = t('auth.forgot.hero.subtitle')
-
   return {
-    title: pageTitle,
-    meta: [
-      { name: 'description', content: pageDescription },
-      { property: 'og:title', content: pageTitle },
-      { property: 'og:description', content: pageDescription }
-    ]
+    title: pageTitle
   }
+})
+
+useSeoMeta({
+  description: () => t('auth.forgot.hero.subtitle'),
+  ogTitle: () => `${t('auth.forgot.hero.title')} · ${t('app.brand')}`,
+  ogDescription: () => t('auth.forgot.hero.subtitle'),
+  twitterTitle: () => `${t('auth.forgot.hero.title')} · ${t('app.brand')}`,
+  twitterDescription: () => t('auth.forgot.hero.subtitle')
 })
 </script>
 

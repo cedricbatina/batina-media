@@ -1,6 +1,7 @@
 // nuxt.config.mjs
 export default defineNuxtConfig({
-  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@nuxtjs/sitemap", "@vite-pwa/nuxt"],
+  compatibilityDate: '2026-03-05',
+  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@nuxtjs/sitemap", "@vite-pwa/nuxt", "@nuxt/ui"],
 
   devtools: { enabled: true },
 
@@ -18,15 +19,17 @@ export default defineNuxtConfig({
       { code: "es", iso: "es-ES", file: "es.json", name: "Espanol" },
     ],
     defaultLocale: "fr",
+    fallbackLocale: "fr",
     strategy: "prefix_except_default",
     lazy: true,
+    baseUrl: process.env.APP_BASE_URL || "http://localhost:3008",
 
     // ⬇️ change juste CETTE LIGNE
     langDir: "locales",
 
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: "i18n_redirected",
+      cookieKey: "batina_media_i18n_redirected",
       redirectOn: "root",
     },
   },
@@ -51,6 +54,7 @@ export default defineNuxtConfig({
     // PUBLIC (client)
     public: {
       appBaseUrl: process.env.APP_BASE_URL,
+      siteUrl: process.env.APP_BASE_URL || "http://localhost:3008",
     },
   },
 });

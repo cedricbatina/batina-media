@@ -52,7 +52,7 @@
             :aria-label="labelPrevComputed"
           >
            <span class="app-pagination__icon" aria-hidden="true">
-  <Icon name="lucide:chevron-left" />
+  <UIcon name="i-lucide-chevron-left" />
 </span>
 
             <span class="app-pagination__text">
@@ -102,7 +102,7 @@
               {{ labelNextComputed }}
             </span>
             <span class="app-pagination__icon" aria-hidden="true">
-  <Icon name="lucide:chevron-right" />
+  <UIcon name="i-lucide-chevron-right" />
 </span>
 
           </button>

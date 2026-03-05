@@ -41,7 +41,13 @@
       "switchToLight": "Activer le thème clair"
     },
     "footer": {
-      "tagline": "Studio d’ingénierie des savoirs, plateformes, produits digitaux et contenus structurés"
+      "ariaLabel": "Navigation de pied de page",
+      "tagline": "Studio d’ingénierie des savoirs, plateformes, produits digitaux et contenus structurés",
+      "links": {
+        "terms": "Conditions",
+        "privacy": "Confidentialité",
+        "legal": "Mentions légales"
+      }
     },
         "nav": {
       "open": "Ouvrir le menu",
@@ -129,6 +135,15 @@
           "title": "Cartographier vos contenus et vos données",
           "body": "Nous partons de ce que vous avez déjà (bases de données, fichiers, notes de terrain, manuscrits, enregistrements, archives, contenus métier) ou créons avec vous une base structurée quand il n’y en a pas encore. Nous clarifions structures, usages, formats cibles et publics."
         },
+      "featured": {
+        "sonekeno": {
+          "name": "Sonekeno",
+          "shortLabel": "Plateforme · Écriture & univers",
+          "oneLiner": "Atelier d’écriture pour structurer personnages, scènes, chronologie et glossaire.",
+          "description": "Sonekeno est un espace de création et d’organisation pour auteurs, éditeurs et studios, avec un workflow clair de la structuration à la production.",
+          "meta": "Projet live : sonekeno.vercel.app"
+        }
+      },
         "1": {
           "index": "02",
           "title": "Concevoir un modèle exploitable à long terme",
@@ -717,7 +732,116 @@
 
 
 } ,
-"userInline": {
+  "legalPages": {
+    "terms": {
+      "intro": "Ces conditions encadrent l'utilisation du site et de ses contenus.",
+      "items": {
+        "0": "Vous vous engagez a utiliser le site dans le respect des lois applicables.",
+        "1": "Les contenus du site restent proteges par le droit d'auteur et la propriete intellectuelle.",
+        "2": "Pour toute question contractuelle, contactez-nous via la page Contact."
+      }
+    },
+    "privacy": {
+      "intro": "Nous traitons vos donnees de contact uniquement pour repondre a vos demandes.",
+      "items": {
+        "0": "Nous collectons uniquement les donnees necessaires au traitement de votre message.",
+        "1": "Vos donnees ne sont pas revendues et restent utilisees dans un cadre professionnel.",
+        "2": "Vous pouvez demander la suppression de vos donnees en nous contactant."
+      }
+    },
+    "legal": {
+      "badge": "Informations juridiques",
+      "title": "Mentions legales, Confidentialite et CGU",
+      "intro": "Cette page regroupe les informations legales de l'entite exploitante, la politique de confidentialite (RGPD) et les conditions generales d'utilisation du site.",
+      "seoDescription": "Mentions legales, confidentialite RGPD et conditions generales d'utilisation de @rtful Batina Creative Studios.",
+      "sections": {
+        "publisher": {
+          "title": "Editeur du site",
+          "labels": {
+            "name": "Nom",
+            "manager": "Responsable legal",
+            "address": "Adresse",
+            "email": "Email",
+            "phone": "Telephone",
+            "siret": "SIRET",
+            "ape": "Code APE",
+            "registrationDate": "Date d'immatriculation"
+          },
+          "values": {
+            "name": "@rtful Batina Creative Studios (autoentreprise)",
+            "manager": "Cedric Batina",
+            "address": "379 Residence Barthes 4A, Boulevard de Malartic, 33170 Gradignan, France",
+            "email": "contact@artfulbatinacreativestudios.fr",
+            "phone": "+33 7 48 48 49 02",
+            "siret": "911 940 070 00012",
+            "ape": "6201Z - Programmation informatique",
+            "registrationDate": "24 fevrier 2022"
+          }
+        },
+        "hosting": {
+          "title": "Hebergement et securite",
+          "labels": {
+            "provider": "Hebergeur principal",
+            "address": "Adresse",
+            "registry": "Registre du commerce",
+            "ide": "Numero IDE",
+            "vat": "Numero TVA",
+            "infrastructure": "Infrastructure",
+            "security": "Securite"
+          },
+          "values": {
+            "provider": "Infomaniak Network SA",
+            "address": "Rue Eugene Marziano 25, 1227 Les Acacias (GE), Suisse",
+            "registry": "CH-660.0.059.996-1",
+            "ide": "CHE-103.167.648",
+            "vat": "CHE-185.477.109",
+            "infrastructure": "Domaine, services de base de donnees et emails geres avec Infomaniak ; deploiement applicatif sur Vercel.",
+            "security": "Serveurs heberges dans l'Union Europeenne, haut niveau de securite et sauvegardes regulieres."
+          }
+        },
+        "ip": {
+          "title": "Propriete intellectuelle",
+          "p1": "Tous les contenus du site (textes, images, logos, codes sources, videos, etc.) sont proteges par la legislation sur la propriete intellectuelle et demeurent la propriete exclusive de Cedric Batina / @rtful Batina Creative Studios.",
+          "p2": "Toute reproduction, adaptation ou diffusion non autorisee est strictement interdite."
+        },
+        "privacy": {
+          "title": "Protection des donnees personnelles et RGPD",
+          "p1": "Les informations personnelles collectees via les formulaires sont strictement confidentielles et utilisees uniquement pour traiter votre demande. Aucune donnee n'est vendue ni transmise a des tiers.",
+          "p2": "Conformement au RGPD, vous disposez d'un droit d'acces, de rectification et de suppression de vos donnees. Pour toute demande : contact@artfulbatinacreativestudios.fr.",
+          "p3": "Cookies : ce site utilise des cookies pour ameliorer l'experience utilisateur et realiser des statistiques anonymes (Matomo ou Google Analytics, consentement requis). Vous pouvez configurer vos preferences via votre navigateur."
+        },
+        "terms": {
+          "title": "Conditions Generales d'Utilisation (CGU)",
+          "items": {
+            "0": "L'acces et l'utilisation de ce site impliquent l'acceptation pleine et entiere des presentes CGU.",
+            "1": "L'utilisateur s'engage a ne pas porter atteinte au bon fonctionnement du site ni a tenter de contourner sa securite.",
+            "2": "Tout usage abusif (spam, tentative d'intrusion, diffusion de contenu illicite) peut entrainer une suspension d'acces ou des poursuites.",
+            "3": "L'editeur se reserve le droit de modifier ou suspendre le site a tout moment, sans preavis.",
+            "4": "En cas de litige, une solution amiable sera recherchee en priorite."
+          }
+        },
+        "links": {
+          "title": "Liens hypertextes",
+          "p1": "Des liens vers des sites tiers peuvent etre proposes pour votre information. @rtful Batina Creative Studios decline toute responsabilite concernant le contenu et l'usage de ces sites externes."
+        },
+        "law": {
+          "title": "Droit applicable et juridiction",
+          "p1": "Les presentes mentions sont regies par le droit francais. En cas de litige, competence exclusive des tribunaux de Bordeaux (France)."
+        },
+        "updates": {
+          "title": "Mises a jour",
+          "p1": "L'editeur se reserve le droit de modifier ces mentions a tout moment. Derniere mise a jour : juillet 2025.",
+          "p2": "Les utilisateurs sont invites a consulter regulierement cette page."
+        },
+        "contact": {
+          "title": "Contact et support",
+          "p1": "Pour toute question ou demande relative a ces mentions ou a vos donnees, ecrivez a contact@artfulbatinacreativestudios.fr.",
+          "p2": "@rtful Batina Creative Studios - Web, design, contenus et formation a Gradignan - Bordeaux."
+        }
+      }
+    }
+  },
+  "userInline": {
     "guest": {
       "title": "Espace client",
       "body": "Connectez-vous pour suivre vos échanges, vos demandes et vos livrables."

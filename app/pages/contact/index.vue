@@ -248,7 +248,7 @@
 
 <script setup>
 import { reactive, ref, computed } from 'vue'
-import { useHead } from '#imports'
+import { useHead, useSeoMeta } from '#imports'
 import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
@@ -330,13 +330,16 @@ const processItems = computed(() => [
 ].filter(Boolean))
 
 useHead(() => ({
-  title: t('contact.seo.title'),
-  meta: [
-    { name: 'description', content: t('contact.seo.description') },
-    { property: 'og:title', content: t('contact.seo.title') },
-    { property: 'og:description', content: t('contact.seo.description') }
-  ]
+  title: t('contact.seo.title')
 }))
+
+useSeoMeta({
+  description: () => t('contact.seo.description'),
+  ogTitle: () => t('contact.seo.title'),
+  ogDescription: () => t('contact.seo.description'),
+  twitterTitle: () => t('contact.seo.title'),
+  twitterDescription: () => t('contact.seo.description')
+})
 </script>
 
 <style scoped>

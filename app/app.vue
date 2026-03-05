@@ -6,7 +6,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useHead, useSeoMeta, useRoute, useRuntimeConfig } from '#imports'
+import { useHead, useSeoMeta, useRoute, useRuntimeConfig, useSwitchLocalePath } from '#imports'
 import { useI18n } from 'vue-i18n'
 
 // i18n : pour la langue du <html> et les textes SEO
@@ -15,6 +15,7 @@ const { locale, t } = useI18n()
 // Route + config pour les URLs canoniques
 const route = useRoute()
 const runtimeConfig = useRuntimeConfig()
+const switchLocalePath = useSwitchLocalePath()
 
 // URL du site (à mettre plus tard dans runtimeConfig.public.siteUrl ou .env)
 // Fallback propre pour le dev local
@@ -40,12 +41,23 @@ const ogLocale = computed(() => {
   switch (currentLang.value) {
     case 'fr':
       return 'fr_FR'
+    case 'es':
+      return 'es_ES'
     case 'pt':
       return 'pt_PT'
     case 'en':
     default:
       return 'en_US'
   }
+})
+
+const alternateLinks = computed(() => {
+  const localeCodes = ['fr', 'en', 'es', 'pt']
+  return localeCodes.map((code) => ({
+    rel: 'alternate',
+    hreflang: code,
+    href: `${siteUrl.value}${switchLocalePath(code)}`
+  }))
 })
 
 // Titre & description globales (i18n avec fallback)
@@ -149,12 +161,7 @@ useHead(() => ({
       rel: 'manifest',
       href: '/site.webmanifest'
     },
-    // Alternate i18n (langue courante)
-    {
-      rel: 'alternate',
-      hreflang: currentLang.value,
-      href: canonicalUrl.value
-    }
+    ...alternateLinks.value
   ],
   script: [
     {

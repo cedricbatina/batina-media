@@ -16,7 +16,7 @@
         {{ chipLabel }}
       </span>
 
-      <Icon name="mdi:chevron-down" size="18" class="bm-user-chip__chev" aria-hidden="true" />
+      <UIcon name="i-lucide-chevron-down" size="18" class="bm-user-chip__chev" aria-hidden="true" />
     </button>
 
     <div v-if="open" class="bm-user-menu bm-card bm-card-compact" role="menu">

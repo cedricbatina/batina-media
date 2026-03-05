@@ -70,6 +70,8 @@
                 <button
                   type="button"
                   class="bm-btn bm-btn-outline bm-btn-sm auth-input-action"
+                  :aria-label="showPassword ? t('auth.common.password.hide') : t('auth.common.password.show')"
+                  :aria-pressed="showPassword ? 'true' : 'false'"
                   @click="showPassword = !showPassword"
                 >
                   {{ showPassword ? t('auth.common.password.hide') : t('auth.common.password.show') }}
@@ -90,8 +92,8 @@
               />
             </div>
 
-            <p v-if="errorMessage" class="auth-error" role="alert">{{ errorMessage }}</p>
-            <p v-else-if="success" class="auth-success" role="status">{{ t('auth.reset.feedback.success') }}</p>
+            <p v-if="errorMessage" class="auth-error" role="alert" aria-live="assertive">{{ errorMessage }}</p>
+            <p v-else-if="success" class="auth-success" role="status" aria-live="polite">{{ t('auth.reset.feedback.success') }}</p>
 
             <div class="auth-form-actions">
               <button class="bm-btn bm-btn-primary bm-ease" type="submit" :disabled="submitting || success">
@@ -110,7 +112,7 @@
 
 <script setup>
 import { reactive, ref, computed } from 'vue'
-import { useHead, useRoute } from '#imports'
+import { useHead, useSeoMeta, useRoute } from '#imports'
 import { useI18n } from 'vue-i18n'
 
 definePageMeta({ guestOnly: true })
@@ -174,16 +176,17 @@ async function onSubmit () {
 
 useHead(() => {
   const pageTitle = `${t('auth.reset.hero.title')} · ${t('app.brand')}`
-  const pageDescription = t('auth.reset.hero.subtitle')
-
   return {
-    title: pageTitle,
-    meta: [
-      { name: 'description', content: pageDescription },
-      { property: 'og:title', content: pageTitle },
-      { property: 'og:description', content: pageDescription }
-    ]
+    title: pageTitle
   }
+})
+
+useSeoMeta({
+  description: () => t('auth.reset.hero.subtitle'),
+  ogTitle: () => `${t('auth.reset.hero.title')} · ${t('app.brand')}`,
+  ogDescription: () => t('auth.reset.hero.subtitle'),
+  twitterTitle: () => `${t('auth.reset.hero.title')} · ${t('app.brand')}`,
+  twitterDescription: () => t('auth.reset.hero.subtitle')
 })
 </script>
 

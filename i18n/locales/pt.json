@@ -6,7 +6,6 @@
       "description": "A Batina Media é um estúdio focado em engenharia de saberes e soluções digitais. Transformamos conteúdos, pesquisas, idiomas, escritas e projetos em plataformas, ferramentas, jogos, livros e aplicações, para escolas, pesquisadores, autores, editoras, PMEs, associações e iniciativas culturais."
     }
   },
-
   "pagination": {
     "ariaLabel": "Paginação de conteúdos",
     "prev": "Anterior",
@@ -17,26 +16,45 @@
     "gotoAria": "Ir para uma página (1 a {totalPages})",
     "gotoTotal": "de {totalPages}"
   },
-
+  "auth": {
+    "logout": "Terminar sessao"
+  },
   "nav": {
     "home": "Início",
     "solutions": "Soluções",
     "projects": "Projetos",
     "studio": "Estúdio",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "login": "Iniciar sessao",
+    "register": "Criar conta",
+    "logout": "Terminar sessao",
+    "account": "Conta"
   },
-
   "layout": {
     "skipToContent": "Saltar para o conteúdo principal",
     "theme": {
       "switchToDark": "Ativar tema escuro",
       "switchToLight": "Ativar tema claro"
     },
+    "nav": {
+      "open": "Abrir menu",
+      "close": "Fechar menu",
+      "language": "Idioma",
+      "theme": "Tema"
+    },
     "footer": {
-      "tagline": "Estúdio de engenharia de saberes, plataformas, produtos digitais e conteúdos estruturados"
+      "ariaLabel": "Navegação do rodapé",
+      "tagline": "Estúdio de engenharia de saberes, plataformas, produtos digitais e conteúdos estruturados",
+      "links": {
+        "terms": "Termos",
+        "privacy": "Privacidade",
+        "legal": "Legal"
+      }
+    },
+    "user": {
+      "loggedOut": "Vous êtes déconnecté."
     }
   },
-
   "home": {
     "hero": {
       "pill": "Estúdio de engenharia de saberes",
@@ -67,7 +85,6 @@
         }
       }
     },
-
     "domains": {
       "label": "Domínios & ofertas",
       "title": "Produtos, plataformas e conteúdos enraizados no real",
@@ -100,7 +117,6 @@
         }
       }
     },
-
     "pipeline": {
       "label": "A nossa abordagem",
       "title": "Um pipeline completo: dados → modelos → sistemas → derivados",
@@ -125,10 +141,18 @@
           "index": "04",
           "title": "Derivar livros, recursos e aplicações",
           "body": "A partir dos mesmos dados, produzimos livros e cadernos, recursos imprimíveis, conteúdos interativos e aplicações (móveis, web ou desktop). Scripts (JSX, Java, C++, etc.) permitem gerar automaticamente puzzles, quizzes, materiais de aula ou outros derivados."
+        },
+        "featured": {
+          "sonekeno": {
+            "name": "Sonekeno",
+            "shortLabel": "Plateforme · Écriture & univers",
+            "oneLiner": "Atelier d’écriture pour structurer personnages, scènes, chronologie et glossaire.",
+            "description": "Sonekeno est un espace de création et d’organisation pour auteurs, éditeurs et studios, avec un workflow clair de la structuration à la production.",
+            "meta": "Projet live : sonekeno.vercel.app"
+          }
         }
       }
     },
-
     "projects": {
       "label": "Ecossistemas de assinatura",
       "title": "Algumas fundações já em produção",
@@ -158,9 +182,25 @@
           "description": "Aplicação de anúncios necrológicos e memória familiar ou profissional, disponível em francês, inglês, espanhol e português.",
           "meta": "Exemplo de sistema editorial em que anúncios, homenagens e conteúdos associados são estruturados para consulta, pesquisa e reutilização."
         }
-      }
+      },
+      "hero": {
+        "aside": {
+          "label": "En bref",
+          "title": "Aperçu",
+          "items": {
+            "total": "Projets",
+            "production": "En production",
+            "inProgress": "En cours"
+          }
+        }
+      },
+      "list": {
+        "label": "Catalogue",
+        "title": "Projets & écosystèmes",
+        "subtitle": "Des exemples concrets de plateformes, contenus et systèmes conçus autour de savoirs."
+      },
+      "empty": "Aucun projet public pour le moment."
     },
-
     "audience": {
       "label": "Com quem trabalhamos",
       "title": "Dos saberes locais aos sistemas globais",
@@ -181,16 +221,18 @@
         "3": {
           "title": "PMEs, associações, ONGs & iniciativas panafricanas ou internacionais",
           "body": "Plataformas e sistemas centrados nas suas atividades, comunidades e saberes profissionais, com ferramentas concretas para as equipas e os públicos."
+        },
+        "4": {
+          "title": "Dérivés, médias & supports",
+          "body": "Automatisations éditoriales : génération de contenus, scripts InDesign (JSX), templates et contrôles qualité."
         }
       }
     },
-
     "seo": {
       "title": "Batina Media – Estúdio de engenharia de saberes & soluções digitais",
       "description": "A Batina Media concebe modelos de dados, plataformas, ferramentas e edição em torno dos seus saberes, corpora e conteúdos — desde o desenho da base até livros, recursos pedagógicos, aplicações e experiências interativas."
     }
   },
-
   "projectsPage": {
     "hero": {
       "label": "Ecossistemas & projetos",
@@ -243,7 +285,6 @@
       "description": "Visão geral de alguns ecossistemas concebidos pela Batina Media: Longoka, Lexikongo, Lexilingala, Madizi… Modelos de dados robustos, plataformas, conteúdos pedagógicos e edições declináveis."
     }
   },
-
   "projects": {
     "label": "Projetos & ecossistemas",
     "title": "Ecossistemas de assinatura",
@@ -263,12 +304,37 @@
       "dev": "Em desenvolvimento",
       "archived": "Arquivado"
     },
+    "featured": {
+      "sonekeno": {
+        "name": "Sonekeno",
+        "shortLabel": "Plataforma · Escrita & universo",
+        "oneLiner": "Espaço de escrita para estruturar personagens, cenas, cronologia e glossário.",
+        "description": "Sonekeno é um espaço de criação e organização para autores, editoras e estúdios, com um fluxo claro da estruturação à produção.",
+        "meta": "Projeto online: sonekeno.vercel.app"
+      }
+    },
     "seo": {
       "title": "Projetos & ecossistemas · Batina Media",
       "description": "Visão geral de alguns ecossistemas concebidos pela Batina Media: plataformas, léxicos, sistemas editoriais, derivados impressos ou digitais e ferramentas construídas a partir de saberes estruturados."
-    }
+    },
+    "hero": {
+      "aside": {
+        "label": "En bref",
+        "title": "Aperçu",
+        "items": {
+          "total": "Projets",
+          "production": "En production",
+          "inProgress": "En cours"
+        }
+      }
+    },
+    "list": {
+      "label": "Catalogue",
+      "title": "Projets & écosystèmes",
+      "subtitle": "Des exemples concrets de plateformes, contenus et systèmes conçus autour de savoirs."
+    },
+    "empty": "Aucun projet public pour le moment."
   },
-
   "studio": {
     "seo": {
       "title": "Estúdio Batina Media",
@@ -381,7 +447,168 @@
       }
     }
   },
-
+  "solutions": {
+    "seo": {
+      "title": "Solucoes digitais – Batina Media",
+      "description": "Engenharia de conteudos e dados, plataformas, ferramentas e derivados impressos ou digitais construidos em torno dos seus saberes."
+    },
+    "hero": {
+      "pill": "Solucoes e acompanhamento",
+      "title": "Solucoes digitais construidas em torno dos seus saberes e dados",
+      "subtitle": "Da modelacao de conteudos a plataformas, livros, recursos e aplicacoes, concebemos sistemas completos, duraveis e extensiveis.",
+      "primaryCta": "Falar sobre o seu projeto",
+      "secondaryCta": "Ver projetos",
+      "meta": "Modelo de dados -> plataformas -> derivados, sem recomecar do zero.",
+      "aside": {
+        "label": "Na pratica",
+        "title": "Um nucleo, varias saidas",
+        "items": {
+          "0": {
+            "label": "Base de dados",
+            "value": "Esquemas, base, APIs e formatos de intercambio"
+          },
+          "1": {
+            "label": "Plataformas",
+            "value": "Portais, ferramentas, back-offices e apps"
+          },
+          "2": {
+            "label": "Derivados",
+            "value": "Livros, recursos, modulos e jogos"
+          }
+        }
+      }
+    },
+    "families": {
+      "label": "O que concebemos",
+      "title": "Blocos reutilizaveis adaptados ao seu contexto",
+      "subtitle": "Cada projeto e unico, mas quase sempre assenta na mesma base: modelo de dados claro, uma ou mais plataformas e depois derivados.",
+      "cards": {
+        "0": {
+          "title": "Engenharia de conteudos e dados",
+          "subtitle": "Estruturar os seus saberes para exploracao no longo prazo.",
+          "items": {
+            "0": "Modelacao de dados para corpora, conteudos pedagogicos, catalogos e projetos editoriais.",
+            "1": "Concecao e implementacao de bases (MySQL/SQL), esquemas relacionais, vistas e exportacoes adaptadas.",
+            "2": "Estruturacao de conteudos existentes (ficheiros, notas, arquivos, cursos) para os tornar exploraveis.",
+            "3": "APIs e formatos de intercambio (JSON, CSV, etc.) para sites, apps, ferramentas internas e pipelines editoriais.",
+            "4": "Regras de governance de dados e ciclo de vida de conteudos para as suas equipas."
+          }
+        },
+        "1": {
+          "title": "Plataformas e ferramentas digitais",
+          "subtitle": "Sistemas completos em vez de simples vitrines.",
+          "items": {
+            "0": "Plataformas pedagogicas, portais de conteudos, lexicos e espacos de publicacao online.",
+            "1": "Areas de membros, dashboards, back-offices editoriais, ferramentas de negocio e intranets leves.",
+            "2": "E-commerce especializado (livros, recursos, produtos digitais), inscricoes e pagamentos.",
+            "3": "Aplicacoes web/movel a medida construidas sobre a mesma base de dados."
+          }
+        },
+        "2": {
+          "title": "Derivados, media e suportes",
+          "subtitle": "Da base de dados a livros, recursos e experiencias interativas.",
+          "items": {
+            "0": "Geracao de livros, cadernos, fichas de exercicios e materiais imprimiveis a partir dos seus dados.",
+            "1": "Pipelines para InDesign e ferramentas editoriais (scripts, exportacoes automatizadas).",
+            "2": "Recursos interativos: modulos de treino, quizzes e conteudos guiados.",
+            "3": "Jogos de letras e logica (palavras cruzadas, puzzles, quiz) quando isso apoia os seus objetivos."
+          }
+        }
+      }
+    },
+    "process": {
+      "label": "Abordagem",
+      "title": "Uma abordagem por sistemas, nao por one-shot",
+      "subtitle": "Partimos do que ja existe (ou do que deseja criar) para conceber um nucleo coerente, util hoje e pronto para futuros derivados.",
+      "steps": {
+        "0": {
+          "index": "01",
+          "title": "Mapear conteudos e necessidades",
+          "body": "Inventario de recursos existentes e clarificacao de publicos, usos e formatos de destino."
+        },
+        "1": {
+          "index": "02",
+          "title": "Conceber um modelo exploravel a longo prazo",
+          "body": "Esquemas reutilizaveis (corpora, fichas, catalogos, lexicos, conteudos pedagogicos) e armazenamento estruturado."
+        },
+        "2": {
+          "index": "03",
+          "title": "Construir plataformas e ferramentas",
+          "body": "Desenvolvimento da plataforma principal, back-office de gestao, APIs e aplicacoes sobre o mesmo nucleo."
+        },
+        "3": {
+          "index": "04",
+          "title": "Derivar suportes e media",
+          "body": "Livros, recursos descarregaveis, conteudos interativos e jogos de treino sem reconstruir o nucleo."
+        }
+      }
+    },
+    "usecases": {
+      "label": "Para quem",
+      "title": "Solucoes adaptadas aos seus contextos",
+      "subtitle": "Ciencias humanas e sociais, areas tecnicas, linguas, arquivos e documentacao profissional.",
+      "cards": {
+        "0": {
+          "title": "Escolas, formacao e pedagogia",
+          "subtitle": "Plataformas de cursos, espacos aluno/formador e suportes imprimiveis.",
+          "items": {
+            "0": "Portais de cursos, exercicios e recursos descarregaveis.",
+            "1": "Gestao de conteudos, grupos e percursos de aprendizagem.",
+            "2": "Cadernos e guias derivados da mesma base de dados."
+          }
+        },
+        "1": {
+          "title": "Investigacao, memoria e arquivos",
+          "subtitle": "Da recolha de campo a plataformas consultaveis e publicacoes.",
+          "items": {
+            "0": "Estruturacao de corpora (textos, media, notas, inqueritos).",
+            "1": "Interfaces de consulta, pesquisa, filtragem e anotacao.",
+            "2": "Exportacoes para artigos, livros, coletaneas ou sites de difusao."
+          }
+        },
+        "2": {
+          "title": "PMEs, associacoes e iniciativas internacionais",
+          "subtitle": "Plataformas centradas nas suas atividades, comunidades e saberes profissionais.",
+          "items": {
+            "0": "Sites aplicacionais, extranets leves e ferramentas a medida.",
+            "1": "Gestao de conteudos, documentos, anuncios e catalogos.",
+            "2": "Suportes digitais e impressos coerentes com o seu ecossistema."
+          }
+        },
+        "3": {
+          "title": "Autores, editoras e guardioes de saberes",
+          "subtitle": "Colecoes, lexicos e sistemas editoriais pensados para o longo prazo.",
+          "items": {
+            "0": "Modelos de dados para colecoes, series e recursos.",
+            "1": "Fluxos para livros, ebooks, cadernos, guias e recursos digitais.",
+            "2": "Preparacao para derivados futuros (apps, modulos interativos, jogos)."
+          }
+        }
+      }
+    },
+    "cta": {
+      "pill": "Vamos falar",
+      "title": "Vamos desenhar o seu ecossistema ideal",
+      "body": "Se tem conteudos, dados, experiencia ou patrimonio para estruturar, ajudamos a passar da ideia ao sistema digital passo a passo.",
+      "button": "Discutir o seu projeto"
+    }
+  },
+  "user": {
+    "chip": {
+      "loading": "A carregar...",
+      "authed": "Conta",
+      "guest": "Espaco cliente"
+    },
+    "menu": {
+      "loading": "A carregar...",
+      "guestTitle": "Espaco cliente",
+      "guestSubtitle": "Inicie sessao para aceder a sua conta.",
+      "login": "Iniciar sessao",
+      "register": "Criar conta",
+      "account": "A minha conta",
+      "logout": "Terminar sessao"
+    }
+  },
   "contact": {
     "seo": {
       "title": "Contacto · Batina Media",
@@ -475,7 +702,148 @@
         "success": "Obrigado, a sua mensagem foi enviada. Voltaremos a contactar assim que possível.",
         "error": "Ocorreu um erro ao enviar a sua mensagem. Por favor, tente mais tarde ou escreva-nos diretamente por e-mail."
       },
-      "hint": "Pode escrever em francês, inglês ou noutra língua de trabalho."
+      "hint": "Pode escrever em francês, inglês ou noutra língua de trabalho.",
+      "info": {
+        "projects": {
+          "title": "Les projets que nous accompagnons",
+          "body": "Nous intervenons là où il y a de la matière : contenus, corpus, catalogues, archives, bases de données ou savoirs métiers à structurer, diffuser ou dériver.",
+          "items": {
+            "0": "Plateformes pédagogiques, lexiques, espaces de consultation ou d’apprentissage.",
+            "1": "Livres, cahiers, recueils d’articles et supports imprimés alimentés par des données structurées.",
+            "2": "Outils internes et back-offices pour équipes éditoriales, pédagogiques ou de recherche."
+          }
+        },
+        "process": {
+          "title": "Comment se passe la suite ?",
+          "body": "Nous privilégions une approche progressive : cadrage, prototype ciblé, puis extension vers un système plus large.",
+          "items": {
+            "0": "Premier échange écrit à partir de votre message, avec questions clés et options possibles.",
+            "1": "Proposition de cadrage : périmètre, jalons, livrables, budget, chronologie.",
+            "2": "Mise en place d’un socle robuste, puis itérations pour ajouter plateformes, dérivés et outils autour de vos contenus."
+          }
+        }
+      }
+    }
+  },
+  "legalPages": {
+    "terms": {
+      "intro": "Estes termos regem a utilizacao do site e dos seus conteudos.",
+      "items": {
+        "0": "Compromete-se a utilizar o site em conformidade com a legislacao aplicavel.",
+        "1": "Os conteudos do site permanecem protegidos por direitos de autor e propriedade intelectual.",
+        "2": "Para questoes contratuais, contacte-nos atraves da pagina de Contacto."
+      }
+    },
+    "privacy": {
+      "intro": "Tratamos os seus dados de contacto apenas para responder aos seus pedidos.",
+      "items": {
+        "0": "Recolhemos apenas os dados necessarios para tratar a sua mensagem.",
+        "1": "Os seus dados nao sao vendidos e sao usados apenas em contexto profissional.",
+        "2": "Pode solicitar a eliminacao dos seus dados entrando em contacto connosco."
+      }
+    },
+    "legal": {
+      "badge": "Informacao juridica",
+      "title": "Aviso legal, Privacidade e Termos",
+      "intro": "Esta pagina reune as informacoes legais da entidade operadora, a politica de privacidade (RGPD) e os termos de utilizacao do site.",
+      "seoDescription": "Aviso legal, politica RGPD e termos de utilizacao de @rtful Batina Creative Studios.",
+      "sections": {
+        "publisher": {
+          "title": "Editor do site",
+          "labels": {
+            "name": "Nome",
+            "manager": "Responsavel legal",
+            "address": "Morada",
+            "email": "Email",
+            "phone": "Telefone",
+            "siret": "SIRET",
+            "ape": "Codigo APE",
+            "registrationDate": "Data de registo"
+          },
+          "values": {
+            "name": "@rtful Batina Creative Studios (autoempreendedor)",
+            "manager": "Cedric Batina",
+            "address": "379 Residence Barthes 4A, Boulevard de Malartic, 33170 Gradignan, Franca",
+            "email": "contact@artfulbatinacreativestudios.fr",
+            "phone": "+33 7 48 48 49 02",
+            "siret": "911 940 070 00012",
+            "ape": "6201Z - Programacao informatica",
+            "registrationDate": "24 de fevereiro de 2022"
+          }
+        },
+        "hosting": {
+          "title": "Alojamento e seguranca",
+          "labels": {
+            "provider": "Alojamento principal",
+            "address": "Morada",
+            "registry": "Registo comercial",
+            "ide": "Numero IDE",
+            "vat": "Numero IVA",
+            "infrastructure": "Infraestrutura",
+            "security": "Seguranca"
+          },
+          "values": {
+            "provider": "Infomaniak Network SA",
+            "address": "Rue Eugene Marziano 25, 1227 Les Acacias (GE), Suica",
+            "registry": "CH-660.0.059.996-1",
+            "ide": "CHE-103.167.648",
+            "vat": "CHE-185.477.109",
+            "infrastructure": "Dominio, servicos de base de dados e emails geridos com Infomaniak; deploy da aplicacao na Vercel.",
+            "security": "Servidores alojados na Uniao Europeia, alto nivel de seguranca e backups regulares."
+          }
+        },
+        "ip": {
+          "title": "Propriedade intelectual",
+          "p1": "Todos os conteudos do site (textos, imagens, logotipos, codigo fonte, videos, etc.) estao protegidos pela legislacao de propriedade intelectual e sao propriedade exclusiva de Cedric Batina / @rtful Batina Creative Studios.",
+          "p2": "Qualquer reproducao, adaptacao ou difusao nao autorizada e estritamente proibida."
+        },
+        "privacy": {
+          "title": "Protecao de dados pessoais e RGPD",
+          "p1": "As informacoes pessoais recolhidas via formularios sao estritamente confidenciais e usadas apenas para tratar o seu pedido. Nenhum dado e vendido ou transmitido a terceiros.",
+          "p2": "Em conformidade com o RGPD, tem direito de acesso, retificacao e apagamento dos seus dados. Para qualquer pedido: contact@artfulbatinacreativestudios.fr.",
+          "p3": "Cookies: este site utiliza cookies para melhorar a experiencia e realizar estatisticas anonimas (Matomo ou Google Analytics, consentimento necessario). Pode configurar as suas preferencias no navegador."
+        },
+        "terms": {
+          "title": "Condicoes Gerais de Utilizacao",
+          "items": {
+            "0": "O acesso e utilizacao deste site implicam a aceitacao plena destas condicoes.",
+            "1": "O utilizador compromete-se a nao prejudicar o funcionamento do site nem tentar contornar a sua seguranca.",
+            "2": "Qualquer uso abusivo (spam, tentativa de intrusao, conteudo ilicito) pode levar a suspensao de acesso ou acoes legais.",
+            "3": "O editor reserva-se o direito de modificar ou suspender o site a qualquer momento, sem aviso previo.",
+            "4": "Em caso de litigio, sera procurada primeiro uma solucao amigavel."
+          }
+        },
+        "links": {
+          "title": "Ligações externas",
+          "p1": "Podem ser fornecidas ligacoes para sites de terceiros para fins informativos. A @rtful Batina Creative Studios declina qualquer responsabilidade pelo conteudo e uso desses sites externos."
+        },
+        "law": {
+          "title": "Lei aplicavel e jurisdicao",
+          "p1": "Estas mencoes sao regidas pela lei francesa. Em caso de litigio, a jurisdicao exclusiva e dos tribunais de Bordeus (Franca)."
+        },
+        "updates": {
+          "title": "Atualizacoes",
+          "p1": "O editor reserva-se o direito de modificar estas mencoes a qualquer momento. Ultima atualizacao: julho de 2025.",
+          "p2": "Os utilizadores sao convidados a consultar esta pagina regularmente."
+        },
+        "contact": {
+          "title": "Contacto e suporte",
+          "p1": "Para qualquer questao ou pedido relativo a estas mencoes ou aos seus dados, escreva para contact@artfulbatinacreativestudios.fr.",
+          "p2": "@rtful Batina Creative Studios - Web, design, conteudos e formacao em Gradignan - Bordeus."
+        }
+      }
+    }
+  },
+  "userInline": {
+    "guest": {
+      "title": "Espace client",
+      "body": "Connectez-vous pour suivre vos échanges, vos demandes et vos livrables."
+    },
+    "actions": {
+      "login": "Se connecter",
+      "register": "Créer un compte",
+      "account": "Mon espace",
+      "logout": "Se déconnecter"
     }
   }
 }

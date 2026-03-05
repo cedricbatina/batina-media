@@ -200,7 +200,7 @@
 
 <script setup>
 import { computed, onMounted, onBeforeUnmount } from 'vue'
-import { useHead } from '#imports'
+import { useHead, useSeoMeta } from '#imports'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -351,13 +351,16 @@ onBeforeUnmount(() => {
  * SEO (i18n)
  */
 useHead(() => ({
-  title: t('solutions.seo.title'),
-  meta: [
-    { name: 'description', content: t('solutions.seo.description') },
-    { property: 'og:title', content: t('solutions.seo.title') },
-    { property: 'og:description', content: t('solutions.seo.description') }
-  ]
+  title: t('solutions.seo.title')
 }))
+
+useSeoMeta({
+  description: () => t('solutions.seo.description'),
+  ogTitle: () => t('solutions.seo.title'),
+  ogDescription: () => t('solutions.seo.description'),
+  twitterTitle: () => t('solutions.seo.title'),
+  twitterDescription: () => t('solutions.seo.description')
+})
 </script>
 
 <style scoped>
