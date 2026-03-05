@@ -746,7 +746,7 @@
       "badge": "Informacion juridica",
       "title": "Aviso legal, Privacidad y Condiciones",
       "intro": "Esta pagina reune la informacion legal de la entidad operadora, la politica de privacidad (RGPD) y las condiciones de uso del sitio.",
-      "seoDescription": "Aviso legal, politica RGPD y condiciones de uso de @rtful Batina Creative Studios.",
+      "seoDescription": "Aviso legal, politica RGPD y condiciones de uso de {'@'}rtful Batina Creative Studios.",
       "sections": {
         "publisher": {
           "title": "Editor del sitio",
@@ -761,10 +761,10 @@
             "registrationDate": "Fecha de registro"
           },
           "values": {
-            "name": "@rtful Batina Creative Studios (autonomo)",
+            "name": "{'@'}rtful Batina Creative Studios (autonomo)",
             "manager": "Cedric Batina",
             "address": "379 Residence Barthes 4A, Boulevard de Malartic, 33170 Gradignan, Francia",
-            "email": "contact@artfulbatinacreativestudios.fr",
+            "email": "contact{'@'}artfulbatinacreativestudios.fr",
             "phone": "+33 7 48 48 49 02",
             "siret": "911 940 070 00012",
             "ape": "6201Z - Programacion informatica",
@@ -794,13 +794,13 @@
         },
         "ip": {
           "title": "Propiedad intelectual",
-          "p1": "Todos los contenidos del sitio (textos, imagenes, logotipos, codigo fuente, videos, etc.) estan protegidos por la legislacion de propiedad intelectual y son propiedad exclusiva de Cedric Batina / @rtful Batina Creative Studios.",
+          "p1": "Todos los contenidos del sitio (textos, imagenes, logotipos, codigo fuente, videos, etc.) estan protegidos por la legislacion de propiedad intelectual y son propiedad exclusiva de Cedric Batina / {'@'}rtful Batina Creative Studios.",
           "p2": "Queda estrictamente prohibida toda reproduccion, adaptacion o difusion no autorizada."
         },
         "privacy": {
           "title": "Proteccion de datos personales y RGPD",
           "p1": "La informacion personal recogida mediante formularios es estrictamente confidencial y se utiliza solo para tratar tu solicitud. Ningun dato se vende ni se cede a terceros.",
-          "p2": "Conforme al RGPD, tienes derecho de acceso, rectificacion y supresion de tus datos. Para cualquier solicitud: contact@artfulbatinacreativestudios.fr.",
+          "p2": "Conforme al RGPD, tienes derecho de acceso, rectificacion y supresion de tus datos. Para cualquier solicitud: contact{'@'}artfulbatinacreativestudios.fr.",
           "p3": "Cookies: este sitio utiliza cookies para mejorar la experiencia y realizar estadisticas anonimas (Matomo o Google Analytics, consentimiento requerido). Puedes configurar tus preferencias en tu navegador."
         },
         "terms": {
@@ -815,7 +815,7 @@
         },
         "links": {
           "title": "Enlaces externos",
-          "p1": "Se pueden proponer enlaces a sitios de terceros con fines informativos. @rtful Batina Creative Studios no asume responsabilidad por el contenido y uso de esos sitios externos."
+          "p1": "Se pueden proponer enlaces a sitios de terceros con fines informativos. {'@'}rtful Batina Creative Studios no asume responsabilidad por el contenido y uso de esos sitios externos."
         },
         "law": {
           "title": "Legislacion aplicable y jurisdiccion",
@@ -828,8 +828,8 @@
         },
         "contact": {
           "title": "Contacto y soporte",
-          "p1": "Para cualquier consulta o solicitud sobre estas menciones o tus datos, escribe a contact@artfulbatinacreativestudios.fr.",
-          "p2": "@rtful Batina Creative Studios - Web, diseno, contenidos y formacion en Gradignan - Burdeos."
+          "p1": "Para cualquier consulta o solicitud sobre estas menciones o tus datos, escribe a contact{'@'}artfulbatinacreativestudios.fr.",
+          "p2": "{'@'}rtful Batina Creative Studios - Web, diseno, contenidos y formacion en Gradignan - Burdeos."
         }
       }
     }
@@ -847,3 +847,4 @@
     }
   }
 }
+

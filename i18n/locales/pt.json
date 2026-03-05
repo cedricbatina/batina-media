@@ -746,7 +746,7 @@
       "badge": "Informacao juridica",
       "title": "Aviso legal, Privacidade e Termos",
       "intro": "Esta pagina reune as informacoes legais da entidade operadora, a politica de privacidade (RGPD) e os termos de utilizacao do site.",
-      "seoDescription": "Aviso legal, politica RGPD e termos de utilizacao de @rtful Batina Creative Studios.",
+      "seoDescription": "Aviso legal, politica RGPD e termos de utilizacao de {'@'}rtful Batina Creative Studios.",
       "sections": {
         "publisher": {
           "title": "Editor do site",
@@ -761,10 +761,10 @@
             "registrationDate": "Data de registo"
           },
           "values": {
-            "name": "@rtful Batina Creative Studios (autoempreendedor)",
+            "name": "{'@'}rtful Batina Creative Studios (autoempreendedor)",
             "manager": "Cedric Batina",
             "address": "379 Residence Barthes 4A, Boulevard de Malartic, 33170 Gradignan, Franca",
-            "email": "contact@artfulbatinacreativestudios.fr",
+            "email": "contact{'@'}artfulbatinacreativestudios.fr",
             "phone": "+33 7 48 48 49 02",
             "siret": "911 940 070 00012",
             "ape": "6201Z - Programacao informatica",
@@ -794,13 +794,13 @@
         },
         "ip": {
           "title": "Propriedade intelectual",
-          "p1": "Todos os conteudos do site (textos, imagens, logotipos, codigo fonte, videos, etc.) estao protegidos pela legislacao de propriedade intelectual e sao propriedade exclusiva de Cedric Batina / @rtful Batina Creative Studios.",
+          "p1": "Todos os conteudos do site (textos, imagens, logotipos, codigo fonte, videos, etc.) estao protegidos pela legislacao de propriedade intelectual e sao propriedade exclusiva de Cedric Batina / {'@'}rtful Batina Creative Studios.",
           "p2": "Qualquer reproducao, adaptacao ou difusao nao autorizada e estritamente proibida."
         },
         "privacy": {
           "title": "Protecao de dados pessoais e RGPD",
           "p1": "As informacoes pessoais recolhidas via formularios sao estritamente confidenciais e usadas apenas para tratar o seu pedido. Nenhum dado e vendido ou transmitido a terceiros.",
-          "p2": "Em conformidade com o RGPD, tem direito de acesso, retificacao e apagamento dos seus dados. Para qualquer pedido: contact@artfulbatinacreativestudios.fr.",
+          "p2": "Em conformidade com o RGPD, tem direito de acesso, retificacao e apagamento dos seus dados. Para qualquer pedido: contact{'@'}artfulbatinacreativestudios.fr.",
           "p3": "Cookies: este site utiliza cookies para melhorar a experiencia e realizar estatisticas anonimas (Matomo ou Google Analytics, consentimento necessario). Pode configurar as suas preferencias no navegador."
         },
         "terms": {
@@ -815,7 +815,7 @@
         },
         "links": {
           "title": "Ligações externas",
-          "p1": "Podem ser fornecidas ligacoes para sites de terceiros para fins informativos. A @rtful Batina Creative Studios declina qualquer responsabilidade pelo conteudo e uso desses sites externos."
+          "p1": "Podem ser fornecidas ligacoes para sites de terceiros para fins informativos. A {'@'}rtful Batina Creative Studios declina qualquer responsabilidade pelo conteudo e uso desses sites externos."
         },
         "law": {
           "title": "Lei aplicavel e jurisdicao",
@@ -828,8 +828,8 @@
         },
         "contact": {
           "title": "Contacto e suporte",
-          "p1": "Para qualquer questao ou pedido relativo a estas mencoes ou aos seus dados, escreva para contact@artfulbatinacreativestudios.fr.",
-          "p2": "@rtful Batina Creative Studios - Web, design, conteudos e formacao em Gradignan - Bordeus."
+          "p1": "Para qualquer questao ou pedido relativo a estas mencoes ou aos seus dados, escreva para contact{'@'}artfulbatinacreativestudios.fr.",
+          "p2": "{'@'}rtful Batina Creative Studios - Web, design, conteudos e formacao em Gradignan - Bordeus."
         }
       }
     }
@@ -847,3 +847,4 @@
     }
   }
 }
+
