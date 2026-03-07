@@ -17,7 +17,156 @@
     "gotoTotal": "of {totalPages}"
   },
   "auth": {
-    "logout": "Log out"
+    "logout": "Log out",
+    "common": {
+      "email": {
+        "label": "Email address",
+        "placeholder": "you{'@'}example.com"
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "Your username",
+        "hint": "Optional. You can change it later."
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Your password",
+        "show": "Show",
+        "hide": "Hide"
+      },
+      "passwordConfirm": {
+        "label": "Confirm password",
+        "placeholder": "Type your password again"
+      },
+      "passwordNew": {
+        "label": "New password",
+        "placeholder": "Type a new password"
+      },
+      "errors": {
+        "generic": "Something went wrong. Please try again."
+      }
+    },
+    "register": {
+      "hero": {
+        "label": "Create account",
+        "title": "Create your Batina Media account",
+        "subtitle": "Access our platforms and track your projects."
+      },
+      "aside": {
+        "label": "Quick overview",
+        "title": "Why create an account?",
+        "items": {
+          "0": "Track your requests and projects.",
+          "1": "Receive key updates.",
+          "2": "Access your workspace faster."
+        }
+      },
+      "form": {
+        "title": "Sign up",
+        "subtitle": "Fill in your details to get started.",
+        "actions": {
+          "submit": "Create account",
+          "submitting": "Creating account..."
+        },
+        "footer": {
+          "alreadyHave": "Already have an account?",
+          "signIn": "Sign in"
+        }
+      },
+      "side": {
+        "title": "Need help?",
+        "body": "Our team can help you complete your registration.",
+        "contact": "Contact the studio"
+      },
+      "feedback": {
+        "success": "Account created. Check your inbox to verify your email.",
+        "goToLogin": "Go to login",
+        "resend": "Resend verification email",
+        "devLinkLabel": "Verification link (development):",
+        "devLinkCta": "Verify now"
+      },
+      "errors": {
+        "missingFields": "Please fill in required fields.",
+        "passwordTooShort": "Password must be at least 8 characters.",
+        "passwordMismatch": "Passwords do not match.",
+        "emailExists": "This email is already in use."
+      }
+    },
+    "login": {
+      "hero": {
+        "label": "Login",
+        "title": "Sign in to your account",
+        "subtitle": "Access your workspace and continue your work."
+      },
+      "aside": {
+        "ariaLabel": "Login information",
+        "label": "Account access",
+        "title": "Before you continue",
+        "items": {
+          "0": "Use your account email address.",
+          "1": "Verify your email if prompted.",
+          "2": "Contact us if you are blocked."
+        }
+      },
+      "form": {
+        "ariaLabel": "Login form",
+        "title": "Sign in",
+        "subtitle": "Enter your credentials.",
+        "actions": {
+          "submit": "Sign in",
+          "submitting": "Signing in...",
+          "forgot": "Forgot password?",
+          "resendVerification": "Resend verification email"
+        },
+        "notes": {
+          "verifyEmail": "Your email must be verified before login."
+        },
+        "bottom": {
+          "noAccount": "No account yet?",
+          "createAccount": "Create account"
+        }
+      },
+      "help": {
+        "title": "Need help?",
+        "subtitle": "We can help you recover or verify access.",
+        "resend": "Resend verification",
+        "contact": "Contact support"
+      },
+      "errors": {
+        "emailNotVerified": "Your email is not verified yet.",
+        "invalidCredentials": "Invalid credentials."
+      }
+    },
+    "resend": {
+      "hero": {
+        "label": "Email verification",
+        "title": "Resend verification email",
+        "subtitle": "We can send a new verification link to your address."
+      },
+      "aside": {
+        "label": "Verification help",
+        "title": "Before resending",
+        "items": {
+          "0": "Use the email address of your account.",
+          "1": "Check your spam/junk folder.",
+          "2": "Verification links expire, request a fresh one."
+        }
+      },
+      "form": {
+        "title": "Resend verification",
+        "subtitle": "Enter your email address to receive a new link.",
+        "actions": {
+          "submit": "Resend email",
+          "submitting": "Sending...",
+          "backToLogin": "Back to login"
+        }
+      },
+      "feedback": {
+        "sent": "Verification email sent. Please check your inbox.",
+        "alreadyVerified": "This address is already verified. You can sign in.",
+        "deliveryFailed": "We could not send the email right now. Please try again in a few minutes."
+      }
+    }
   },
   "nav": {
     "home": "Home",
@@ -847,4 +996,3 @@
     }
   }
 }
-

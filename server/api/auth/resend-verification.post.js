@@ -8,26 +8,27 @@ import { sendVerificationEmail } from '../../utils/mailer'
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const db = await getDb()
-  const body = (await readBody(event)) || {}
+  const body = (await readBody(event).catch(() => ({}))) || {}
 
   // Prefer session user if logged in; otherwise accept email.
   const session = getSessionFromEvent(event, config.jwtSecret)
-  const email = (session?.email || body.email || '').trim().toLowerCase()
+  const email = String(session?.email || body?.email || '').trim().toLowerCase()
+  const locale = String(body?.locale || '').trim() || 'fr'
 
   // Always return ok to avoid user enumeration.
-  if (!email) return { ok: true }
+  if (!email) return { ok: true, sent: false }
 
   const [[user]] = await db.execute(
-    'SELECT id, email, email_verified_at, disabled_at FROM users WHERE email = ? LIMIT 1',
+    'SELECT id, email, email_verified_at FROM users WHERE email = ? LIMIT 1',
     [email]
   )
 
-  if (!user || user.disabled_at) {
-    return { ok: true }
+  if (!user) {
+    return { ok: true, sent: true }
   }
 
   if (user.email_verified_at) {
-    return { ok: true, alreadyVerified: true }
+    return { ok: true, alreadyVerified: true, sent: false }
   }
 
   const token = await createUserToken({
@@ -36,11 +37,18 @@ export default defineEventHandler(async (event) => {
     ttlMinutes: 60 * 24
   })
 
+  let sent = false
   try {
-    await sendVerificationEmail(user.email, token, config)
+    await sendVerificationEmail(user.email, token, config, locale)
+    sent = true
   } catch (e) {
     console.warn('[auth/resend-verification] Unable to send verification email:', e?.message || e)
+    return {
+      ok: true,
+      sent: false,
+      statusMessage: process.env.NODE_ENV === 'production' ? undefined : String(e?.message || 'MAIL_SEND_FAILED')
+    }
   }
 
-  return { ok: true }
+  return { ok: true, sent }
 })

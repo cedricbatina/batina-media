@@ -9,7 +9,13 @@
     >
       <span class="bm-user-avatar" aria-hidden="true">
         <img v-if="avatarUrl" :src="avatarUrl" alt="" class="bm-user-avatar__img" />
-        <span v-else class="bm-user-avatar__initials">{{ initials }}</span>
+        <span v-else class="bm-user-avatar__fallback">
+          <span v-if="initials" class="bm-user-avatar__initials">{{ initials }}</span>
+          <svg v-else class="bm-user-avatar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M5 20a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
       </span>
 
       <span class="bm-user-chip__label">
@@ -17,7 +23,9 @@
         <span v-else>{{ chipLabel }}</span>
       </span>
 
-      <UIcon name="i-lucide-chevron-down" class="bm-user-chip__chev" aria-hidden="true" />
+      <svg class="bm-user-chip__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </button>
 
     <div v-if="open" class="bm-user-menu bm-card bm-card-compact" role="menu">
@@ -123,6 +131,8 @@ const displayName = computed(() => {
 })
 
 const initials = computed(() => {
+  if (!props.user) return ''
+
   const base = displayName.value || ''
   const parts = base
     .replace(/\s+/g, ' ')
@@ -132,8 +142,7 @@ const initials = computed(() => {
 
   const a = (parts[0] || '').slice(0, 1)
   const b = (parts[1] || '').slice(0, 1)
-  const out = `${a}${b}`.toUpperCase()
-  return out || '•'
+  return `${a}${b}`.toUpperCase()
 })
 
 const chipLabel = computed(() => {
@@ -226,6 +235,20 @@ onBeforeUnmount(() => {
   color: var(--bm-color-text-strong);
 }
 
+.bm-user-avatar__fallback {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bm-user-avatar__icon {
+  width: 14px;
+  height: 14px;
+  color: var(--bm-color-text);
+}
+
 .bm-user-chip__label {
   display: inline-flex;
   align-items: center;
@@ -235,7 +258,9 @@ onBeforeUnmount(() => {
 .bm-user-chip__chev {
   width: 16px;
   height: 16px;
-  opacity: 0.85;
+  opacity: 0.95;
+  color: var(--bm-color-text);
+  display: block;
 }
 
 .bm-user-chip__skeleton {

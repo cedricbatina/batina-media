@@ -16,23 +16,26 @@ function getSmtpKey(config) {
 
 function getTransporter(config) {
   const host = config?.smtpHost
+  const hostIp = config?.smtpHostIp
+  const tlsServername = config?.smtpTlsServername || host
   const user = config?.smtpUser
   const pass = config?.smtpPass
   const port = Number(config?.smtpPort || 587)
 
-  if (!host || !user || !pass) {
-    throw new Error('[mailer] Missing SMTP config (smtpHost/smtpUser/smtpPass).')
-  }
+  if ((!host && !hostIp) || !user || !pass) return null
 
   const key = getSmtpKey(config)
   if (cached.transporter && cached.key === key) return cached.transporter
 
   const secure = port === 465
   const transporter = nodemailer.createTransport({
-    host,
+    host: hostIp || host,
     port,
     secure,
-    auth: { user, pass }
+    auth: { user, pass },
+    tls: {
+      servername: tlsServername
+    }
   })
 
   cached = { transporter, key }
@@ -53,6 +56,16 @@ function normalizeLocale(input, fallback = 'fr') {
 
 async function sendMail({ to, subject, text, html, replyTo }, config) {
   const transport = getTransporter(config)
+  if (!transport) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn('[mailer] SMTP config missing in non-production mode. Email not sent.')
+      console.info('[mailer] Email preview:', { to, subject, text })
+      return
+    }
+
+    throw new Error('[mailer] Missing SMTP config (smtpHost/smtpUser/smtpPass).')
+  }
+
   await transport.sendMail({
     from: fromAddress(config),
     to,
@@ -70,7 +83,7 @@ async function sendMail({ to, subject, text, html, replyTo }, config) {
 export async function sendVerificationEmail(to, token, config, locale = 'fr') {
   const baseUrl = pickBaseUrl(config)
   const mailBase = (config?.mailVerificationBaseUrl || baseUrl).replace(/\/$/, '')
-  const verifyUrl = `${mailBase}/api/auth/verify-email?token=${encodeURIComponent(token)}`
+  const verifyUrl = `${mailBase}/verify-email?token=${encodeURIComponent(token)}`
 
   const loc = normalizeLocale(locale, 'fr')
   const tpl = getEmailTemplates(loc)

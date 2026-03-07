@@ -9,14 +9,22 @@
     >
       <span class="bm-user-avatar" aria-hidden="true">
         <img v-if="avatarUrl" :src="avatarUrl" alt="" />
-        <span v-else class="bm-user-avatar__fallback">{{ initials }}</span>
+        <span v-else class="bm-user-avatar__fallback">
+          <span v-if="initials">{{ initials }}</span>
+          <svg v-else class="bm-user-avatar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M5 20a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
       </span>
 
       <span class="bm-user-chip__label">
         {{ chipLabel }}
       </span>
 
-      <UIcon name="i-lucide-chevron-down" size="18" class="bm-user-chip__chev" aria-hidden="true" />
+      <svg class="bm-user-chip__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </button>
 
     <div v-if="open" class="bm-user-menu bm-card bm-card-compact" role="menu">
@@ -115,12 +123,13 @@ const avatarUrl = computed(() => {
 })
 
 const initials = computed(() => {
+  if (!props.user) return ''
+
   const name = displayName.value || ''
   const parts = name.trim().split(/\s+/).filter(Boolean)
   const first = parts[0]?.[0] || ''
   const second = parts[1]?.[0] || ''
-  const out = (first + second).toUpperCase()
-  return out || '•'
+  return (first + second).toUpperCase()
 })
 
 const roleLabel = computed(() => {
@@ -217,14 +226,29 @@ watch(
 }
 
 .bm-user-avatar__fallback {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--bm-color-text);
 }
 
+.bm-user-avatar__icon {
+  width: 14px;
+  height: 14px;
+  color: var(--bm-color-text);
+}
+
 .bm-user-chip__chev {
+  width: 16px;
+  height: 16px;
   opacity: 0.85;
+  display: block;
+  color: var(--bm-color-text);
 }
 
 .bm-user-menu {

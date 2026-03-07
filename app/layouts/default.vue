@@ -473,19 +473,22 @@ onBeforeUnmount(() => {
   right: 0;
   width: min(92vw, 390px);
   height: 100vh;
+  max-height: 100dvh;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
   background: var(--bm-color-bg);
   border-left: 1px solid var(--bm-color-border-subtle);
   z-index: 90;
   transform: translateX(0);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .bm-mobile-nav__inner {
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.25rem;
+  padding: 1.25rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom));
   gap: 1.25rem;
 }
 
@@ -532,7 +535,7 @@ onBeforeUnmount(() => {
 
 /* Mobile actions */
 .bm-mobile-nav__actions {
-  margin-top: auto;
+  margin-top: 0;
   display: grid;
   gap: 1rem;
   padding-top: 1rem;
@@ -571,6 +574,76 @@ onBeforeUnmount(() => {
 .bm-mobile-theme-btn {
   width: 100%;
   justify-content: center;
+  min-height: 44px;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.3;
+}
+
+@media (max-width: 980px) {
+  .bm-mobile-nav__inner {
+    gap: 1rem;
+    padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Tablet landscape / low-height phones: keep language + theme block accessible */
+@media (max-width: 1180px) and (max-height: 820px) {
+  .bm-mobile-nav {
+    width: min(96vw, 420px);
+  }
+
+  .bm-mobile-nav__inner {
+    gap: 0.75rem;
+    padding: 0.85rem 0.9rem calc(0.85rem + env(safe-area-inset-bottom));
+  }
+
+  .bm-brand__logo--mobile {
+    height: 44px;
+  }
+
+  .bm-mobile-nav__links {
+    gap: 0.25rem;
+  }
+
+  .bm-mobile-link {
+    padding: 0.66rem 0.75rem;
+  }
+
+  .bm-mobile-nav__actions {
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bm-color-bg) 72%, transparent) 0%,
+      var(--bm-color-bg) 22%
+    );
+  }
+
+  .bm-mobile-label {
+    font-size: 0.72rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .bm-lang-switch--mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .bm-mobile-theme-btn {
+    min-height: 42px;
+    font-size: 0.84rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  :deep(.bm-mobile-auth .bm-user-chip) {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 /* Responsive: hide desktop nav/actions, show toggle */

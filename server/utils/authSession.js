@@ -5,8 +5,17 @@ import { getCookie, setCookie, deleteCookie, getHeader } from 'h3'
 const DEFAULT_COOKIE = 'bm_session'
 
 export function createSessionToken(payload, jwtSecret, opts = {}) {
+  if (!jwtSecret) {
+    throw new Error('Missing jwtSecret for session token creation')
+  }
+
+  const normalizedPayload = {
+    ...payload,
+    sub: payload?.sub ?? payload?.userId ?? payload?.id ?? null
+  }
+
   const expiresIn = opts.expiresIn || '7d'
-  return jwt.sign(payload, jwtSecret, { expiresIn })
+  return jwt.sign(normalizedPayload, jwtSecret, { expiresIn })
 }
 
 export function setSessionCookie(event, token, opts = {}) {
@@ -15,7 +24,7 @@ export function setSessionCookie(event, token, opts = {}) {
 
   setCookie(event, cookieName, token, {
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
     path: '/',
     maxAge: maxAgeDays * 24 * 60 * 60

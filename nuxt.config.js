@@ -45,10 +45,12 @@ export default defineNuxtConfig({
     jwtEmailSecret: process.env.JWT_EMAIL_SECRET || process.env.JWT_SECRET,
 
     smtpHost: process.env.SMTP_HOST,
+    smtpHostIp: process.env.SMTP_HOST_IP,
+    smtpTlsServername: process.env.SMTP_TLS_SERVERNAME,
     smtpPort: process.env.SMTP_PORT,
     smtpUser: process.env.SMTP_USER,
     smtpPass: process.env.SMTP_PASS,
-    mailFrom: process.env.MAIL_FROM,
+    mailFrom: process.env.MAIL_FROM || process.env.EMAIL_FROM,
     mailVerificationBaseUrl: process.env.MAIL_VERIFICATION_BASE_URL,
 
     // PUBLIC (client)

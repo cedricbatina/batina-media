@@ -8,10 +8,12 @@ import { sendVerificationEmail } from '../../utils/mailer'
 import { createSessionToken, setSessionCookie } from '../../utils/authSession'
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig()
   const body = await readBody(event)
   const email = String(body?.email || '').trim().toLowerCase()
   const password = String(body?.password || '')
-  const name = String(body?.name || '').trim()
+  const username = String(body?.username || body?.name || '').trim()
+  const locale = String(body?.locale || '').trim() || 'fr'
 
   if (!email || !password) {
     throw createError({ statusCode: 400, statusMessage: 'Email et mot de passe requis.' })
@@ -29,26 +31,32 @@ export default defineEventHandler(async (event) => {
   const [res] = await db.query(
     `INSERT INTO users (email, password_hash, display_name, created_at)
      VALUES (?, ?, ?, NOW())`,
-    [email, passwordHash, name || null]
+    [email, passwordHash, username || null]
   )
 
   const userId = res.insertId
 
   // token email verification
-  const token = await createUserToken(db, {
+  const token = await createUserToken({
     userId,
     tokenType: 'email_verify',
     ttlMinutes: 60 * 24 * 3 // 3 jours
   })
 
-  await sendVerificationEmail({
-    to: email,
-    verifyUrl: `${process.env.PUBLIC_BASE_URL || 'http://localhost:3000'}/verify-email?token=${encodeURIComponent(token)}`
-  })
+  try {
+    await sendVerificationEmail(email, token, config, locale)
+  } catch (e) {
+    // Do not block registration if mail delivery fails.
+    console.warn('[auth/register] Unable to send verification email:', e?.message || e)
+  }
 
   // auto-login (optional) -> session cookie
-  const session = await createSessionToken({ userId, email, roles: [] })
+  const session = await createSessionToken({ userId, email, roles: [] }, config.jwtSecret)
   setSessionCookie(event, session)
 
-  return { ok: true, user: { id: userId, email, displayName: name || null, emailVerified: false } }
+  return {
+    ok: true,
+    user: { id: userId, email, displayName: username || null, emailVerified: false },
+    verificationToken: process.env.NODE_ENV !== 'production' ? token : undefined
+  }
 })

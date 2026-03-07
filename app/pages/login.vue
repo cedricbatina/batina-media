@@ -115,6 +115,13 @@
               </button>
 
               <NuxtLink
+                :to="resendLink"
+                class="bm-btn bm-btn-outline bm-btn-sm"
+              >
+                {{ t('auth.login.form.actions.resendVerification') }}
+              </NuxtLink>
+
+              <NuxtLink
                 to="/forgot-password"
                 class="auth-link"
               >

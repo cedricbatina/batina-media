@@ -17,7 +17,156 @@
     "gotoTotal": "de {totalPages}"
   },
   "auth": {
-    "logout": "Cerrar sesion"
+    "logout": "Cerrar sesion",
+    "common": {
+      "email": {
+        "label": "Correo electronico",
+        "placeholder": "tu{'@'}ejemplo.com"
+      },
+      "username": {
+        "label": "Nombre de usuario",
+        "placeholder": "Tu nombre de usuario",
+        "hint": "Opcional. Podras cambiarlo despues."
+      },
+      "password": {
+        "label": "Contrasena",
+        "placeholder": "Tu contrasena",
+        "show": "Mostrar",
+        "hide": "Ocultar"
+      },
+      "passwordConfirm": {
+        "label": "Confirmar contrasena",
+        "placeholder": "Vuelve a escribir la contrasena"
+      },
+      "passwordNew": {
+        "label": "Nueva contrasena",
+        "placeholder": "Escribe una nueva contrasena"
+      },
+      "errors": {
+        "generic": "Ocurrio un error. Intentalo de nuevo."
+      }
+    },
+    "register": {
+      "hero": {
+        "label": "Crear cuenta",
+        "title": "Crea tu cuenta de Batina Media",
+        "subtitle": "Accede a nuestras plataformas y sigue tus proyectos."
+      },
+      "aside": {
+        "label": "Resumen",
+        "title": "Por que crear una cuenta?",
+        "items": {
+          "0": "Sigue tus solicitudes y proyectos.",
+          "1": "Recibe actualizaciones importantes.",
+          "2": "Accede mas rapido a tu espacio."
+        }
+      },
+      "form": {
+        "title": "Registro",
+        "subtitle": "Completa tus datos para empezar.",
+        "actions": {
+          "submit": "Crear cuenta",
+          "submitting": "Creando cuenta..."
+        },
+        "footer": {
+          "alreadyHave": "Ya tienes cuenta?",
+          "signIn": "Iniciar sesion"
+        }
+      },
+      "side": {
+        "title": "Necesitas ayuda?",
+        "body": "Nuestro equipo puede ayudarte a completar tu registro.",
+        "contact": "Contactar al estudio"
+      },
+      "feedback": {
+        "success": "Cuenta creada. Revisa tu correo para verificar tu direccion.",
+        "goToLogin": "Ir a iniciar sesion",
+        "resend": "Reenviar correo de verificacion",
+        "devLinkLabel": "Enlace de verificacion (desarrollo):",
+        "devLinkCta": "Verificar ahora"
+      },
+      "errors": {
+        "missingFields": "Completa los campos obligatorios.",
+        "passwordTooShort": "La contrasena debe tener al menos 8 caracteres.",
+        "passwordMismatch": "Las contrasenas no coinciden.",
+        "emailExists": "Este correo ya esta en uso."
+      }
+    },
+    "login": {
+      "hero": {
+        "label": "Inicio de sesion",
+        "title": "Inicia sesion en tu cuenta",
+        "subtitle": "Accede a tu espacio y continua tu trabajo."
+      },
+      "aside": {
+        "ariaLabel": "Informacion de acceso",
+        "label": "Acceso de cuenta",
+        "title": "Antes de continuar",
+        "items": {
+          "0": "Usa el correo de tu cuenta.",
+          "1": "Verifica tu correo si se solicita.",
+          "2": "Contactanos si estas bloqueado."
+        }
+      },
+      "form": {
+        "ariaLabel": "Formulario de inicio de sesion",
+        "title": "Iniciar sesion",
+        "subtitle": "Introduce tus credenciales.",
+        "actions": {
+          "submit": "Iniciar sesion",
+          "submitting": "Iniciando sesion...",
+          "forgot": "Olvidaste tu contrasena?",
+          "resendVerification": "Reenviar correo de verificacion"
+        },
+        "notes": {
+          "verifyEmail": "Tu correo debe estar verificado antes de iniciar sesion."
+        },
+        "bottom": {
+          "noAccount": "Aun no tienes cuenta?",
+          "createAccount": "Crear cuenta"
+        }
+      },
+      "help": {
+        "title": "Necesitas ayuda?",
+        "subtitle": "Podemos ayudarte a recuperar o verificar el acceso.",
+        "resend": "Reenviar verificacion",
+        "contact": "Contactar soporte"
+      },
+      "errors": {
+        "emailNotVerified": "Tu correo aun no esta verificado.",
+        "invalidCredentials": "Credenciales invalidas."
+      }
+    },
+    "resend": {
+      "hero": {
+        "label": "Verificacion de correo",
+        "title": "Reenviar correo de verificacion",
+        "subtitle": "Podemos enviar un nuevo enlace de verificacion a tu direccion."
+      },
+      "aside": {
+        "label": "Ayuda de verificacion",
+        "title": "Antes de reenviar",
+        "items": {
+          "0": "Usa el correo de tu cuenta.",
+          "1": "Revisa spam o correo no deseado.",
+          "2": "El enlace caduca, puedes solicitar uno nuevo."
+        }
+      },
+      "form": {
+        "title": "Reenviar verificacion",
+        "subtitle": "Introduce tu correo para recibir un nuevo enlace.",
+        "actions": {
+          "submit": "Reenviar correo",
+          "submitting": "Enviando...",
+          "backToLogin": "Volver al inicio de sesion"
+        }
+      },
+      "feedback": {
+        "sent": "Correo de verificacion enviado. Revisa tu bandeja de entrada.",
+        "alreadyVerified": "Esta direccion ya esta verificada. Puedes iniciar sesion.",
+        "deliveryFailed": "No se pudo enviar el correo en este momento. Intentalo de nuevo en unos minutos."
+      }
+    }
   },
   "nav": {
     "home": "Inicio",
@@ -847,4 +996,3 @@
     }
   }
 }
-

@@ -103,12 +103,13 @@ import { useI18n } from 'vue-i18n'
 
 definePageMeta({ guestOnly: true })
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
 
 const email = ref('')
 const submitting = ref(false)
 const state = ref('idle') // idle | sent | already | error
+const submitErrorMessage = ref('')
 
 onMounted(() => {
   const raw = route.query.email
@@ -125,7 +126,7 @@ const asideItems = computed(() => [
 const message = computed(() => {
   if (state.value === 'sent') return t('auth.resend.feedback.sent')
   if (state.value === 'already') return t('auth.resend.feedback.alreadyVerified')
-  if (state.value === 'error') return t('auth.common.errors.generic')
+  if (state.value === 'error') return submitErrorMessage.value || t('auth.common.errors.generic')
   return ''
 })
 
@@ -137,6 +138,7 @@ const messageClass = computed(() => {
 
 async function onSubmit () {
   state.value = 'idle'
+  submitErrorMessage.value = ''
 
   if (!email.value.trim()) {
     state.value = 'error'
@@ -147,14 +149,25 @@ async function onSubmit () {
   try {
     const res = await $fetch('/api/auth/resend-verification', {
       method: 'POST',
-      body: { email: email.value.trim() }
+      body: { email: email.value.trim(), locale: locale.value }
     })
 
-    if (res?.alreadyVerified) state.value = 'already'
-    else state.value = 'sent'
+    if (res?.alreadyVerified) {
+      state.value = 'already'
+      return
+    }
+
+    if (res?.sent === true) {
+      state.value = 'sent'
+      return
+    }
+
+    state.value = 'error'
+    submitErrorMessage.value = t('auth.resend.feedback.deliveryFailed')
   } catch (e) {
     console.error(e)
     state.value = 'error'
+    submitErrorMessage.value = t('auth.common.errors.generic')
   } finally {
     submitting.value = false
   }

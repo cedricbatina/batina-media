@@ -51,9 +51,11 @@
             @click="goToPage(currentPage - 1)"
             :aria-label="labelPrevComputed"
           >
-           <span class="app-pagination__icon" aria-hidden="true">
-  <UIcon name="i-lucide-chevron-left" />
-</span>
+            <span class="app-pagination__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
 
             <span class="app-pagination__text">
               {{ labelPrevComputed }}
@@ -102,8 +104,10 @@
               {{ labelNextComputed }}
             </span>
             <span class="app-pagination__icon" aria-hidden="true">
-  <UIcon name="i-lucide-chevron-right" />
-</span>
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
 
           </button>
         </li>
@@ -453,6 +457,12 @@ function onInputPageChange(event) {
   align-items: center;
   justify-content: center;
   line-height: 0;
+}
+
+.app-pagination__icon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .app-pagination__text {

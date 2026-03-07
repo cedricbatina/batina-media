@@ -6,6 +6,7 @@ import { getDb } from '../../utils/db'
 import { createSessionToken, setSessionCookie } from '../../utils/authSession'
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig()
   const body = await readBody(event)
   const email = String(body?.email || '').trim().toLowerCase()
   const password = String(body?.password || '')
@@ -39,7 +40,7 @@ export default defineEventHandler(async (event) => {
     userId: user.id,
     email: user.email,
     roles: []
-  })
+  }, config.jwtSecret)
 
   setSessionCookie(event, session)
 
