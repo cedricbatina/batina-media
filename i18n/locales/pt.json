@@ -166,6 +166,36 @@
         "alreadyVerified": "Este endereco ja esta verificado. Pode iniciar sessao.",
         "deliveryFailed": "Nao foi possivel enviar o e-mail agora. Tente novamente dentro de alguns minutos."
       }
+    },
+    "verify": {
+      "hero": {
+        "label": "Verificacao de e-mail",
+        "title": "Verifique o seu endereco de e-mail",
+        "subtitle": "Estamos a validar o seu link de confirmacao e a ativar o seu acesso."
+      },
+      "aside": {
+        "label": "Passos uteis",
+        "title": "Se algo falhar",
+        "items": {
+          "0": "Confirme que abriu o ultimo link recebido.",
+          "1": "O link pode expirar, peca um novo se necessario.",
+          "2": "Contacte o suporte se o problema continuar."
+        }
+      },
+      "card": {
+        "title": "Verificacao em curso",
+        "loading": "A verificar o seu e-mail...",
+        "successTitle": "E-mail verificado",
+        "successBody": "O seu e-mail foi confirmado. Ja pode iniciar sessao.",
+        "errorBody": "O link e invalido ou expirou.",
+        "actions": {
+          "login": "Iniciar sessao",
+          "resend": "Reenviar link"
+        }
+      },
+      "errors": {
+        "missingToken": "Falta o link de verificacao."
+      }
     }
   },
   "nav": {

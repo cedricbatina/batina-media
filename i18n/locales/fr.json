@@ -166,6 +166,36 @@
         "alreadyVerified": "Cette adresse est deja verifiee. Vous pouvez vous connecter.",
         "deliveryFailed": "L'e-mail n'a pas pu etre envoye pour le moment. Reessayez dans quelques minutes."
       }
+    },
+    "verify": {
+      "hero": {
+        "label": "Verification e-mail",
+        "title": "Verification de votre adresse",
+        "subtitle": "Nous verifions votre lien de confirmation et activons votre acces."
+      },
+      "aside": {
+        "label": "Etapes utiles",
+        "title": "En cas de probleme",
+        "items": {
+          "0": "Verifiez que vous avez ouvert le dernier lien recu.",
+          "1": "Le lien peut expirer, demandez un nouvel envoi si besoin.",
+          "2": "Contactez le support si le probleme persiste."
+        }
+      },
+      "card": {
+        "title": "Verification en cours",
+        "loading": "Verification de votre e-mail en cours...",
+        "successTitle": "Adresse verifiee",
+        "successBody": "Votre e-mail est confirme. Vous pouvez maintenant vous connecter.",
+        "errorBody": "Le lien est invalide ou expire.",
+        "actions": {
+          "login": "Se connecter",
+          "resend": "Renvoyer un lien"
+        }
+      },
+      "errors": {
+        "missingToken": "Lien de verification manquant."
+      }
     }
   },
   "nav": {

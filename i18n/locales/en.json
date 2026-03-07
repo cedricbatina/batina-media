@@ -166,6 +166,36 @@
         "alreadyVerified": "This address is already verified. You can sign in.",
         "deliveryFailed": "We could not send the email right now. Please try again in a few minutes."
       }
+    },
+    "verify": {
+      "hero": {
+        "label": "Email verification",
+        "title": "Verify your email address",
+        "subtitle": "We are validating your confirmation link and activating your access."
+      },
+      "aside": {
+        "label": "Helpful steps",
+        "title": "If something goes wrong",
+        "items": {
+          "0": "Make sure you opened the latest link you received.",
+          "1": "The link may expire, request a new one if needed.",
+          "2": "Contact support if the issue continues."
+        }
+      },
+      "card": {
+        "title": "Verification in progress",
+        "loading": "Verifying your email...",
+        "successTitle": "Email verified",
+        "successBody": "Your email is confirmed. You can now sign in.",
+        "errorBody": "The link is invalid or expired.",
+        "actions": {
+          "login": "Sign in",
+          "resend": "Resend a link"
+        }
+      },
+      "errors": {
+        "missingToken": "Missing verification link."
+      }
     }
   },
   "nav": {

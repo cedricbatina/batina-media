@@ -166,6 +166,36 @@
         "alreadyVerified": "Esta direccion ya esta verificada. Puedes iniciar sesion.",
         "deliveryFailed": "No se pudo enviar el correo en este momento. Intentalo de nuevo en unos minutos."
       }
+    },
+    "verify": {
+      "hero": {
+        "label": "Verificacion de correo",
+        "title": "Verifica tu direccion de correo",
+        "subtitle": "Estamos validando tu enlace de confirmacion y activando tu acceso."
+      },
+      "aside": {
+        "label": "Pasos utiles",
+        "title": "Si algo falla",
+        "items": {
+          "0": "Asegurate de abrir el ultimo enlace recibido.",
+          "1": "El enlace puede caducar, solicita uno nuevo si hace falta.",
+          "2": "Contacta con soporte si el problema continua."
+        }
+      },
+      "card": {
+        "title": "Verificacion en curso",
+        "loading": "Verificando tu correo...",
+        "successTitle": "Correo verificado",
+        "successBody": "Tu correo ha sido confirmado. Ya puedes iniciar sesion.",
+        "errorBody": "El enlace es invalido o ha caducado.",
+        "actions": {
+          "login": "Iniciar sesion",
+          "resend": "Reenviar enlace"
+        }
+      },
+      "errors": {
+        "missingToken": "Falta el enlace de verificacion."
+      }
     }
   },
   "nav": {
