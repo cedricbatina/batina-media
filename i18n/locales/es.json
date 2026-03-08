@@ -525,7 +525,8 @@
       "subtitle": "Ayudamos a proyectos, investigadores, autores, equipos pedagógicos y organizaciones a transformar sus saberes, datos y contenidos en plataformas, libros, herramientas y aplicaciones que se sostienen en el tiempo.",
       "aside": {
         "title": "Datos, contenidos, sistemas",
-        "body": "Partimos de lo que ya existe (o de lo que quieres producir) para concebir modelos de datos robustos, plataformas coherentes y derivados: libros, cuadernos, materiales pedagógicos, interfaces, apps, etc."
+        "body": "Partimos de lo que ya existe (o de lo que quieres producir) para concebir modelos de datos robustos, plataformas coherentes y derivados: libros, cuadernos, materiales pedagógicos, interfaces, apps, etc.",
+        "label": "En breve"
       }
     },
     "position": {

@@ -455,7 +455,8 @@
             "Modélisation de données pour corpus, contenus pédagogiques, catalogues, fonds documentaires ou projets éditoriaux.",
             "Conception et mise en place de bases (MySQL / SQL), schémas relationnels, vues et exports adaptés à vos usages.",
             "Structuration de contenus existants (fichiers, notes, archives, cours, documents métier) pour les rendre exploitables.",
-            "API et formats d’échange (JSON, CSV, etc.) pour alimenter sites, apps, outils internes ou pipelines d’édition."
+            "API et formats d’échange (JSON, CSV, etc.) pour alimenter sites, apps, outils internes ou pipelines d’édition.",
+            "(Placeholder) Complétez ce texte pour la cinquième compétence."
           ]
         },
         {
@@ -672,7 +673,8 @@
       "subtitle": "Nous aidons projets, chercheur·e·s, auteur·e·s, équipes pédagogiques et organisations à transformer leurs savoirs, données et contenus en plateformes, livres, outils et applications qui tiennent dans le temps.",
       "aside": {
         "title": "Données, contenus, systèmes",
-        "body": "Nous partons de ce que vous avez déjà (ou de ce que vous souhaitez produire) pour concevoir des modèles de données robustes, des plateformes cohérentes et des dérivés : livres, cahiers, supports pédagogiques, interfaces, apps, etc."
+        "body": "Nous partons de ce que vous avez déjà (ou de ce que vous souhaitez produire) pour concevoir des modèles de données robustes, des plateformes cohérentes et des dérivés : livres, cahiers, supports pédagogiques, interfaces, apps, etc.",
+        "label": "En bref"
       }
     },
     "position": {

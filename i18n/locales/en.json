@@ -525,7 +525,8 @@
       "subtitle": "We help projects, researchers, authors, teaching teams and organisations turn their knowledge, data and content into platforms, books, tools and applications that last.",
       "aside": {
         "title": "Data, content, systems",
-        "body": "We start from what you already have (or what you want to produce) to design robust data models, coherent platforms and derivatives: books, workbooks, learning materials, interfaces, apps, etc."
+        "body": "We start from what you already have (or what you want to produce) to design robust data models, coherent platforms and derivatives: books, workbooks, learning materials, interfaces, apps, etc.",
+        "label": "At a glance"
       }
     },
     "position": {

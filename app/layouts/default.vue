@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="bm-layout">
     <!-- Skip link -->
     <a href="#main-content" class="bm-skip-link">
@@ -10,7 +10,7 @@
       <div class="bm-header-inner">
         <!-- Brand -->
         <NuxtLink
-          to="/"
+          :to="localizedPath('/')"
           class="bm-brand"
           :aria-label="t('app.brand')"
           @click="closeMobileNav"
@@ -238,7 +238,7 @@
 <footer class="bm-footer">
   <div class="bm-footer-inner">
     <div class="bm-footer-main">
-      <NuxtLink to="/" class="bm-footer-brand" :aria-label="t('app.brand')">
+      <NuxtLink :to="localizedPath('/')" class="bm-footer-brand" :aria-label="t('app.brand')">
         <img
           :src="logoSrc"
           :alt="t('app.brand')"
@@ -253,9 +253,9 @@
     </div>
 
     <nav class="bm-footer-links" :aria-label="t('layout.footer.ariaLabel')">
-      <NuxtLink to="/terms" class="bm-footer-link">{{ t('layout.footer.links.terms') }}</NuxtLink>
-      <NuxtLink to="/privacy" class="bm-footer-link">{{ t('layout.footer.links.privacy') }}</NuxtLink>
-      <NuxtLink to="/legal" class="bm-footer-link">{{ t('layout.footer.links.legal') }}</NuxtLink>
+      <NuxtLink :to="localizedPath('/terms')" class="bm-footer-link">{{ t('layout.footer.links.terms') }}</NuxtLink>
+      <NuxtLink :to="localizedPath('/privacy')" class="bm-footer-link">{{ t('layout.footer.links.privacy') }}</NuxtLink>
+      <NuxtLink :to="localizedPath('/legal')" class="bm-footer-link">{{ t('layout.footer.links.legal') }}</NuxtLink>
     </nav>
   </div>
 </footer>
@@ -266,7 +266,7 @@
 <script setup>
 import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useAuthStore } from '~/stores/authStore'
-import { useI18n, useRoute, useSwitchLocalePath, navigateTo } from '#imports'
+import { useI18n, useRoute, useSwitchLocalePath, useLocalePath, useRequestURL, navigateTo } from '#imports'
 
 const auth = useAuthStore()
 onMounted(async () => {
@@ -275,43 +275,94 @@ onMounted(async () => {
 
 const onLogout = async () => {
   await auth.logout()
-  await navigateTo('/')
+  await navigateTo(localizedPath('/'))
 }
 
 
-const { t, locale } = useI18n()
+const { t, locale, setLocale: setI18nLocale } = useI18n()
 const route = useRoute()
 const switchLocalePath = useSwitchLocalePath()
+const localePath = useLocalePath()
+
+const locales = ['fr', 'en', 'pt', 'es']
+const localizedPath = (pathValue) => localePath(pathValue, locale.value)
+
+const resolveLocaleFromUrl = () => {
+  const pathname = import.meta.server
+    ? useRequestURL().pathname
+    : window.location.pathname
+  const segment = String(pathname || '').split('/')[1]
+  return locales.includes(segment) ? segment : null
+}
+
+const syncLocaleWithUrl = async () => {
+  const nextLocale = resolveLocaleFromUrl()
+  if (!nextLocale || nextLocale === locale.value) return
+  await setI18nLocale(nextLocale)
+}
+
+await syncLocaleWithUrl()
 
 /**
  * NAV
  */
-const navItems = computed(() => [
-  { to: '/', label: t('nav.home') },
-  { to: '/solutions', label: t('nav.solutions') },
-  { to: '/projects', label: t('nav.projects') },
-  { to: '/studio', label: t('nav.studio') },
-  { to: '/contact', label: t('nav.contact') }
-])
+const navItems = computed(() => {
+  const _ = locale.value
+  const items = [
+    { path: '/', label: t('nav.home') },
+    { path: '/solutions', label: t('nav.solutions') },
+    { path: '/projects', label: t('nav.projects') },
+    { path: '/studio', label: t('nav.studio') },
+    { path: '/contact', label: t('nav.contact') }
+  ]
+  return items.map((item) => ({
+    ...item,
+    to: localizedPath(item.path)
+  }))
+})
+
+const normalizePath = (pathValue) => {
+  if (!pathValue) return '/'
+  const cleaned = pathValue.replace(/\/+$/, '')
+  return cleaned === '' ? '/' : cleaned
+}
+
+const stripLocalePrefix = (pathValue) => {
+  const normalized = normalizePath(pathValue)
+  if (normalized === '/') return '/'
+  const match = normalized.match(/^\/([^/]+)(\/.*)?$/)
+  if (!match) return normalized
+  const maybeLocale = match[1]
+  if (!locales.includes(maybeLocale)) return normalized
+  const rest = match[2] || '/'
+  return normalizePath(rest)
+}
+
+const isLocaleRoot = (pathValue) => stripLocalePrefix(pathValue) === '/'
 
 const isActiveLink = (toPath) => {
-  if (toPath === '/') return route.path === '/'
-  return route.path.startsWith(toPath)
+  const current = stripLocalePrefix(route.path)
+  const target = stripLocalePrefix(toPath)
+  if (isLocaleRoot(target)) return current === '/'
+  return current === target || current.startsWith(`${target}/`)
 }
 
 /**
  * LOCALES
  */
-const locales = ['fr', 'en', 'pt', 'es']
 const setLocale = async (code) => {
   if (locale.value === code) return
+  await setI18nLocale(code)
   const targetPath = switchLocalePath(code)
+  if (import.meta.client) {
+    console.log('[setLocale] code:', code, 'locale.value:', locale.value, 'targetPath:', targetPath)
+  }
   if (targetPath) {
     await navigateTo(targetPath)
     return
   }
-  // Fallback if route generation fails for any reason.
-  locale.value = code
+  // Fallback si route generation échoue
+  // locale.value = code (retiré pour laisser Nuxt/i18n gérer la langue)
 }
 const isActiveLocale = (code) => locale.value === code
 const localeAriaLabel = (code) => {
@@ -388,6 +439,7 @@ const toggleMobileNav = () => {
 watch(
   () => route.fullPath,
   () => {
+    void syncLocaleWithUrl()
     if (mobileNavOpen.value) closeMobileNav()
   }
 )
@@ -693,3 +745,14 @@ onBeforeUnmount(() => {
 }
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
