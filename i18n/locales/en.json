@@ -242,7 +242,7 @@
     },
     "contact": {
       "title": "Press contact",
-      "email": "contact@longoka.com",
+      "email": "contact{'@'}longoka.com",
       "phone": "+33 7 48 48 49 02",
       "hint": "Reply within 48–72 business hours · interviews, conferences, institutional partnerships."
     },
