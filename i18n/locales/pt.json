@@ -228,6 +228,10 @@
         "terms": "Termos",
         "privacy": "Privacidade",
         "legal": "Legal"
+      },
+      "ecosystem": {
+        "title": "Ecossistema",
+        "allProjects": "Todos os projetos"
       }
     },
     "user": {
@@ -1024,6 +1028,50 @@
       "register": "Créer un compte",
       "account": "Mon espace",
       "logout": "Se déconnecter"
+    }
+  },
+  "ecosystem": {
+    "products": {
+      "longoka": {
+        "name": "Longoka",
+        "shortLabel": "Plataforma · Cursos e conteúdos",
+        "oneLiner": "Academia de ciências e letras — cursos, imersões e materiais pedagógicos.",
+        "description": "Cursos, artigos, livros, papelaria e produtos educativos — línguas, escritas e saberes num ambiente de aprendizagem.",
+        "meta": "Plataforma LMS onde os conteúdos são estruturados para reutilização em materiais de curso.",
+        "tags": ["LMS", "Pedagogia", "Loja"]
+      },
+      "lexikongo": {
+        "name": "Lexikongo",
+        "shortLabel": "Produto de saberes · Léxico",
+        "oneLiner": "Léxico e tecnologias linguísticas Kikongo.",
+        "description": "Plataforma lexical Kikongo multilingue — consulta e pesquisa. Os cursos estão no Longoka.",
+        "meta": "Motor lexical reutilizável para outras línguas.",
+        "tags": ["Léxico", "Kikongo", "i18n"]
+      },
+      "lexilingala": {
+        "name": "Lexilingala",
+        "shortLabel": "Produto de saberes · Léxico",
+        "oneLiner": "Léxico Lingala online — os cursos estão no Longoka.",
+        "description": "Plataforma irmã centrada no Lingala, mesmo núcleo que Lexikongo. Apenas léxico, sem LMS.",
+        "meta": "Localização rápida de um motor lexical.",
+        "tags": ["Léxico", "Lingala", "i18n"]
+      },
+      "madizi": {
+        "name": "Madizi",
+        "shortLabel": "Plataforma · Memória e anúncios",
+        "oneLiner": "Anúncios de falecimento e informações de cerimónia, com dignidade.",
+        "description": "Aplicação de obituários e memória familiar ou profissional, multilingue.",
+        "meta": "Sistema editorial para anúncios e homenagens.",
+        "tags": ["Memória", "Anúncios", "Multilingue"]
+      },
+      "sonekeno": {
+        "name": "Sonekeno",
+        "shortLabel": "Estúdio · Escrita e universos",
+        "oneLiner": "Criação narrativa — universos e ficção (Les Derniers Léopards).",
+        "description": "Atelier de escrita para personagens, cenas e cronologia — estúdio de ficção distinto da Batina Media.",
+        "meta": "Projeto criativo em pré-produção.",
+        "tags": ["Ficção", "Escrita", "Universos"]
+      }
     }
   }
 }

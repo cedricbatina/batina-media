@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     baseUrl: process.env.APP_BASE_URL || "http://localhost:3008",
 
     // ⬇️ change juste CETTE LIGNE
-    langDir: "i18n/locales",
+    langDir: "locales",
 
     detectBrowserLanguage: false,
   },

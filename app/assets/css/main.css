@@ -730,9 +730,9 @@ select option {
   margin: 0 auto;
   padding-inline: clamp(1rem, 2.8vw, 1.5rem);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1.2rem 1.5rem;
 
   color: var(--bm-color-text-muted);
 }
@@ -770,6 +770,32 @@ select option {
   gap: 0.9rem;
   justify-content: flex-end;
   flex-wrap: wrap;
+  align-self: center;
+}
+
+.bm-footer-ecosystem {
+  min-width: 0;
+}
+
+.bm-footer-ecosystem-title {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bm-color-text-muted);
+}
+
+.bm-footer-ecosystem-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+}
+
+.bm-footer-ecosystem-list li {
+  margin: 0;
 }
 
 .bm-footer-link {
@@ -797,7 +823,16 @@ select option {
   .bm-footer-meta {
     text-align: center;
   }
-  .bm-footer-links { justify-content: center; }
+  .bm-footer-ecosystem {
+    text-align: center;
+  }
+  .bm-footer-ecosystem-list {
+    justify-content: center;
+  }
+  .bm-footer-links {
+    justify-content: center;
+    align-self: auto;
+  }
 }
 
 

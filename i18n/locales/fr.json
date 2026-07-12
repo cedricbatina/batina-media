@@ -204,10 +204,52 @@
     "projects": "Projets",
     "studio": "Studio",
     "contact": "Contact",
+    "presse": "Presse",
     "login": "Connexion",
     "register": "Créer un compte",
     "logout": "Déconnexion",
     "account": "Espace"
+  },
+  "presse": {
+    "seo": {
+      "title": "Presse & partenaires — Batina Media",
+      "description": "Écosystème Batina Media : académie Longoka, lexiques, édition, webinaire octobre 2026. Dossier presse, contacts et projets pour journalistes, chercheurs et organisateurs."
+    },
+    "hero": {
+      "label": "Presse & écosystème",
+      "title": "Ingénierie des savoirs endogènes",
+      "subtitle": "Batina Media regroupe les plateformes, recherches et initiatives développées par Cédric Batina et ses partenaires — transmission durable des langues, écritures et savoirs."
+    },
+    "story": {
+      "title": "L'histoire en une phrase",
+      "body": "Un développeur et chercheur indépendant construit une académie panafricaine de sciences et lettres, des dictionnaires numériques, une maison d'édition, des webinaires internationaux et des outils pour structurer les savoirs endogènes — du Kikongo aux hiéroglyphes, du Mandombé à l'IA pédagogique."
+    },
+    "proofs": {
+      "title": "Ce qui existe déjà",
+      "items": [
+        { "label": "Longoka", "body": "Académie en ligne — parcours structurés, professeurs, cohortes diaspora.", "url": "https://longoka.com" },
+        { "label": "Lexikongo", "body": "Base lexicale kikongo — travail linguistique ouvert.", "url": "https://lexikongo.fr" },
+        { "label": "Longoka Library", "body": "Ouvrages partenaires dont Koongo Éditions (ISBN enregistrés).", "url": "https://longoka.com/library" },
+        { "label": "Webinaire 3 oct. 2026", "body": "Langues et écritures endogènes dans la renaissance — Zoom + YouTube Live.", "url": "https://longoka.com/webinaire/langues-africaines-renaissance-2026" },
+        { "label": "Madizi", "body": "Annonces nécrologiques structurées — mémoire familiale.", "url": "https://madizi.com" }
+      ]
+    },
+    "founder": {
+      "title": "Fondateur",
+      "name": "Cédric Batina",
+      "body": "Autoentrepreneur · studio Artful Batina Creative Studios · fondateur de l'écosystème Batina Media. Parcours : développement web, pédagogie, langues congolaises, écritures endogènes, édition numérique.",
+      "profileUrl": "https://artfulbatinacreativestudios.fr/about-me.php"
+    },
+    "contact": {
+      "title": "Contact presse",
+      "email": "contact@longoka.com",
+      "phone": "07 48 48 49 02",
+      "hint": "Réponse sous 48–72 h ouvrées · interviews, conférences, partenariats institutionnels."
+    },
+    "cta": {
+      "projects": "Voir tous les projets",
+      "contact": "Demande presse"
+    }
   },
   "layout": {
     "skipToContent": "Passer au contenu principal",
@@ -222,6 +264,10 @@
         "terms": "Conditions",
         "privacy": "Confidentialité",
         "legal": "Mentions légales"
+      },
+      "ecosystem": {
+        "title": "Écosystème",
+        "allProjects": "Tous les projets"
       }
     },
     "nav": {
@@ -1015,6 +1061,50 @@
       "register": "Créer un compte",
       "account": "Mon compte",
       "logout": "Se déconnecter"
+    }
+  },
+  "ecosystem": {
+    "products": {
+      "longoka": {
+        "name": "Longoka",
+        "shortLabel": "Plateforme · Cours & contenus",
+        "oneLiner": "Académie de sciences et lettres — cours, immersions et matériel pédagogique.",
+        "description": "Application de cours, d'articles, de livres, de papeterie et de produits éducatifs — langues, écritures et savoirs dans un environnement d'apprentissage.",
+        "meta": "Plateforme LMS où les contenus sont structurés pour être réutilisés en supports de cours et éditions.",
+        "tags": ["LMS", "Pédagogie", "Boutique"]
+      },
+      "lexikongo": {
+        "name": "Lexikongo",
+        "shortLabel": "Produit de savoirs · Lexique",
+        "oneLiner": "Lexique et technologies linguistiques Kikongo.",
+        "description": "Plateforme lexicale Kikongo multilingue — consultation, recherche et dérivés. Les cours sont sur Longoka.",
+        "meta": "Moteur lexical réutilisable pour d'autres langues ou corpus.",
+        "tags": ["Lexique", "Kikongo", "i18n"]
+      },
+      "lexilingala": {
+        "name": "Lexilingala",
+        "shortLabel": "Produit de savoirs · Lexique",
+        "oneLiner": "Lexique Lingala en ligne — les cours sont sur Longoka.",
+        "description": "Plateforme sœur centrée sur le Lingala, même socle que Lexikongo. Lexique seul, pas de LMS.",
+        "meta": "Localisation rapide d'un moteur lexical pour une nouvelle langue.",
+        "tags": ["Lexique", "Lingala", "i18n"]
+      },
+      "madizi": {
+        "name": "Madizi",
+        "shortLabel": "Plateforme · Mémoire & annonces",
+        "oneLiner": "Annonces de décès et informations de cérémonie, avec dignité.",
+        "description": "Application d'annonces nécrologiques et de mémoire familiale ou professionnelle, multilingue.",
+        "meta": "Système éditorial où annonces et hommages sont structurés pour la consultation et la conservation.",
+        "tags": ["Mémoire", "Annonces", "Multilingue"]
+      },
+      "sonekeno": {
+        "name": "Sonekeno",
+        "shortLabel": "Studio · Écriture & univers",
+        "oneLiner": "Création narrative — univers et fiction (Les Derniers Léopards).",
+        "description": "Atelier d'écriture pour structurer personnages, scènes, chronologie et glossaire — studio fiction distinct de Batina Media.",
+        "meta": "Projet créatif en préproduction — IP narrative transmédia.",
+        "tags": ["Fiction", "Écriture", "Univers"]
+      }
     }
   }
 }

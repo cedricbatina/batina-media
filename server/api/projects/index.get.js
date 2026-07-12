@@ -1,6 +1,7 @@
 // server/api/projects/index.get.js
 import { defineEventHandler, getQuery } from "h3";
-import { getDb } from "../../utils/db"; // <-- import nommé, chemin relatif
+import { getDb } from "../../utils/db";
+import { mergeWithEcosystemFallback } from "../../data/ecosystemProjects.js";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -36,9 +37,9 @@ export default defineEventHandler(async (event) => {
       [locale]
     );
 
-    // Aucun projet public → on renvoie un tableau vide (pas d'erreur)
+    // Aucun projet public → fallback catalogue écosystème
     if (!projectRows.length) {
-      return [];
+      return mergeWithEcosystemFallback([], locale);
     }
 
     const projectIds = projectRows.map((p) => p.id);
@@ -153,10 +154,11 @@ export default defineEventHandler(async (event) => {
       derivatives: derivativesByProject[p.id] || [],
     }));
 
-    return projects;
+    return mergeWithEcosystemFallback(projects, locale);
   } catch (err) {
     console.error("[api/projects/index.get] Erreur :", err);
-    // On **ne renvoie pas d'erreur HTTP** pour ne pas déclencher `error` côté vue
-    return [];
+    const query = getQuery(event);
+    const locale = query.locale || "fr";
+    return mergeWithEcosystemFallback([], locale);
   }
 });

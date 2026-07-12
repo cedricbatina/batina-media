@@ -252,6 +252,27 @@
       </p>
     </div>
 
+    <nav class="bm-footer-ecosystem" :aria-label="t('layout.footer.ecosystem.title')">
+      <p class="bm-footer-ecosystem-title">{{ t('layout.footer.ecosystem.title') }}</p>
+      <ul class="bm-footer-ecosystem-list">
+        <li v-for="item in footerEcosystemLinks" :key="item.code">
+          <a
+            :href="item.href"
+            class="bm-footer-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+        <li>
+          <NuxtLink :to="localizedPath('/projects')" class="bm-footer-link">
+            {{ t('layout.footer.ecosystem.allProjects') }}
+          </NuxtLink>
+        </li>
+      </ul>
+    </nav>
+
     <nav class="bm-footer-links" :aria-label="t('layout.footer.ariaLabel')">
       <NuxtLink :to="localizedPath('/terms')" class="bm-footer-link">{{ t('layout.footer.links.terms') }}</NuxtLink>
       <NuxtLink :to="localizedPath('/privacy')" class="bm-footer-link">{{ t('layout.footer.links.privacy') }}</NuxtLink>
@@ -267,6 +288,7 @@
 import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useAuthStore } from '~/stores/authStore'
 import { useI18n, useRoute, useSwitchLocalePath, useLocalePath, useRequestURL, navigateTo } from '#imports'
+import { getFooterProductDefs } from '~/config/ecosystemProducts.js'
 
 const auth = useAuthStore()
 onMounted(async () => {
@@ -286,6 +308,15 @@ const localePath = useLocalePath()
 
 const locales = ['fr', 'en', 'pt', 'es']
 const localizedPath = (pathValue) => localePath(pathValue, locale.value)
+
+const footerEcosystemLinks = computed(() => {
+  const _ = locale.value
+  return getFooterProductDefs().map((def) => ({
+    code: def.code,
+    href: def.mainUrl,
+    label: t(`ecosystem.products.${def.code}.name`)
+  }))
+})
 
 const resolveLocaleFromUrl = () => {
   const pathname = import.meta.server
@@ -313,6 +344,7 @@ const navItems = computed(() => {
     { path: '/solutions', label: t('nav.solutions') },
     { path: '/projects', label: t('nav.projects') },
     { path: '/studio', label: t('nav.studio') },
+    { path: '/presse', label: t('nav.presse') },
     { path: '/contact', label: t('nav.contact') }
   ]
   return items.map((item) => ({
