@@ -237,7 +237,7 @@
     <!-- FOOTER -->
 <footer class="bm-footer">
   <div class="bm-footer-inner">
-    <div class="bm-footer-main">
+    <div class="bm-footer-brand-block">
       <NuxtLink :to="localizedPath('/')" class="bm-footer-brand" :aria-label="t('app.brand')">
         <img
           :src="logoSrc"
@@ -246,15 +246,40 @@
           decoding="async"
         />
       </NuxtLink>
-
       <p class="bm-footer-meta">
         © {{ new Date().getFullYear() }} · {{ t('layout.footer.tagline') }}
       </p>
     </div>
 
+    <nav class="bm-footer-site" :aria-label="t('layout.footer.siteNav')">
+      <p class="bm-footer-col-title">{{ t('app.brand') }}</p>
+      <ul class="bm-footer-col-list">
+        <li>
+          <NuxtLink :to="localizedPath('/studio')" class="bm-footer-link">
+            {{ t('layout.footer.links.studio') }}
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink :to="localizedPath('/presse')" class="bm-footer-link">
+            {{ t('layout.footer.links.presse') }}
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink :to="localizedPath('/contact')" class="bm-footer-link">
+            {{ t('layout.footer.links.contact') }}
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink :to="localizedPath('/projects')" class="bm-footer-link">
+            {{ t('layout.footer.ecosystem.allProjects') }}
+          </NuxtLink>
+        </li>
+      </ul>
+    </nav>
+
     <nav class="bm-footer-ecosystem" :aria-label="t('layout.footer.ecosystem.title')">
-      <p class="bm-footer-ecosystem-title">{{ t('layout.footer.ecosystem.title') }}</p>
-      <ul class="bm-footer-ecosystem-list">
+      <p class="bm-footer-col-title">{{ t('layout.footer.ecosystem.title') }}</p>
+      <ul class="bm-footer-col-list bm-footer-ecosystem-list">
         <li v-for="item in footerEcosystemLinks" :key="item.code">
           <a
             :href="item.href"
@@ -265,18 +290,28 @@
             {{ item.label }}
           </a>
         </li>
-        <li>
-          <NuxtLink :to="localizedPath('/projects')" class="bm-footer-link">
-            {{ t('layout.footer.ecosystem.allProjects') }}
-          </NuxtLink>
-        </li>
       </ul>
     </nav>
 
-    <nav class="bm-footer-links" :aria-label="t('layout.footer.ariaLabel')">
-      <NuxtLink :to="localizedPath('/terms')" class="bm-footer-link">{{ t('layout.footer.links.terms') }}</NuxtLink>
-      <NuxtLink :to="localizedPath('/privacy')" class="bm-footer-link">{{ t('layout.footer.links.privacy') }}</NuxtLink>
-      <NuxtLink :to="localizedPath('/legal')" class="bm-footer-link">{{ t('layout.footer.links.legal') }}</NuxtLink>
+    <nav class="bm-footer-legal" :aria-label="t('layout.footer.ariaLabel')">
+      <p class="bm-footer-col-title">{{ t('layout.footer.links.legal') }}</p>
+      <ul class="bm-footer-col-list">
+        <li>
+          <NuxtLink :to="localizedPath('/terms')" class="bm-footer-link">
+            {{ t('layout.footer.links.terms') }}
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink :to="localizedPath('/privacy')" class="bm-footer-link">
+            {{ t('layout.footer.links.privacy') }}
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink :to="localizedPath('/legal')" class="bm-footer-link">
+            {{ t('layout.footer.links.legal') }}
+          </NuxtLink>
+        </li>
+      </ul>
     </nav>
   </div>
 </footer>

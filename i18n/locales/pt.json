@@ -225,10 +225,14 @@
       "ariaLabel": "Navegação do rodapé",
       "tagline": "Estúdio de engenharia de saberes, plataformas, produtos digitais e conteúdos estruturados",
       "links": {
+        "studio": "Estúdio",
+        "presse": "Imprensa",
+        "contact": "Contacto",
         "terms": "Termos",
         "privacy": "Privacidade",
         "legal": "Legal"
       },
+      "siteNav": "Navegação do site",
       "ecosystem": {
         "title": "Ecossistema",
         "allProjects": "Todos os projetos"
@@ -1071,6 +1075,22 @@
         "description": "Atelier de escrita para personagens, cenas e cronologia — estúdio de ficção distinto da Batina Media.",
         "meta": "Projeto criativo em pré-produção.",
         "tags": ["Ficção", "Escrita", "Universos"]
+      },
+      "artful": {
+        "name": "Artful Batina",
+        "shortLabel": "Casa-mãe · Vitrine",
+        "oneLiner": "Estúdio criativo e engenharia — vitrine do grupo.",
+        "description": "Casa-mãe e vitrine do grupo Batina — criação, engenharia e direção artística.",
+        "meta": "Entrada pública do grupo.",
+        "tags": ["Estúdio", "Vitrine", "Grupo"]
+      },
+      "longoka-games": {
+        "name": "Longoka Games",
+        "shortLabel": "Jogos · Aprendizagem",
+        "oneLiner": "Jogos educativos ligados aos percursos Longoka.",
+        "description": "Jogos e experiências interativas ao serviço da aprendizagem na Longoka.",
+        "meta": "Extensão lúdica da academia.",
+        "tags": ["Jogos", "Pedagogia", "Interativo"]
       }
     }
   }

@@ -238,12 +238,14 @@
       "title": "Fondateur",
       "name": "Cédric Batina",
       "body": "Autoentrepreneur · studio Artful Batina Creative Studios · fondateur de l'écosystème Batina Media. Parcours : développement web, pédagogie, langues congolaises, écritures endogènes, édition numérique.",
-      "profileUrl": "https://artfulbatinacreativestudios.fr/about-me.php"
+      "profileUrl": "https://artfulbatinacreativestudios.fr/fr/a-propos",
+      "profileLabel": "Profil Artful"
     },
     "contact": {
       "title": "Contact presse",
-      "email": "contact{'@'}longoka.com",
-      "phone": "07 48 48 49 02",
+      "emails": ["contact{'@'}batina-media.com", "contact{'@'}longoka.com"],
+      "phone": "+33 7 48 48 49 02",
+      "phoneAlt": "00 33 7 48 48 49 02",
       "hint": "Réponse sous 48–72 h ouvrées · interviews, conférences, partenariats institutionnels."
     },
     "cta": {
@@ -261,10 +263,14 @@
       "ariaLabel": "Navigation de pied de page",
       "tagline": "Studio d’ingénierie des savoirs, plateformes, produits digitaux et contenus structurés",
       "links": {
+        "studio": "Studio",
+        "presse": "Presse",
+        "contact": "Contact",
         "terms": "Conditions",
         "privacy": "Confidentialité",
         "legal": "Mentions légales"
       },
+      "siteNav": "Navigation du site",
       "ecosystem": {
         "title": "Écosystème",
         "allProjects": "Tous les projets"
@@ -1104,6 +1110,22 @@
         "description": "Atelier d'écriture pour structurer personnages, scènes, chronologie et glossaire — studio fiction distinct de Batina Media.",
         "meta": "Projet créatif en préproduction — IP narrative transmédia.",
         "tags": ["Fiction", "Écriture", "Univers"]
+      },
+      "artful": {
+        "name": "Artful Batina",
+        "shortLabel": "Maison mère · Vitrine",
+        "oneLiner": "Studio créatif & ingénierie — vitrine du groupe.",
+        "description": "Maison mère et vitrine du groupe Batina — création, ingénierie et direction artistique.",
+        "meta": "Point d'entrée public du groupe.",
+        "tags": ["Studio", "Vitrine", "Groupe"]
+      },
+      "longoka-games": {
+        "name": "Longoka Games",
+        "shortLabel": "Jeux · Apprentissage",
+        "oneLiner": "Jeux éducatifs liés aux parcours Longoka.",
+        "description": "Jeux et expériences interactives au service de l'apprentissage sur Longoka.",
+        "meta": "Extension ludique de l'académie.",
+        "tags": ["Jeux", "Pédagogie", "Interactif"]
       }
     }
   }

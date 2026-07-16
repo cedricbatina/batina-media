@@ -32,7 +32,7 @@ export const ECOSYSTEM_PRODUCT_DEFS = [
     slug: "madizi",
     status: "prod",
     mainUrl: "https://madizi.com",
-    footer: false,
+    footer: true,
     sortOrder: 4,
   },
   {
@@ -42,6 +42,22 @@ export const ECOSYSTEM_PRODUCT_DEFS = [
     mainUrl: "https://sonekeno.vercel.app",
     footer: true,
     sortOrder: 5,
+  },
+  {
+    code: "artful",
+    slug: "artful",
+    status: "prod",
+    mainUrl: "https://artfulbatinacreativestudios.fr",
+    footer: true,
+    sortOrder: 6,
+  },
+  {
+    code: "longoka-games",
+    slug: "longoka-games",
+    status: "prod",
+    mainUrl: "https://longoka.com/games",
+    footer: true,
+    sortOrder: 7,
   },
 ];
 

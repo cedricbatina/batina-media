@@ -1,10 +1,24 @@
 <script setup>
-const { t } = useI18n()
+const { t, tm, rt } = useI18n()
 
 const proofs = computed(() => {
   const items = t('presse.proofs.items')
   return Array.isArray(items) ? items : []
 })
+
+const contactEmails = computed(() => {
+  const raw = tm('presse.contact.emails')
+  if (Array.isArray(raw) && raw.length) {
+    return raw.map((msg) => rt(msg))
+  }
+  const single = t('presse.contact.email')
+  return single && single !== 'presse.contact.email' ? [single] : []
+})
+
+const phoneDisplay = computed(() => t('presse.contact.phone'))
+const phoneTel = computed(() =>
+  String(phoneDisplay.value || '').replace(/[^\d+]/g, '')
+)
 
 useHead(() => ({
   title: t('presse.seo.title'),
@@ -76,7 +90,7 @@ useSeoMeta({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Profil complet
+          {{ t('presse.founder.profileLabel') }}
         </a>
       </article>
     </section>
@@ -86,10 +100,14 @@ useSeoMeta({
         <h2 id="presse-contact-title" class="bm-card-title bm-title-h3">
           {{ t('presse.contact.title') }}
         </h2>
-        <p class="bm-card-subtitle">
-          <a :href="`mailto:${t('presse.contact.email')}`" class="bm-link">{{ t('presse.contact.email') }}</a>
-          · {{ t('presse.contact.phone') }}
-        </p>
+        <ul class="presse-contact-list">
+          <li v-for="email in contactEmails" :key="email">
+            <a :href="`mailto:${email}`" class="bm-link">{{ email }}</a>
+          </li>
+          <li>
+            <a :href="`tel:${phoneTel}`" class="bm-link">{{ phoneDisplay }}</a>
+          </li>
+        </ul>
         <p class="bm-text-muted bm-small">{{ t('presse.contact.hint') }}</p>
         <div class="bm-form-row-inline bm-mt-3">
           <NuxtLink to="/projects" class="bm-btn bm-btn-outline">{{ t('presse.cta.projects') }}</NuxtLink>
@@ -109,6 +127,14 @@ useSeoMeta({
   display: inline-block;
   margin-top: 0.5rem;
   font-size: 0.875rem;
+}
+.presse-contact-list {
+  list-style: none;
+  margin: 0.5rem 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 .bm-mt-2 {
   margin-top: 0.75rem;

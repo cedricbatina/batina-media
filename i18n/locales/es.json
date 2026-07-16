@@ -225,10 +225,14 @@
       "ariaLabel": "Navegación del pie de página",
       "tagline": "Estudio de ingeniería de saberes, plataformas, productos digitales y contenidos estructurados",
       "links": {
+        "studio": "Estudio",
+        "presse": "Prensa",
+        "contact": "Contacto",
         "terms": "Términos",
         "privacy": "Privacidad",
         "legal": "Legal"
       },
+      "siteNav": "Navegación del sitio",
       "ecosystem": {
         "title": "Ecosistema",
         "allProjects": "Todos los proyectos"
@@ -1071,6 +1075,22 @@
         "description": "Taller de escritura para personajes, escenas y cronología — estudio de ficción distinto de Batina Media.",
         "meta": "Proyecto creativo en preproducción.",
         "tags": ["Ficción", "Escritura", "Universos"]
+      },
+      "artful": {
+        "name": "Artful Batina",
+        "shortLabel": "Casa madre · Vitrina",
+        "oneLiner": "Estudio creativo e ingeniería — vitrina del grupo.",
+        "description": "Casa madre y vitrina del grupo Batina — creación, ingeniería y dirección artística.",
+        "meta": "Entrada pública del grupo.",
+        "tags": ["Estudio", "Vitrina", "Grupo"]
+      },
+      "longoka-games": {
+        "name": "Longoka Games",
+        "shortLabel": "Juegos · Aprendizaje",
+        "oneLiner": "Juegos educativos vinculados a los recorridos Longoka.",
+        "description": "Juegos y experiencias interactivas al servicio del aprendizaje en Longoka.",
+        "meta": "Extensión lúdica de la academia.",
+        "tags": ["Juegos", "Pedagogía", "Interactivo"]
       }
     }
   }

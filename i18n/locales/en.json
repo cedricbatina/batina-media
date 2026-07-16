@@ -238,12 +238,14 @@
       "title": "Founder",
       "name": "Cédric Batina",
       "body": "Sole proprietor · Artful Batina Creative Studios · founder of the Batina Media ecosystem. Background: web development, pedagogy, Congolese languages, endogenous scripts, digital publishing.",
-      "profileUrl": "https://artfulbatinacreativestudios.fr/about-me.php"
+      "profileUrl": "https://artfulbatinacreativestudios.fr/en/a-propos",
+      "profileLabel": "Artful profile"
     },
     "contact": {
       "title": "Press contact",
-      "email": "contact{'@'}longoka.com",
+      "emails": ["contact{'@'}batina-media.com", "contact{'@'}longoka.com"],
       "phone": "+33 7 48 48 49 02",
+      "phoneAlt": "00 33 7 48 48 49 02",
       "hint": "Reply within 48–72 business hours · interviews, conferences, institutional partnerships."
     },
     "cta": {
@@ -267,10 +269,14 @@
       "ariaLabel": "Footer navigation",
       "tagline": "Studio for knowledge engineering, platforms, digital products and structured content",
       "links": {
+        "studio": "Studio",
+        "presse": "Press",
+        "contact": "Contact",
         "terms": "Terms",
         "privacy": "Privacy",
         "legal": "Legal"
       },
+      "siteNav": "Site navigation",
       "ecosystem": {
         "title": "Ecosystem",
         "allProjects": "All projects"
@@ -1113,6 +1119,22 @@
         "description": "Writing workshop to structure characters, scenes, timelines and glossaries — fiction studio separate from Batina Media.",
         "meta": "Creative project in pre-production — transmedia narrative IP.",
         "tags": ["Fiction", "Writing", "Worldbuilding"]
+      },
+      "artful": {
+        "name": "Artful Batina",
+        "shortLabel": "Parent house · Showcase",
+        "oneLiner": "Creative studio & engineering — group showcase.",
+        "description": "Parent house and showcase of the Batina group — creation, engineering and art direction.",
+        "meta": "Public entry point of the group.",
+        "tags": ["Studio", "Showcase", "Group"]
+      },
+      "longoka-games": {
+        "name": "Longoka Games",
+        "shortLabel": "Games · Learning",
+        "oneLiner": "Educational games linked to Longoka paths.",
+        "description": "Games and interactive experiences supporting learning on Longoka.",
+        "meta": "Playful extension of the academy.",
+        "tags": ["Games", "Pedagogy", "Interactive"]
       }
     }
   }
