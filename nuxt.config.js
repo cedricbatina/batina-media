@@ -29,6 +29,37 @@ export default defineNuxtConfig({
 
     detectBrowserLanguage: false,
   },
+  site: {
+    url: process.env.APP_BASE_URL || "https://batina-media.com",
+  },
+  sitemap: {
+    autoLastmod: true,
+    exclude: [
+      "/login",
+      "/register",
+      "/forgot-password",
+      "/reset-password",
+      "/verify-email",
+      "/resend-verification",
+    ],
+  },
+  // strategy=prefix → sans locale = 404 en prod (ex. /presse). Alias FR par défaut.
+  routeRules: {
+    "/presse": { redirect: { to: "/fr/presse", statusCode: 301 } },
+    "/contact": { redirect: { to: "/fr/contact", statusCode: 301 } },
+    "/projects": { redirect: { to: "/fr/projects", statusCode: 301 } },
+    "/studio": { redirect: { to: "/fr/studio", statusCode: 301 } },
+    "/solutions": { redirect: { to: "/fr/solutions", statusCode: 301 } },
+    "/privacy": { redirect: { to: "/fr/privacy", statusCode: 301 } },
+    "/terms": { redirect: { to: "/fr/terms", statusCode: 301 } },
+    "/legal": { redirect: { to: "/fr/legal", statusCode: 301 } },
+    "/login": { redirect: { to: "/fr/login", statusCode: 301 } },
+    "/register": { redirect: { to: "/fr/register", statusCode: 301 } },
+    "/forgot-password": { redirect: { to: "/fr/forgot-password", statusCode: 301 } },
+    "/reset-password": { redirect: { to: "/fr/reset-password", statusCode: 301 } },
+    "/verify-email": { redirect: { to: "/fr/verify-email", statusCode: 301 } },
+    "/resend-verification": { redirect: { to: "/fr/resend-verification", statusCode: 301 } },
+  },
   runtimeConfig: {
     // PRIVATE (server)
     mysqlHost: process.env.DB_HOST,
