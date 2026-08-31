@@ -1,4 +1,8 @@
 ﻿// nuxt.config.mjs
+import { resolveSiteUrl } from "./utils/resolveSiteUrl.js";
+
+const SITE_URL = resolveSiteUrl();
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-03-05',
   modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@nuxtjs/sitemap", "@vite-pwa/nuxt", "@nuxt/ui"],
@@ -22,7 +26,7 @@ export default defineNuxtConfig({
     fallbackLocale: "fr",
     strategy: "prefix",
     lazy: true,
-    baseUrl: process.env.APP_BASE_URL || "http://localhost:3008",
+    baseUrl: SITE_URL,
 
     // ⬇️ change juste CETTE LIGNE
     langDir: "locales",
@@ -30,7 +34,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
   },
   site: {
-    url: process.env.APP_BASE_URL || "https://batina-media.com",
+    url: SITE_URL,
   },
   sitemap: {
     autoLastmod: true,
@@ -82,8 +86,8 @@ export default defineNuxtConfig({
 
     // PUBLIC (client)
     public: {
-      appBaseUrl: process.env.APP_BASE_URL,
-      siteUrl: process.env.APP_BASE_URL || "http://localhost:3008",
+      appBaseUrl: SITE_URL,
+      siteUrl: SITE_URL,
     },
   },
 });

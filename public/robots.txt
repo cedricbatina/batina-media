@@ -1,2 +1,13 @@
-User-Agent: *
-Disallow:
+User-agent: *
+Allow: /
+
+Disallow: /fr/login
+Disallow: /en/login
+Disallow: /pt/login
+Disallow: /es/login
+Disallow: /fr/register
+Disallow: /en/register
+Disallow: /pt/register
+Disallow: /es/register
+
+Sitemap: https://batina-media.com/sitemap.xml

@@ -17,12 +17,23 @@ const route = useRoute()
 const runtimeConfig = useRuntimeConfig()
 const switchLocalePath = useSwitchLocalePath()
 
-// URL du site (à mettre plus tard dans runtimeConfig.public.siteUrl ou .env)
-// Fallback propre pour le dev local
+// URL du site — jamais localhost en prod (évite sitemap / canonical cassés)
 const siteUrl = computed(() => {
-  const fromConfig = runtimeConfig.public?.siteUrl
-  return (fromConfig && fromConfig.replace(/\/+$/, '')) || 'http://localhost:3008'
+  const fromConfig = String(
+    runtimeConfig.public?.siteUrl || runtimeConfig.public?.appBaseUrl || ''
+  ).replace(/\/+$/, '')
+  if (fromConfig && !/localhost|127\.0\.0\.1/i.test(fromConfig)) {
+    return fromConfig
+  }
+  if (import.meta.dev) {
+    return fromConfig || 'http://localhost:3008'
+  }
+  return 'https://batina-media.com'
 })
+
+const defaultOgImage = computed(
+  () => `${siteUrl.value}/logo-batina-media.png`
+)
 
 // Nom du site (fixe) – le branding i18n est dans app.brand si besoin
 const siteName = 'Batina Media'
@@ -53,11 +64,17 @@ const ogLocale = computed(() => {
 
 const alternateLinks = computed(() => {
   const localeCodes = ['fr', 'en', 'es', 'pt']
-  return localeCodes.map((code) => ({
+  const links = localeCodes.map((code) => ({
     rel: 'alternate',
     hreflang: code,
     href: `${siteUrl.value}${switchLocalePath(code)}`
   }))
+  links.push({
+    rel: 'alternate',
+    hreflang: 'x-default',
+    href: `${siteUrl.value}${switchLocalePath('fr')}`
+  })
+  return links
 })
 
 // Titre & description globales (i18n avec fallback)
@@ -126,6 +143,14 @@ useHead(() => ({
     {
       name: 'twitter:card',
       content: 'summary_large_image'
+    },
+    {
+      property: 'og:image',
+      content: defaultOgImage.value
+    },
+    {
+      name: 'twitter:image',
+      content: defaultOgImage.value
     }
   ],
   link: [
@@ -173,7 +198,9 @@ useHead(() => ({
         url: siteUrl.value,
         description: defaultDescription.value,
         logo: `${siteUrl.value}/logo-batina-media.png`,
-        sameAs: []
+        sameAs: [
+          'https://www.linkedin.com/in/c%C3%A9dric-batina-6b17b31a7/'
+        ]
       })
     }
   ]
@@ -189,6 +216,8 @@ useSeoMeta({
   ogType: 'website',
   ogUrl: () => canonicalUrl.value,
   ogLocale: () => ogLocale.value,
-  twitterCard: 'summary_large_image'
+  ogImage: () => defaultOgImage.value,
+  twitterCard: 'summary_large_image',
+  twitterImage: () => defaultOgImage.value
 })
 </script>
