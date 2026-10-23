@@ -84,8 +84,10 @@
                 class="bm-input"
                 :placeholder="t('contact.form.fields.name.placeholder')"
                 autocomplete="name"
+                :aria-invalid="errors.name ? 'true' : undefined"
+                :aria-describedby="errors.name ? 'contact-name-error' : undefined"
               />
-              <p v-if="errors.name" class="contact-error">
+              <p v-if="errors.name" id="contact-name-error" class="contact-error" role="alert">
                 {{ errors.name }}
               </p>
             </div>
@@ -102,8 +104,10 @@
                 class="bm-input"
                 :placeholder="t('contact.form.fields.email.placeholder')"
                 autocomplete="email"
+                :aria-invalid="errors.email ? 'true' : undefined"
+                :aria-describedby="errors.email ? 'contact-email-error' : undefined"
               />
-              <p v-if="errors.email" class="contact-error">
+              <p v-if="errors.email" id="contact-email-error" class="contact-error" role="alert">
                 {{ errors.email }}
               </p>
             </div>
@@ -189,8 +193,10 @@
                 rows="6"
                 class="bm-textarea"
                 :placeholder="t('contact.form.fields.message.placeholder')"
+                :aria-invalid="errors.message ? 'true' : undefined"
+                :aria-describedby="errors.message ? 'contact-message-error' : undefined"
               ></textarea>
-              <p v-if="errors.message" class="contact-error">
+              <p v-if="errors.message" id="contact-message-error" class="contact-error" role="alert">
                 {{ errors.message }}
               </p>
             </div>
@@ -202,10 +208,10 @@
                 <span v-else>{{ t('contact.form.actions.submitting') }}</span>
               </button>
 
-              <p v-if="submitState === 'success'" class="contact-success">
+              <p v-if="submitState === 'success'" class="contact-success" role="status" aria-live="polite">
                 {{ t('contact.form.feedback.success') }}
               </p>
-              <p v-else-if="submitState === 'error'" class="contact-error">
+              <p v-else-if="submitState === 'error'" class="contact-error" role="alert" aria-live="assertive">
                 {{ t('contact.form.feedback.error') }}
               </p>
               <p v-else class="contact-hint bm-text-muted">
@@ -329,16 +335,26 @@ const processItems = computed(() => [
   t('contact.info.process.items.2')
 ].filter(Boolean))
 
+const localePath = useLocalePath()
+const runtimeConfig = useRuntimeConfig()
+const siteUrl = String(runtimeConfig.public.siteUrl || runtimeConfig.public.appBaseUrl || 'https://batina-media.com').replace(/\/$/, '')
+const contactPath = computed(() => localePath('/contact'))
+const contactCanonical = computed(() => `${siteUrl}${contactPath.value}`)
+
 useHead(() => ({
-  title: t('contact.seo.title')
+  title: t('contact.seo.title'),
+  link: [{ rel: 'canonical', href: contactCanonical.value }],
 }))
 
 useSeoMeta({
   description: () => t('contact.seo.description'),
   ogTitle: () => t('contact.seo.title'),
   ogDescription: () => t('contact.seo.description'),
+  ogType: 'website',
+  ogUrl: () => contactCanonical.value,
   twitterTitle: () => t('contact.seo.title'),
-  twitterDescription: () => t('contact.seo.description')
+  twitterDescription: () => t('contact.seo.description'),
+  twitterCard: 'summary_large_image',
 })
 </script>
 

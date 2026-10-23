@@ -20,8 +20,15 @@ const phoneTel = computed(() =>
   String(phoneDisplay.value || '').replace(/[^\d+]/g, '')
 )
 
+const localePath = useLocalePath()
+const runtimeConfig = useRuntimeConfig()
+const siteUrl = String(runtimeConfig.public.siteUrl || runtimeConfig.public.appBaseUrl || 'https://batina-media.com').replace(/\/$/, '')
+const pressePath = computed(() => localePath('/presse'))
+const presseCanonical = computed(() => `${siteUrl}${pressePath.value}`)
+
 useHead(() => ({
   title: t('presse.seo.title'),
+  link: [{ rel: 'canonical', href: presseCanonical.value }],
 }))
 
 useSeoMeta({
@@ -29,6 +36,10 @@ useSeoMeta({
   ogTitle: () => t('presse.seo.title'),
   ogDescription: () => t('presse.seo.description'),
   ogType: 'website',
+  ogUrl: () => presseCanonical.value,
+  twitterTitle: () => t('presse.seo.title'),
+  twitterDescription: () => t('presse.seo.description'),
+  twitterCard: 'summary_large_image',
 })
 </script>
 
@@ -110,8 +121,8 @@ useSeoMeta({
         </ul>
         <p class="bm-text-muted bm-small">{{ t('presse.contact.hint') }}</p>
         <div class="bm-form-row-inline bm-mt-3">
-          <NuxtLink to="/projects" class="bm-btn bm-btn-outline">{{ t('presse.cta.projects') }}</NuxtLink>
-          <NuxtLink to="/contact" class="bm-btn bm-btn-primary">{{ t('presse.cta.contact') }}</NuxtLink>
+          <NuxtLink :to="localePath('/projects')" class="bm-btn bm-btn-outline">{{ t('presse.cta.projects') }}</NuxtLink>
+          <NuxtLink :to="localePath('/contact')" class="bm-btn bm-btn-primary">{{ t('presse.cta.contact') }}</NuxtLink>
         </div>
       </article>
     </section>

@@ -239,16 +239,26 @@ const statusLabel = (status) => {
   }
 }
 
+const localePath = useLocalePath()
+const runtimeConfig = useRuntimeConfig()
+const siteUrl = String(runtimeConfig.public.siteUrl || runtimeConfig.public.appBaseUrl || 'https://batina-media.com').replace(/\/$/, '')
+const projectsPath = computed(() => localePath('/projects'))
+const projectsCanonical = computed(() => `${siteUrl}${projectsPath.value}`)
+
 useHead(() => ({
-  title: t('projects.seo.title')
+  title: t('projects.seo.title'),
+  link: [{ rel: 'canonical', href: projectsCanonical.value }],
 }))
 
 useSeoMeta({
   description: () => t('projects.seo.description'),
   ogTitle: () => t('projects.seo.title'),
   ogDescription: () => t('projects.seo.description'),
+  ogType: 'website',
+  ogUrl: () => projectsCanonical.value,
   twitterTitle: () => t('projects.seo.title'),
-  twitterDescription: () => t('projects.seo.description')
+  twitterDescription: () => t('projects.seo.description'),
+  twitterCard: 'summary_large_image',
 })
 </script>
 

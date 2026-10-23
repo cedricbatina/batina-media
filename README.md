@@ -1,75 +1,23 @@
-# Nuxt Minimal Starter
+# batina-media web
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Application Nuxt de `batina-media.com`.
 
-## Setup
+## Setup local
 
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
+```powershell
+cd D:\works\lectures\batina-media\web
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Ports
 
-Build the application for production:
+- Port local attendu : `3008`
+- Ne pas supposer `3000`
+- Verifier `nuxt.config.js` avant tout smoke
 
-```bash
-# npm
-npm run build
+## SEO / diffusion
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Canon public : `../../batina-os/COMMUNICATION-CANON.md`
+- Separation Artful / Batina Media : `../../batina-os/decisions/ADR-028-artful-batina-media-separation-sc0011.md`
+- Verifier `canonical`, `og:*`, `hreflang`, `robots.txt`, `sitemap.xml`
