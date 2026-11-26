@@ -227,11 +227,31 @@
     "proofs": {
       "title": "What already exists",
       "items": [
-        { "label": "Longoka", "body": "Online academy — structured paths, teachers, diaspora cohorts.", "url": "https://longoka.com" },
-        { "label": "Lexikongo", "body": "Kikongo lexical database — open linguistic work.", "url": "https://lexikongo.fr" },
-        { "label": "Longoka Library", "body": "Partner books including Koongo Editions (registered ISBNs).", "url": "https://longoka.com/library" },
-        { "label": "Webinar Oct 3, 2026", "body": "Endogenous languages and scripts in renaissance — Zoom + YouTube Live.", "url": "https://longoka.com/webinaire/langues-africaines-renaissance-2026" },
-        { "label": "Madizi", "body": "Structured obituary notices — family memory.", "url": "https://madizi.com" }
+        {
+          "label": "Longoka",
+          "body": "Online academy — structured paths, teachers, diaspora cohorts.",
+          "url": "https://longoka.com"
+        },
+        {
+          "label": "Lexikongo",
+          "body": "Kikongo lexical database — open linguistic work.",
+          "url": "https://lexikongo.fr"
+        },
+        {
+          "label": "Longoka Library",
+          "body": "Partner books including Koongo Editions (registered ISBNs).",
+          "url": "https://longoka.com/library"
+        },
+        {
+          "label": "Webinar Oct 3, 2026",
+          "body": "Endogenous languages and scripts in renaissance — Zoom + YouTube Live.",
+          "url": "https://longoka.com/webinaire/langues-africaines-renaissance-2026"
+        },
+        {
+          "label": "Madizi",
+          "body": "Structured obituary notices — family memory.",
+          "url": "https://madizi.com"
+        }
       ]
     },
     "founder": {
@@ -243,7 +263,10 @@
     },
     "contact": {
       "title": "Press contact",
-      "emails": ["contact{'@'}batina-media.com", "contact{'@'}longoka.com"],
+      "emails": [
+        "contact{'@'}batina-media.com",
+        "contact{'@'}longoka.com"
+      ],
       "phone": "+33 7 48 48 49 02",
       "phoneAlt": "00 33 7 48 48 49 02",
       "hint": "Reply within 48–72 business hours · interviews, conferences, institutional partnerships."
@@ -681,16 +704,16 @@
   },
   "solutions": {
     "seo": {
-      "title": "Digital solutions – Batina Media",
-      "description": "Content and data engineering, platforms, tools, and printable or digital outputs built around your knowledge."
+      "title": "Business applications, automation and knowledge engineering · Batina Media",
+      "description": "We turn your processes, data and expertise into digital tools tailored to your work: websites, applications, rule engines and document systems."
     },
     "hero": {
       "pill": "Solutions & support",
-      "title": "Digital solutions built around your knowledge and data",
-      "subtitle": "From content modelling to platforms, books, resources and applications, we design complete systems that are durable and extensible.",
+      "title": "Business applications, automation and knowledge engineering",
+      "subtitle": "We turn your processes, data and expertise into digital tools tailored to your work: websites, applications, rule engines and document systems.",
       "primaryCta": "Talk about your project",
       "secondaryCta": "See projects",
-      "meta": "Data model -> platforms -> derivatives, without rebuilding from scratch.",
+      "meta": "Assessment, design, integration and support within an agreed scope.",
       "aside": {
         "label": "In practice",
         "title": "One foundation, multiple outputs",
@@ -723,7 +746,7 @@
             "1": "Database design and setup (MySQL/SQL), relational schemas, views and tailored exports.",
             "2": "Structuring existing content (files, notes, archives, course material) into usable formats.",
             "3": "APIs and exchange formats (JSON, CSV, etc.) for sites, apps, internal tools and publishing pipelines.",
-            "4": "Data governance and content lifecycle rules adapted to your teams."
+            "4": "Data governance, validation rules and content lifecycle management."
           }
         },
         "1": {
@@ -745,6 +768,16 @@
             "2": "Interactive resources: training modules, quizzes and guided learning content.",
             "3": "Word and logic games (crosswords, puzzles, quiz formats) when relevant to your goals."
           }
+        },
+        "3": {
+          "title": "Rule engines & automation",
+          "subtitle": "Turn specialist business rules into reproducible operations.",
+          "items": [
+            "Formalise calculation, classification and validation rules.",
+            "Integrate software, APIs and workflows with human oversight.",
+            "Migrate and reconcile data with verification and documentation.",
+            "Define privacy, access and operational limits before automation."
+          ]
         }
       }
     },
@@ -821,7 +854,7 @@
     "cta": {
       "pill": "Let us talk",
       "title": "Let us design your ideal ecosystem",
-      "body": "If you have content, data, expertise or heritage to structure, we can help you move from idea to digital system step by step.",
+      "body": "Tell us what you need: business software, a website, integration, data or automation. Together we define the first deliverable and its prerequisites.",
       "button": "Discuss your project"
     }
   },
@@ -1086,7 +1119,11 @@
         "oneLiner": "Academy of sciences and letters — courses, immersions and learning materials.",
         "description": "Courses, articles, books, stationery and educational products — languages, scripts and knowledge in one learning environment.",
         "meta": "LMS platform where content is structured for reuse in course materials and publishing.",
-        "tags": ["LMS", "Education", "Shop"]
+        "tags": [
+          "LMS",
+          "Education",
+          "Shop"
+        ]
       },
       "lexikongo": {
         "name": "Lexikongo",
@@ -1094,7 +1131,11 @@
         "oneLiner": "Kikongo lexicon and language technologies.",
         "description": "Multilingual Kikongo lexical platform — lookup, research and derivatives. Courses live on Longoka.",
         "meta": "Reusable lexical engine for other languages or corpora.",
-        "tags": ["Lexicon", "Kikongo", "i18n"]
+        "tags": [
+          "Lexicon",
+          "Kikongo",
+          "i18n"
+        ]
       },
       "lexilingala": {
         "name": "Lexilingala",
@@ -1102,7 +1143,11 @@
         "oneLiner": "Online Lingala lexicon — courses are on Longoka.",
         "description": "Sister platform focused on Lingala, same foundation as Lexikongo. Lexicon only, not an LMS.",
         "meta": "Fast localization of a lexical engine for a new language.",
-        "tags": ["Lexicon", "Lingala", "i18n"]
+        "tags": [
+          "Lexicon",
+          "Lingala",
+          "i18n"
+        ]
       },
       "madizi": {
         "name": "Madizi",
@@ -1110,7 +1155,11 @@
         "oneLiner": "Death notices and ceremony information, with dignity.",
         "description": "Obituary and family or professional memory application, multilingual.",
         "meta": "Editorial system where notices and tributes are structured for consultation and preservation.",
-        "tags": ["Memory", "Notices", "Multilingual"]
+        "tags": [
+          "Memory",
+          "Notices",
+          "Multilingual"
+        ]
       },
       "sonekeno": {
         "name": "Sonekeno",
@@ -1118,7 +1167,11 @@
         "oneLiner": "Narrative creation — worlds and fiction (Les Derniers Léopards).",
         "description": "Writing workshop to structure characters, scenes, timelines and glossaries — fiction studio separate from Batina Media.",
         "meta": "Creative project in pre-production — transmedia narrative IP.",
-        "tags": ["Fiction", "Writing", "Worldbuilding"]
+        "tags": [
+          "Fiction",
+          "Writing",
+          "Worldbuilding"
+        ]
       },
       "artful": {
         "name": "Artful Batina",
@@ -1126,7 +1179,11 @@
         "oneLiner": "Creative studio & engineering — group showcase.",
         "description": "Parent house and showcase of the Batina group — creation, engineering and art direction.",
         "meta": "Public entry point of the group.",
-        "tags": ["Studio", "Showcase", "Group"]
+        "tags": [
+          "Studio",
+          "Showcase",
+          "Group"
+        ]
       },
       "longoka-games": {
         "name": "Longoka Games",
@@ -1134,7 +1191,11 @@
         "oneLiner": "Educational games linked to Longoka paths.",
         "description": "Games and interactive experiences supporting learning on Longoka.",
         "meta": "Playful extension of the academy.",
-        "tags": ["Games", "Pedagogy", "Interactive"]
+        "tags": [
+          "Games",
+          "Pedagogy",
+          "Interactive"
+        ]
       }
     }
   }
