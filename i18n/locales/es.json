@@ -637,16 +637,16 @@
   },
   "solutions": {
     "seo": {
-      "title": "Soluciones digitales – Batina Media",
-      "description": "Ingenieria de contenidos y datos, plataformas, herramientas y derivados impresos o digitales construidos alrededor de tus saberes."
+      "title": "Aplicaciones de negocio, automatización e ingeniería del conocimiento · Batina Media",
+      "description": "Transformamos tus procesos, datos y conocimientos en herramientas digitales adaptadas a tu actividad: sitios web, aplicaciones, motores de reglas y sistemas documentales."
     },
     "hero": {
       "pill": "Soluciones y acompanamiento",
-      "title": "Soluciones digitales construidas alrededor de tus saberes y tus datos",
-      "subtitle": "Desde el modelado de contenidos hasta plataformas, libros, recursos y aplicaciones, diseniamos sistemas completos, durables y extensibles.",
+      "title": "Aplicaciones de negocio, automatización e ingeniería del conocimiento",
+      "subtitle": "Transformamos tus procesos, datos y conocimientos en herramientas digitales adaptadas a tu actividad: sitios web, aplicaciones, motores de reglas y sistemas documentales.",
       "primaryCta": "Hablar de tu proyecto",
       "secondaryCta": "Ver proyectos",
-      "meta": "Modelo de datos -> plataformas -> derivados, sin empezar de cero.",
+      "meta": "Diagnóstico, diseño, integración y acompañamiento con un alcance acordado.",
       "aside": {
         "label": "En la practica",
         "title": "Una base, multiples salidas",
@@ -679,7 +679,7 @@
             "1": "Concepcion e implementacion de bases (MySQL/SQL), esquemas relacionales, vistas y exportaciones adaptadas.",
             "2": "Estructuracion de contenidos existentes (ficheros, notas, archivos, cursos) para volverlos explotables.",
             "3": "APIs y formatos de intercambio (JSON, CSV, etc.) para sitios, apps, herramientas internas y pipelines editoriales.",
-            "4": "Reglas de gobernanza de datos y ciclo de vida de contenidos para tus equipos."
+            "4": "Gobernanza de datos, reglas de validación y ciclo de vida de contenidos."
           }
         },
         "1": {
@@ -701,6 +701,16 @@
             "2": "Recursos interactivos: modulos de entrenamiento, cuestionarios y contenidos guiados.",
             "3": "Juegos de letras y logica (crucigramas, puzzles, quiz) cuando aportan valor a tus objetivos."
           }
+        },
+        "3": {
+          "title": "Motores de reglas y automatización",
+          "subtitle": "Convertir reglas de negocio en operaciones reproducibles.",
+          "items": [
+            "Formalización de reglas de cálculo, clasificación y validación.",
+            "Integración de software, API y flujos de trabajo con supervisión humana.",
+            "Migración y conciliación de datos con verificación y documentación.",
+            "Definición de privacidad, accesos y límites antes de automatizar."
+          ]
         }
       }
     },
@@ -777,7 +787,7 @@
     "cta": {
       "pill": "Hablemos",
       "title": "Diseniemos tu ecosistema ideal",
-      "body": "Si tienes contenidos, datos, experiencia o patrimonio que estructurar, te ayudamos a pasar de la idea al sistema digital paso a paso.",
+      "body": "Describe tu necesidad: software de negocio, sitio web, integración, datos o automatización. Definimos juntos el primer entregable y sus requisitos.",
       "button": "Hablar de tu proyecto"
     }
   },
@@ -1042,7 +1052,11 @@
         "oneLiner": "Academia de ciencias y letras — cursos, inmersiones y material pedagógico.",
         "description": "Cursos, artículos, libros, papelería y productos educativos — lenguas, escrituras y saberes en un entorno de aprendizaje.",
         "meta": "Plataforma LMS donde los contenidos se estructuran para reutilización.",
-        "tags": ["LMS", "Pedagogía", "Tienda"]
+        "tags": [
+          "LMS",
+          "Pedagogía",
+          "Tienda"
+        ]
       },
       "lexikongo": {
         "name": "Lexikongo",
@@ -1050,7 +1064,11 @@
         "oneLiner": "Léxico y tecnologías lingüísticas Kikongo.",
         "description": "Plataforma léxica Kikongo multilingüe — consulta e investigación. Los cursos están en Longoka.",
         "meta": "Motor léxico reutilizable para otras lenguas.",
-        "tags": ["Léxico", "Kikongo", "i18n"]
+        "tags": [
+          "Léxico",
+          "Kikongo",
+          "i18n"
+        ]
       },
       "lexilingala": {
         "name": "Lexilingala",
@@ -1058,7 +1076,11 @@
         "oneLiner": "Léxico Lingala en línea — los cursos están en Longoka.",
         "description": "Plataforma hermana centrada en Lingala, mismo núcleo que Lexikongo. Solo léxico, sin LMS.",
         "meta": "Localización rápida de un motor léxico.",
-        "tags": ["Léxico", "Lingala", "i18n"]
+        "tags": [
+          "Léxico",
+          "Lingala",
+          "i18n"
+        ]
       },
       "madizi": {
         "name": "Madizi",
@@ -1066,7 +1088,11 @@
         "oneLiner": "Anuncios de defunción e información de ceremonia, con dignidad.",
         "description": "Aplicación de obituarios y memoria familiar o profesional, multilingüe.",
         "meta": "Sistema editorial para anuncios y homenajes.",
-        "tags": ["Memoria", "Anuncios", "Multilingüe"]
+        "tags": [
+          "Memoria",
+          "Anuncios",
+          "Multilingüe"
+        ]
       },
       "sonekeno": {
         "name": "Sonekeno",
@@ -1074,7 +1100,11 @@
         "oneLiner": "Creación narrativa — universos y ficción (Les Derniers Léopards).",
         "description": "Taller de escritura para personajes, escenas y cronología — estudio de ficción distinto de Batina Media.",
         "meta": "Proyecto creativo en preproducción.",
-        "tags": ["Ficción", "Escritura", "Universos"]
+        "tags": [
+          "Ficción",
+          "Escritura",
+          "Universos"
+        ]
       },
       "artful": {
         "name": "Artful Batina",
@@ -1082,7 +1112,11 @@
         "oneLiner": "Estudio creativo e ingeniería — vitrina del grupo.",
         "description": "Casa madre y vitrina del grupo Batina — creación, ingeniería y dirección artística.",
         "meta": "Entrada pública del grupo.",
-        "tags": ["Estudio", "Vitrina", "Grupo"]
+        "tags": [
+          "Estudio",
+          "Vitrina",
+          "Grupo"
+        ]
       },
       "longoka-games": {
         "name": "Longoka Games",
@@ -1090,7 +1124,11 @@
         "oneLiner": "Juegos educativos vinculados a los recorridos Longoka.",
         "description": "Juegos y experiencias interactivas al servicio del aprendizaje en Longoka.",
         "meta": "Extensión lúdica de la academia.",
-        "tags": ["Juegos", "Pedagogía", "Interactivo"]
+        "tags": [
+          "Juegos",
+          "Pedagogía",
+          "Interactivo"
+        ]
       }
     }
   }

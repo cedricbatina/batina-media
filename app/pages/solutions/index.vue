@@ -242,6 +242,12 @@ const familyCards = computed(() => [
     ].filter(Boolean)
   },
   {
+    key: 'automation',
+    title: t('solutions.families.cards.3.title'),
+    subtitle: t('solutions.families.cards.3.subtitle'),
+    items: [0, 1, 2, 3].map(i => t('solutions.families.cards.3.items.' + i))
+  },
+  {
     key: 'derivatives',
     title: t('solutions.families.cards.2.title'),
     subtitle: t('solutions.families.cards.2.subtitle'),

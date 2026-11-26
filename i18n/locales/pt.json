@@ -637,16 +637,16 @@
   },
   "solutions": {
     "seo": {
-      "title": "Solucoes digitais – Batina Media",
-      "description": "Engenharia de conteudos e dados, plataformas, ferramentas e derivados impressos ou digitais construidos em torno dos seus saberes."
+      "title": "Aplicações de negócio, automação e engenharia do conhecimento · Batina Media",
+      "description": "Transformamos os seus processos, dados e conhecimentos em ferramentas digitais adaptadas à sua atividade: sites, aplicações, motores de regras e sistemas documentais."
     },
     "hero": {
       "pill": "Solucoes e acompanhamento",
-      "title": "Solucoes digitais construidas em torno dos seus saberes e dados",
-      "subtitle": "Da modelacao de conteudos a plataformas, livros, recursos e aplicacoes, concebemos sistemas completos, duraveis e extensiveis.",
+      "title": "Aplicações de negócio, automação e engenharia do conhecimento",
+      "subtitle": "Transformamos os seus processos, dados e conhecimentos em ferramentas digitais adaptadas à sua atividade: sites, aplicações, motores de regras e sistemas documentais.",
       "primaryCta": "Falar sobre o seu projeto",
       "secondaryCta": "Ver projetos",
-      "meta": "Modelo de dados -> plataformas -> derivados, sem recomecar do zero.",
+      "meta": "Diagnóstico, conceção, integração e acompanhamento com âmbito acordado.",
       "aside": {
         "label": "Na pratica",
         "title": "Um nucleo, varias saidas",
@@ -679,7 +679,7 @@
             "1": "Concecao e implementacao de bases (MySQL/SQL), esquemas relacionais, vistas e exportacoes adaptadas.",
             "2": "Estruturacao de conteudos existentes (ficheiros, notas, arquivos, cursos) para os tornar exploraveis.",
             "3": "APIs e formatos de intercambio (JSON, CSV, etc.) para sites, apps, ferramentas internas e pipelines editoriais.",
-            "4": "Regras de governance de dados e ciclo de vida de conteudos para as suas equipas."
+            "4": "Governação de dados, regras de validação e ciclo de vida dos conteúdos."
           }
         },
         "1": {
@@ -701,6 +701,16 @@
             "2": "Recursos interativos: modulos de treino, quizzes e conteudos guiados.",
             "3": "Jogos de letras e logica (palavras cruzadas, puzzles, quiz) quando isso apoia os seus objetivos."
           }
+        },
+        "3": {
+          "title": "Motores de regras e automação",
+          "subtitle": "Transformar regras de negócio em operações reproduzíveis.",
+          "items": [
+            "Formalização de regras de cálculo, classificação e validação.",
+            "Integração de software, APIs e fluxos de trabalho com supervisão humana.",
+            "Migração e reconciliação de dados com verificação e documentação.",
+            "Definição de privacidade, acessos e limites antes da automação."
+          ]
         }
       }
     },
@@ -777,7 +787,7 @@
     "cta": {
       "pill": "Vamos falar",
       "title": "Vamos desenhar o seu ecossistema ideal",
-      "body": "Se tem conteudos, dados, experiencia ou patrimonio para estruturar, ajudamos a passar da ideia ao sistema digital passo a passo.",
+      "body": "Descreva a sua necessidade: software de negócio, site, integração, dados ou automação. Definimos em conjunto o primeiro resultado e os seus pré-requisitos.",
       "button": "Discutir o seu projeto"
     }
   },
@@ -1042,7 +1052,11 @@
         "oneLiner": "Academia de ciências e letras — cursos, imersões e materiais pedagógicos.",
         "description": "Cursos, artigos, livros, papelaria e produtos educativos — línguas, escritas e saberes num ambiente de aprendizagem.",
         "meta": "Plataforma LMS onde os conteúdos são estruturados para reutilização em materiais de curso.",
-        "tags": ["LMS", "Pedagogia", "Loja"]
+        "tags": [
+          "LMS",
+          "Pedagogia",
+          "Loja"
+        ]
       },
       "lexikongo": {
         "name": "Lexikongo",
@@ -1050,7 +1064,11 @@
         "oneLiner": "Léxico e tecnologias linguísticas Kikongo.",
         "description": "Plataforma lexical Kikongo multilingue — consulta e pesquisa. Os cursos estão no Longoka.",
         "meta": "Motor lexical reutilizável para outras línguas.",
-        "tags": ["Léxico", "Kikongo", "i18n"]
+        "tags": [
+          "Léxico",
+          "Kikongo",
+          "i18n"
+        ]
       },
       "lexilingala": {
         "name": "Lexilingala",
@@ -1058,7 +1076,11 @@
         "oneLiner": "Léxico Lingala online — os cursos estão no Longoka.",
         "description": "Plataforma irmã centrada no Lingala, mesmo núcleo que Lexikongo. Apenas léxico, sem LMS.",
         "meta": "Localização rápida de um motor lexical.",
-        "tags": ["Léxico", "Lingala", "i18n"]
+        "tags": [
+          "Léxico",
+          "Lingala",
+          "i18n"
+        ]
       },
       "madizi": {
         "name": "Madizi",
@@ -1066,7 +1088,11 @@
         "oneLiner": "Anúncios de falecimento e informações de cerimónia, com dignidade.",
         "description": "Aplicação de obituários e memória familiar ou profissional, multilingue.",
         "meta": "Sistema editorial para anúncios e homenagens.",
-        "tags": ["Memória", "Anúncios", "Multilingue"]
+        "tags": [
+          "Memória",
+          "Anúncios",
+          "Multilingue"
+        ]
       },
       "sonekeno": {
         "name": "Sonekeno",
@@ -1074,7 +1100,11 @@
         "oneLiner": "Criação narrativa — universos e ficção (Les Derniers Léopards).",
         "description": "Atelier de escrita para personagens, cenas e cronologia — estúdio de ficção distinto da Batina Media.",
         "meta": "Projeto criativo em pré-produção.",
-        "tags": ["Ficção", "Escrita", "Universos"]
+        "tags": [
+          "Ficção",
+          "Escrita",
+          "Universos"
+        ]
       },
       "artful": {
         "name": "Artful Batina",
@@ -1082,7 +1112,11 @@
         "oneLiner": "Estúdio criativo e engenharia — vitrine do grupo.",
         "description": "Casa-mãe e vitrine do grupo Batina — criação, engenharia e direção artística.",
         "meta": "Entrada pública do grupo.",
-        "tags": ["Estúdio", "Vitrine", "Grupo"]
+        "tags": [
+          "Estúdio",
+          "Vitrine",
+          "Grupo"
+        ]
       },
       "longoka-games": {
         "name": "Longoka Games",
@@ -1090,7 +1124,11 @@
         "oneLiner": "Jogos educativos ligados aos percursos Longoka.",
         "description": "Jogos e experiências interativas ao serviço da aprendizagem na Longoka.",
         "meta": "Extensão lúdica da academia.",
-        "tags": ["Jogos", "Pedagogia", "Interativo"]
+        "tags": [
+          "Jogos",
+          "Pedagogia",
+          "Interativo"
+        ]
       }
     }
   }
