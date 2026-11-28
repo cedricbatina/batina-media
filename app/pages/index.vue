@@ -1,5 +1,5 @@
 <template>
- <div class="bm-stack-page">
+ <div class="bm-stack-page bm-home-v2">
 
     <!-- HERO -->
     <section class="bm-section home-hero" aria-labelledby="home-hero-title">
@@ -53,6 +53,17 @@
             </div>
           </div>
 
+          <svg class="home-knowledge-diagram" viewBox="0 0 320 112" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1.2">
+              <path v-for="y in [16,36,56,76,96]" :key="y" :d="`M12 ${y} C88 ${y} 104 56 160 56 S232 ${y} 308 ${y}`" />
+            </g>
+            <g fill="currentColor">
+              <circle v-for="y in [16,36,56,76,96]" :key="'left-'+y" cx="12" :cy="y" r="3" />
+              <circle v-for="y in [16,36,56,76,96]" :key="'right-'+y" cx="308" :cy="y" r="3" />
+            </g>
+            <circle cx="160" cy="56" r="24" fill="#132331" stroke="currentColor" />
+            <path d="M160 40 L174 64 H146 Z" stroke="currentColor" stroke-width="2" />
+          </svg>
           <ul class="home-hero-list">
             <li v-for="item in asideItems" :key="item.key">
               <p class="home-hero-list-label">
@@ -185,6 +196,7 @@
             v-for="project in projects"
             :key="project.key"
             class="bm-card bm-card-compact home-project-card bm-ease js-reveal"
+            :data-project="project.key"
           >
             <p class="home-project-tag">
               {{ project.tag }}
@@ -238,7 +250,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onBeforeUnmount } from 'vue'
+import { computed } from 'vue'
 import { useHead, useSeoMeta } from '#imports'
 import { useI18n } from 'vue-i18n'
 
@@ -304,43 +316,6 @@ const audienceItems = computed(() => [
   { title: t('home.audience.items.3.title'), body: t('home.audience.items.3.body') }
 ])
 
-/**
- * Reveal on scroll (opt-in via .js-reveal)
- */
-let io
-onMounted(() => {
-  if (!import.meta.client) return
-
-  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
-  const els = Array.from(document.querySelectorAll('.js-reveal'))
-
-  if (reduce) {
-    // no animations
-    els.forEach((el) => el.classList.add('is-revealed'))
-    return
-  }
-
-  io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed')
-          io.unobserve(entry.target)
-        }
-      })
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
-  )
-
-  els.forEach((el, idx) => {
-    el.style.setProperty('--reveal-delay', `${Math.min(idx * 40, 240)}ms`)
-    io.observe(el)
-  })
-})
-
-onBeforeUnmount(() => {
-  if (io) io.disconnect()
-})
 
 /**
  * SEO home
@@ -359,200 +334,39 @@ useSeoMeta({
 </script>
 
 <style scoped>
-/* Reveal helper for this page only */
-.js-reveal {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 420ms ease, transform 420ms ease;
-  transition-delay: var(--reveal-delay, 0ms);
-}
-
-.js-reveal.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Micro hover lift (only where we used bm-ease) */
-.bm-ease:hover {
-  transform: translateY(-2px);
-}
-
-/* Optional: avoid hover lift on touch */
-@media (hover: none) {
-  .bm-ease:hover {
-    transform: none;
-  }
-}
-/* =========================================
-   HOME — spacing reset (desktop too airy)
-   ========================================= */
-
-/* 1) Réduire le padding vertical des sections sur Home uniquement */
-.home-hero,
-.bm-section {
-  padding-block: 1.5rem; /* au lieu de ~3rem+ */
-}
-
-@media (min-width: 980px) {
-  .home-hero
-  {
-    padding-block: 1rem; /* desktop: plus serré mais premium */
-  }
-}
-
-
-
-
-
-/* 4) Typo: paragraphe long + listes dans cards => lisible sans faire "bloc énorme" */
-.bm-text-soft,
-.bm-card-subtitle {
-  line-height: 1.55;
-}
-
-/* 5) Les listes dans tes cards doivent respirer MAIS pas “exploser” */
-.home-domain-list {
-  margin: 0.65rem 0 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.35rem;
-  line-height: 1.45;
-}
-
-
-
-/* 7) Projets / audience grids : éviter l’effet “trous” */
-.home-projects-grid,
-.home-audience-grid,
-.home-domains-grid {
-  margin-top: 0.75rem;
-}
-
-/* 8) Home hero : éviter la sensation de "section trop haute" */
-.home-hero {
-  padding-top: 2.6rem;
-}
-
-@media (min-width: 980px) {
-  .home-hero {
-    padding-top: 3rem;
-  }
-}
-
-/* ==============================
-   HOME — section rhythm (fix gaps)
-   ============================== */
-
-
-
-
-
-
-/* ==============================
-   PIPELINE — cards spacing (fix “collés”)
-   ============================== */
-
-/* =========================================
-   PIPELINE — grid spacing (no “collés”)
-   ========================================= */
-.home-pipeline-grid {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-@media (min-width: 900px) {
-  .home-pipeline-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.1rem;
-  }
-}
-
-.home-pipeline-item {
-  margin: 0;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.9rem;
-}
-
-.bm-section {
-  padding-block: 2.4rem; /* premium, pas trop long */
-}
-
-@media (max-width: 640px) {
-  .bm-section {
-    padding-block: 2.1rem;
-  }
-}
-.bm-stack-lg {
-  display: flex;
-  flex-direction: column;
-  gap: 2.25rem; /* premium */
-}
-
-.bm-stack-sm {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem; /* un peu plus respirant que 0.75rem */
-}
-/* HERO aside: rythme lisible (En pratique + items) */
-.home-hero-aside .bm-card-header {
-  margin-bottom: 0.9rem;
-}
-
-.home-hero-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.95rem; /* espace entre Produits & plateformes / Solutions digitales / Pour qui ? */
-}
-
-.home-hero-list li {
-  display: grid;
-  gap: 0.25rem; /* label vs texte */
-}
-
-.home-hero-list-label {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bm-color-text-muted);
-}
-/* Reveal helper */
-.js-reveal {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 420ms ease, transform 420ms ease;
-  transition-delay: var(--reveal-delay, 0ms);
-}
-.js-reveal.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Micro hover lift */
-.bm-ease:hover { transform: translateY(-2px); }
-@media (hover: none) { .bm-ease:hover { transform: none; } }
-
-/* HERO aside rhythm */
-.home-hero-aside .bm-card-header { margin-bottom: 0.9rem; }
-.home-hero-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.95rem;
-}
-.home-hero-list li { display: grid; gap: 0.25rem; }
-.home-hero-list-label {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bm-color-text-muted);
-}
-
-
+.bm-home-v2 { --home-gold:#e5b967; --home-ink:#132331; --home-paper:#f4efe4; }
+.bm-home-v2 .bm-section { padding-block: clamp(2rem,4vw,4rem); }
+.home-hero-grid { display:grid; gap:clamp(1.5rem,4vw,4rem); align-items:center; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); }
+.home-hero-main { min-width:0; }
+.home-hero-pill { align-self:flex-start; max-width:100%; white-space:normal; }
+.home-hero .bm-heading-hero { font-size:clamp(2rem,4.1vw,3.8rem); line-height:1.08; letter-spacing:-.04em; overflow-wrap:anywhere; }
+.home-hero-ctas { flex-wrap:wrap; }
+.home-hero-aside { min-width:0; padding:clamp(1.25rem,3vw,2rem); background:#132331; color:#f4efe4; border:1px solid #536575; border-top:3px solid var(--home-gold); border-radius:8px; }
+.home-hero-aside :is(.bm-card-title,.bm-text-soft,.bm-pill-muted) { color:#f4efe4; }
+.home-knowledge-diagram { display:block; width:100%; height:auto; margin:1.2rem 0; color:var(--home-gold); }
+.home-hero-list { list-style:none; padding:0; margin:0; display:grid; gap:1rem; }
+.home-hero-list li { padding-top:.8rem; border-top:1px solid #536575; }
+.home-hero-list-label { color:var(--home-gold); font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; }
+.home-hero-list-value { margin:.3rem 0 0; }
+.bm-text-soft,.bm-card-subtitle { line-height:1.6; }
+.bm-home-v2 .bm-stack-lg { display:flex; flex-direction:column; gap:1.5rem; }
+.bm-home-v2 .bm-stack-sm { display:flex; flex-direction:column; gap:.85rem; }
+.home-domain-list { padding-inline-start:1.2rem; margin:.8rem 0 0; display:grid; gap:.4rem; }
+.home-domains-grid,.home-projects-grid,.home-audience-grid,.home-pipeline-grid { display:grid; gap:1rem; align-items:stretch; }
+.home-domains-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.home-projects-grid,.home-audience-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.home-pipeline-grid { list-style:none; padding:0; margin:0; grid-template-columns:repeat(4,minmax(0,1fr)); }
+.home-domain-card,.home-project-card,.home-audience-card,.home-pipeline-item { min-width:0; padding:clamp(1rem,2vw,1.7rem); border-radius:8px; border-top:3px solid #b98c46; overflow-wrap:anywhere; }
+.home-pipeline-item { display:flex; flex-direction:column; gap:1rem; background:var(--home-ink); color:var(--home-paper); }
+.home-pipeline-item :is(.bm-card-title,.bm-card-subtitle) { color:var(--home-paper); }
+.home-pipeline-index { font:400 2.4rem/1 Georgia,serif; color:var(--home-gold); }
+.home-project-card { display:flex; flex-direction:column; background:#e9dfcc; color:#132331; }
+.home-project-card:nth-child(even) { background:#d5e4e6; border-top-color:#447384; }
+.home-project-card :is(.bm-card-title,.bm-card-subtitle,.home-project-tag,.home-project-meta) { color:#132331; }
+.home-project-card .home-project-meta { margin-top:auto; padding-top:1rem; border-top:1px solid #89969a; }
+.home-project-tag { text-transform:uppercase; letter-spacing:.07em; font-size:.75rem; }
+.js-reveal { opacity:1; transform:none; }
+@media(max-width:1050px) { .home-hero-grid { grid-template-columns:1fr; } .home-pipeline-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:720px) { .home-domains-grid,.home-projects-grid,.home-audience-grid,.home-pipeline-grid { grid-template-columns:1fr; } }
+@media(prefers-reduced-motion:reduce) { .bm-home-v2 * { animation:none!important; transition:none!important; } }
 </style>
